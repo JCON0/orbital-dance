@@ -31,7 +31,7 @@ export const ToastProvider = ({ children }) => {
       {children}
       <div className="fixed top-20 right-4 z-50 flex flex-col gap-2">
         {toasts.map((toast, index) => {
-          const bgColor = toast.type === 'success' ? 'bg-green-500/60' : toast.type === 'error' ? 'bg-red-500/60' : 'bg-slate-900/60'
+          const bgColor = toast.type === 'success' ? 'bg-emerald-600/90' : toast.type === 'error' ? 'bg-rose-600/90' : 'bg-slate-900/90'
           return (
             <div
               key={toast.id}
