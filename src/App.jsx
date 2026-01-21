@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import HomePage from './assets/Pages/HomePage'
 import EventsPage from './assets/Pages/EventsPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
+import HowItWorksPage from './assets/Pages/HowItWorksPage'
 
 const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:slug" element={<EventDetailPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
       </Routes>
     </BrowserRouter>
   )

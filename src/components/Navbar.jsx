@@ -38,12 +38,12 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               Events
             </Link>
-            <a
-              href="#how-it-works"
+            <Link
+              to="/how-it-works"
               className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
             >
               How It Works
-            </a>
+            </Link>
             <a
               href="#get-started"
               className="ml-2 rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
@@ -111,13 +111,13 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               Events
             </Link>
-            <a
-              href="#how-it-works"
+            <Link
+              to="/how-it-works"
               onClick={() => setIsOpen(false)}
               className="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
             >
               How It Works
-            </a>
+            </Link>
             <a
               href="#get-started"
               onClick={() => setIsOpen(false)}
