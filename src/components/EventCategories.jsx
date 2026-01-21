@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const EventCategories = () => {
   const categories = [
@@ -97,12 +98,12 @@ const EventCategories = () => {
           <p className="mb-6 text-slate-600 dark:text-slate-400">
             See all events happening in your city
           </p>
-          <a
-            href="#explore"
+          <Link
+            to="/events"
             className="inline-block rounded-full border-2 border-slate-300 px-8 py-3 font-semibold text-slate-900 transition hover:border-cyan-400 hover:bg-cyan-50 dark:border-slate-600 dark:text-white dark:hover:border-cyan-400 dark:hover:bg-slate-800"
           >
             Browse All Events
-          </a>
+          </Link>
         </div>
       </div>
     </section>
