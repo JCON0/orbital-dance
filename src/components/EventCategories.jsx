@@ -3,39 +3,39 @@ import React from 'react'
 const EventCategories = () => {
   const categories = [
     {
-      icon: '🎵',
-      name: 'Concerts & Live Music',
-      description: 'Discover underground gigs, jazz nights, and local band performances.',
+      icon: '🏠',
+      name: 'Techno & House',
+      description: 'Deep underground beats, industrial sounds, and hypnotic grooves from Berlin to Amsterdam.',
       color: 'from-purple-500 to-pink-500',
     },
     {
-      icon: '🤝',
-      name: 'Networking Meetups',
-      description: 'Connect with entrepreneurs, professionals, and creative minds in your city.',
+      icon: '⚡',
+      name: 'Trance & Progressive',
+      description: 'Uplifting melodies, epic buildups, and euphoric journeys through sound.',
       color: 'from-blue-500 to-cyan-500',
     },
     {
-      icon: '🎭',
-      name: 'Arts & Theater',
-      description: 'Explore experimental theater, art exhibitions, and cultural performances.',
+      icon: '🔊',
+      name: 'Bass Music',
+      description: 'Drum & Bass, Dubstep, and heavy basslines that shake the floor.',
       color: 'from-amber-500 to-orange-500',
     },
     {
-      icon: '🍜',
-      name: 'Food & Dining',
-      description: 'Find pop-up restaurants, food festivals, and exclusive chef dinners.',
+      icon: '🌀',
+      name: 'Psytrance & Goa',
+      description: 'Mind-bending psychedelic experiences with progressive and full-power sets.',
       color: 'from-red-500 to-rose-500',
     },
     {
-      icon: '🏃',
-      name: 'Sports & Wellness',
-      description: 'Join group workouts, yoga sessions, and active community gatherings.',
+      icon: '⚠️',
+      name: 'Hardstyle & Hardcore',
+      description: 'Raw kicks, euphoric anthems, and maximum energy for the hardcore family.',
       color: 'from-green-500 to-emerald-500',
     },
     {
-      icon: '🎓',
-      name: 'Workshops & Classes',
-      description: 'Learn new skills from photography to coding in intimate group settings.',
+      icon: '✨',
+      name: 'Future Bass & Melodic',
+      description: 'Emotional journeys with beautiful melodies meeting heavy drops.',
       color: 'from-indigo-500 to-purple-500',
     },
   ]
@@ -49,7 +49,7 @@ const EventCategories = () => {
             Event Categories
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            From concerts to workshops, find every type of event in one place
+            From techno to trance, discover every genre of electronic music
           </p>
         </div>
 
