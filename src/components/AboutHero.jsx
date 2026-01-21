@@ -7,6 +7,7 @@ const AboutHero = () => {
   const headingRef = useRef(null)
   const paragraphRef = useRef(null)
   const scrollRef = useRef(null)
+  const solutionTextRef = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,6 +63,24 @@ const AboutHero = () => {
     return () => ctx.revert()
   }, [])
 
+  const handleSolutionHover = () => {
+    gsap.to(solutionTextRef.current, {
+      scale: 1.1,
+      duration: 0.4,
+      ease: 'power2.out',
+      textShadow: '0 0 10px rgba(6, 182, 212, 0.8)'
+    })
+  }
+
+  const handleSolutionHoverEnd = () => {
+    gsap.to(solutionTextRef.current, {
+      scale: 1,
+      duration: 0.4,
+      ease: 'power2.out',
+      textShadow: '0 0 0px rgba(6, 182, 212, 0)'
+    })
+  }
+
   return (
     <div ref={containerRef} className="min-h-screen bg-primary flex flex-col -mt-16 pt-16">
       {/* Main Content */}
@@ -76,7 +95,14 @@ const AboutHero = () => {
           <h1 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
             <div>For every struggle,</div>
             <div>
-              <span className="bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">a solution is born</span>
+              <span
+                ref={solutionTextRef}
+                onMouseEnter={handleSolutionHover}
+                onMouseLeave={handleSolutionHoverEnd}
+                className="bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent cursor-pointer inline-block"
+              >
+                a solution is born
+              </span>
             </div>
           </h1>
           

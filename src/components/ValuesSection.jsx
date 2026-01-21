@@ -1,28 +1,65 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import gsap from 'gsap'
 
 const ValuesSection = () => {
+  const cardsRef = useRef([])
+
   const values = [
     {
       icon: '🎯',
       title: 'Discovery',
-      description: 'We believe discovering authentic events should be effortless, not an endless scroll through noise.'
+      description: 'We believe discovering authentic events should be effortless, not an endless scroll through noise.',
+      bgColor: 'bg-cyan-500/10',
+      borderColor: 'border-cyan-500',
+      shadowColor: 'rgba(6, 182, 212, 0.3)'
     },
     {
       icon: '🤝',
       title: 'Community',
-      description: 'At our core, we\'re building a global community where music lovers find their tribe.'
+      description: 'At our core, we\'re building a global community where music lovers find their tribe.',
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500',
+      shadowColor: 'rgba(59, 130, 246, 0.3)'
     },
     {
       icon: '✨',
       title: 'Authenticity',
-      description: 'Every event on our platform is real, curated, and ready to create unforgettable moments.'
+      description: 'Every event on our platform is real, curated, and ready to create unforgettable moments.',
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500',
+      shadowColor: 'rgba(168, 85, 247, 0.3)'
     },
     {
       icon: '🌍',
       title: 'Accessibility',
-      description: 'Great events should be accessible to everyone, no matter where you are or what genre you love.'
+      description: 'Great events should be accessible to everyone, no matter where you are or what genre you love.',
+      bgColor: 'bg-emerald-500/10',
+      borderColor: 'border-emerald-500',
+      shadowColor: 'rgba(16, 185, 129, 0.3)'
     }
   ]
+
+  const handleMouseEnter = (index) => {
+    const card = cardsRef.current[index]
+    gsap.to(card, {
+      y: -15,
+      scale: 1.05,
+      boxShadow: `0 20px 40px ${values[index].shadowColor}`,
+      duration: 0.4,
+      ease: 'power2.out'
+    })
+  }
+
+  const handleMouseLeave = (index) => {
+    const card = cardsRef.current[index]
+    gsap.to(card, {
+      y: 0,
+      scale: 1,
+      boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
+      duration: 0.4,
+      ease: 'power2.out'
+    })
+  }
 
   return (
     <div className="bg-secondary py-16 sm:py-20 px-4">
@@ -34,7 +71,13 @@ const ValuesSection = () => {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {values.map((value, index) => (
-            <div key={index} className="rounded-xl border border-primary bg-primary p-6 text-center hover:shadow-lg transition">
+            <div
+              key={index}
+              ref={el => cardsRef.current[index] = el}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+              className={`rounded-xl ${value.bgColor} bg-primary p-6 text-center cursor-pointer`}
+            >
               <div className="mb-4 text-4xl">{value.icon}</div>
               <h3 className="mb-2 text-lg font-bold text-primary">{value.title}</h3>
               <p className="text-sm text-secondary leading-relaxed">{value.description}</p>

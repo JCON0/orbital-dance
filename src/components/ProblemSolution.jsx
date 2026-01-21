@@ -1,12 +1,40 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ProblemSolution = () => {
+  const sectionRef = useRef(null)
+  const cardsRef = useRef([])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate each card with stagger
+      gsap.from(cardsRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          toggleActions: 'play none none reverse'
+        },
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power2.out'
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="bg-secondary py-16 sm:py-20 px-4">
+    <div ref={sectionRef} className="bg-secondary py-16 sm:py-20 px-4">
       <div className="mx-auto max-w-4xl">
         <div className="grid gap-12 md:grid-cols-2">
           {/* The Struggle */}
-          <div className="rounded-2xl border border-primary bg-primary p-8">
+          <div ref={el => cardsRef.current[0] = el} className="rounded-2xl border border-primary bg-primary p-8">
             <div className="mb-4 text-4xl">😫</div>
             <h3 className="mb-4 text-2xl font-bold text-primary">The Struggle</h3>
             <ul className="space-y-3 text-secondary">
@@ -34,7 +62,7 @@ const ProblemSolution = () => {
           </div>
 
           {/* Our Solution */}
-          <div className="rounded-2xl border border-primary bg-primary p-8">
+          <div ref={el => cardsRef.current[1] = el} className="rounded-2xl border border-primary bg-primary p-8">
             <div className="mb-4 text-4xl">🚀</div>
             <h3 className="mb-4 text-2xl font-bold text-primary">Our Solution</h3>
             <ul className="space-y-3 text-secondary">
