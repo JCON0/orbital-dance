@@ -2,20 +2,19 @@ import React from 'react'
 
 const CountriesCarousel = () => {
   const countries = [
-
-    { name: 'United Kingdom', flag: '🇬🇧' },
-    { name: 'France', flag: '🇫🇷' },
-    { name: 'Germany', flag: '🇩🇪' },
-    { name: 'Spain', flag: '🇪🇸' },
-    { name: 'Denmark', flag: '🇩🇰' },
-    { name: 'Netherlands', flag: '🇳🇱' },
-    { name: 'Italy', flag: '🇮🇹' },
-    { name: 'Portugal', flag: '🇵🇹' },
-    { name: 'Belgium', flag: '🇧🇪' },
-    { name: 'Sweden', flag: '🇸🇪' },
-    { name: 'Norway', flag: '🇳🇴' },
-    { name: 'Finland', flag: '🇫🇮' },
-    { name: 'Austria', flag: '🇦🇹' },
+    { name: 'United Kingdom', code: 'gb' },
+    { name: 'France', code: 'fr' },
+    { name: 'Germany', code: 'de' },
+    { name: 'Spain', code: 'es' },
+    { name: 'Denmark', code: 'dk' },
+    { name: 'Netherlands', code: 'nl' },
+    { name: 'Italy', code: 'it' },
+    { name: 'Portugal', code: 'pt' },
+    { name: 'Belgium', code: 'be' },
+    { name: 'Sweden', code: 'se' },
+    { name: 'Norway', code: 'no' },
+    { name: 'Finland', code: 'fi' },
+    { name: 'Austria', code: 'at' },
   ]
 
   // Duplicate the array for seamless infinite scroll
@@ -39,7 +38,12 @@ const CountriesCarousel = () => {
               key={`${country.name}-${index}`}
               className="flex min-w-[200px] flex-shrink-0 flex-col items-center gap-3 rounded-xl border border-slate-200 bg-white px-8 py-6 shadow-sm transition hover:border-cyan-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-cyan-400 dark:hover:shadow-cyan-900/20"
             >
-              <span className="text-5xl">{country.flag}</span>
+              <img 
+                src={`https://flagcdn.com/w80/${country.code}.png`}
+                srcSet={`https://flagcdn.com/w160/${country.code}.png 2x`}
+                alt={`${country.name} flag`}
+                className="h-12 w-auto object-contain"
+              />
               <span className="text-lg font-medium text-slate-900 dark:text-white">{country.name}</span>
             </div>
           ))}
