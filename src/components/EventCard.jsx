@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { createSlug } from '../utils/slugUtils'
+import { useToast } from '../contexts/ToastContext'
 
 const EventCard = ({ event }) => {
   const [isSaved, setIsSaved] = useState(false)
+  const { addToast } = useToast()
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -22,8 +24,17 @@ const EventCard = ({ event }) => {
 
   const slug = createSlug(event.title)
 
+  const handleSaveEvent = () => {
+    const willBeSaved = !isSaved
+    setIsSaved(willBeSaved)
+    const message = willBeSaved ? `✓ ${event.title} saved!` : `✗ ${event.title} removed from saved`
+    const type = willBeSaved ? 'success' : 'error'
+    addToast(message, type)
+  }
+
   return (
-    <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
+    <>
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
       {/* Event Image */}
       <div className="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
         <img
@@ -86,7 +97,7 @@ const EventCard = ({ event }) => {
             View Details
           </Link>
           <button
-            onClick={() => setIsSaved(!isSaved)}
+            onClick={handleSaveEvent}
             className="rounded-lg border border-slate-300 px-4 py-2.5 text-slate-700 transition hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
             aria-label={isSaved ? 'Remove from saved' : 'Save for later'}
           >
@@ -103,6 +114,7 @@ const EventCard = ({ event }) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

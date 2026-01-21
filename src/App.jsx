@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastProvider } from './contexts/ToastContext'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
 import HomePage from './assets/Pages/HomePage'
@@ -28,16 +29,18 @@ const App = () => {
   }, [isDark])
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Navbar isDark={isDark} setIsDark={setIsDark} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/events/:slug" element={<EventDetailPage />} />
-      </Routes>
-    </BrowserRouter>
+    <ToastProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Navbar isDark={isDark} setIsDark={setIsDark} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/events/:slug" element={<EventDetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    </ToastProvider>
   )
 }
 
