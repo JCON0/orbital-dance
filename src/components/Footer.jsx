@@ -32,7 +32,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+    <footer className="border-t border-primary bg-primary">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         {/* Top section */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
@@ -93,7 +93,7 @@ const Footer = () => {
 
           {/* Language/Region selector (optional) */}
           <div className="flex items-center gap-3">
-            <select className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 transition hover:border-slate-400 dark:border-slate-600 dark:bg-slate-800 dark:text-white">
+            <select className="rounded-lg border border-primary bg-card px-3 py-2 text-sm text-primary transition hover:border-primary">
               <option>English</option>
               <option>Español</option>
               <option>Français</option>

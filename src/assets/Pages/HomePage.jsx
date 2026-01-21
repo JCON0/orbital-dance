@@ -11,7 +11,7 @@ import Footer from '../../components/Footer'
 const HomePage = () => {
   return (
     <>
-      <main className="font-sans bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+      <main className="font-sans bg-primary text-primary">
         <Hero />
         <FeaturesSection />
         <CountriesCarousel />

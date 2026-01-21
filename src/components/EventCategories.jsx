@@ -41,7 +41,7 @@ const EventCategories = () => {
   ]
 
   return (
-    <section id="categories" className="bg-white py-20 dark:bg-slate-950">
+    <section id="categories" className="bg-primary py-20">
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
@@ -58,7 +58,7 @@ const EventCategories = () => {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 transition dark:border-slate-700 dark:bg-slate-800"
+              className="group relative overflow-hidden rounded-2xl border border-primary bg-card p-8 transition"
             >
               {/* Background gradient accent */}
               <div

@@ -29,7 +29,7 @@ const HowItWorks = () => {
   ]
 
   return (
-    <section id="how-it-works" className="bg-slate-50 py-20 dark:bg-slate-900">
+    <section id="how-it-works" className="bg-secondary py-20">
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
@@ -46,7 +46,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {/* Card */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-8 dark:border-slate-700 dark:bg-slate-800">
+              <div className="rounded-2xl border border-primary bg-primary p-8">
                 {/* Step Number Badge */}
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-100 to-cyan-50 text-lg font-bold text-cyan-600 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:text-cyan-400">
                   {step.number}

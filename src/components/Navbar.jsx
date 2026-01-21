@@ -6,7 +6,7 @@ const Navbar = ({ isDark, setIsDark }) => {
   const location = useLocation()
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md transition dark:border-slate-700 dark:bg-slate-900/80">
+    <nav className="sticky top-0 z-50 border-b border-stone-200 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-md transition dark:border-slate-700">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -87,7 +87,7 @@ const Navbar = ({ isDark, setIsDark }) => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 dark:border-slate-700 dark:bg-slate-900 md:hidden">
+        <div className="border-t border-stone-200 bg-primary px-4 py-4 dark:border-slate-700 md:hidden">
           <div className="flex flex-col gap-2">
             <Link
               to="/"

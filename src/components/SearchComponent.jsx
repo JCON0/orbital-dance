@@ -33,14 +33,14 @@ const SearchComponent = ({ onSearchChange, onLocationChange, onCategoryChange })
             type="text"
             placeholder="Search events, cities, or venues..."
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 transition focus:border-cyan-400 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-400"
+            className="w-full rounded-lg border border-primary bg-card px-4 py-3 text-primary placeholder-slate-500 transition focus:border-cyan-400 focus:outline-none"
           />
         </div>
 
         {/* Location Filter */}
         <select 
           onChange={(e) => onLocationChange(e.target.value)}
-          className="rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 transition focus:border-cyan-400 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          className="rounded-lg border border-primary bg-card px-4 py-3 text-primary transition focus:border-cyan-400 focus:outline-none"
         >
           <option>All Locations</option>
           <option>London, UK</option>

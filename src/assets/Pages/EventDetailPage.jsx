@@ -14,7 +14,7 @@ const EventDetailPage = () => {
 
   if (!event) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-white dark:bg-slate-950">
+      <div className="flex min-h-screen items-center justify-center bg-primary">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Event Not Found</h1>
           <Link to="/events" className="mt-4 inline-block text-cyan-500 hover:text-cyan-600">
@@ -42,7 +42,7 @@ const EventDetailPage = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-white dark:bg-slate-950">
+      <div className="min-h-screen bg-primary">
         <EventHero event={event} />
 
         {/* Event Details */}

@@ -1,3 +1,47 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --color-bg-primary: 250 245 240; /* stone-50 */
+    --color-bg-secondary: 245 238 230; /* stone-100 */
+    --color-bg-card: 245 238 230; /* stone-100 */
+    --color-border: 231 229 228; /* stone-200 */
+    --color-text-primary: 15 23 42; /* slate-900 */
+    --color-text-secondary: 71 85 105; /* slate-600 */
+  }
+
+  :root.dark,
+  .dark {
+    /* Dark mode colors */
+    --color-bg-primary: 2 6 23; /* slate-950 */
+    --color-bg-secondary: 15 23 42; /* slate-900 */
+    --color-bg-card: 30 41 59; /* slate-800 */
+    --color-border: 51 65 85; /* slate-700 */
+    --color-text-primary: 255 255 255; /* white */
+    --color-text-secondary: 203 213 225; /* slate-300 */
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: rgb(var(--color-bg-primary));
+  }
+  .bg-secondary {
+    background-color: rgb(var(--color-bg-secondary));
+  }
+  .bg-card {
+    background-color: rgb(var(--color-bg-card));
+  }
+  .border-primary {
+    border-color: rgb(var(--color-border));
+  }
+  .text-primary {
+    color: rgb(var(--color-text-primary));
+  }
+  .text-secondary {
+    color: rgb(var(--color-text-secondary));
+  }
+}

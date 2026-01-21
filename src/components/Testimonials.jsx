@@ -47,7 +47,7 @@ const Testimonials = () => {
   ]
 
   return (
-    <section className="bg-slate-50 py-20 dark:bg-slate-900">
+    <section className="bg-secondary py-20">
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
@@ -64,7 +64,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+              className="rounded-2xl border border-primary bg-primary p-8 shadow-sm transition hover:shadow-md"
             >
               {/* Rating Stars */}
               <div className="mb-4 flex gap-1">
@@ -97,7 +97,7 @@ const Testimonials = () => {
         </div>
 
         {/* Social Proof Stats */}
-        <div className="mt-16 grid gap-6 rounded-2xl border border-slate-200 bg-white p-8 dark:border-slate-700 dark:bg-slate-800 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 rounded-2xl border border-primary bg-primary p-8 md:grid-cols-3">
           <div className="text-center">
             <p className="text-4xl font-bold text-cyan-600 dark:text-cyan-400">50k+</p>
             <p className="mt-2 text-slate-600 dark:text-slate-400">Active Users</p>

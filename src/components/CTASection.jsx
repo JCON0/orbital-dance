@@ -14,7 +14,7 @@ const CTASection = () => {
   }
 
   return (
-    <section id="get-started" className="relative isolate overflow-hidden bg-white py-24 dark:bg-slate-950 sm:py-32">
+    <section id="get-started" className="relative isolate overflow-hidden bg-primary py-24 sm:py-32">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10 blur-3xl dark:opacity-5" aria-hidden>
         <div className="absolute -left-20 top-1/2 h-64 w-64 rounded-full bg-linear-to-br from-cyan-400 to-cyan-600" />
@@ -41,7 +41,7 @@ const CTASection = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 rounded-lg border border-slate-300 bg-white px-5 py-4 text-slate-900 placeholder-slate-500 transition focus:border-cyan-400 focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-400 sm:rounded-r-none"
+              className="flex-1 rounded-lg border border-primary bg-card px-5 py-4 text-primary placeholder-slate-500 transition focus:border-cyan-400 focus:outline-none sm:rounded-r-none"
             />
             <button
               type="submit"
