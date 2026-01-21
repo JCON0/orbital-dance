@@ -3,7 +3,7 @@ import React from 'react'
 const RoleSelection = ({ onSelectRole }) => {
   return (
     <div className="mb-8">
-      <p className="text-sm font-medium text-primary mb-4">I want to sign up as a:</p>
+      <p className="text-center text-sm font-medium text-primary mb-4">I want to sign up as a:</p>
       <div className="grid grid-cols-2 gap-3">
         <button
           onClick={() => onSelectRole('customer')}
