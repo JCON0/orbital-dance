@@ -13,7 +13,7 @@ const EventHero = ({ event }) => {
       
       {/* Back Button */}
       <Link 
-        to="/explore"
+        to="/events"
         className="absolute left-6 top-20 flex items-center gap-2 rounded-lg bg-white/90 px-4 py-2 text-sm font-medium text-slate-900 backdrop-blur-sm transition hover:bg-white dark:bg-slate-900/90 dark:text-white dark:hover:bg-slate-900"
       >
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

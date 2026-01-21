@@ -29,14 +29,14 @@ const Navbar = ({ isDark, setIsDark }) => {
               Home
             </Link>
             <Link
-              to="/explore"
+              to="/events"
               className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
-                location.pathname === '/explore'
+                location.pathname === '/events'
                   ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
                   : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
               }`}
             >
-              Explore
+              Events
             </Link>
             <a
               href="#how-it-works"
@@ -101,15 +101,15 @@ const Navbar = ({ isDark, setIsDark }) => {
               Home
             </Link>
             <Link
-              to="/explore"
+              to="/events"
               onClick={() => setIsOpen(false)}
               className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
-                location.pathname === '/explore'
+                location.pathname === '/events'
                   ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
                   : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
               }`}
             >
-              Explore
+              Events
             </Link>
             <a
               href="#how-it-works"

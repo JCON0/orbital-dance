@@ -17,8 +17,8 @@ const EventDetailPage = () => {
       <div className="flex min-h-screen items-center justify-center bg-white dark:bg-slate-950">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Event Not Found</h1>
-          <Link to="/explore" className="mt-4 inline-block text-cyan-500 hover:text-cyan-600">
-            Back to Explore
+          <Link to="/events" className="mt-4 inline-block text-cyan-500 hover:text-cyan-600">
+            Back to Events
           </Link>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white -mt-16 pt-16">
       <div className="absolute inset-0 opacity-30 blur-3xl" aria-hidden>
         <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-cyan-400/60" />
         <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-fuchsia-500/50" />

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
 import HomePage from './assets/Pages/HomePage'
-import ExplorePage from './assets/Pages/ExplorePage'
+import EventsPage from './assets/Pages/EventsPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
       <Navbar isDark={isDark} setIsDark={setIsDark} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:slug" element={<EventDetailPage />} />
       </Routes>
     </BrowserRouter>

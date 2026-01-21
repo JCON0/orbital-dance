@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { createSlug } from '../utils/slugUtils'
 
 const EventCard = ({ event }) => {
+  const [isSaved, setIsSaved] = useState(false)
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -77,12 +78,29 @@ const EventCard = ({ event }) => {
         </div>
 
         {/* View Details Button */}
-        <Link
-          to={`/events/${slug}`}
-          className="mt-4 block w-full rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 py-2.5 text-center text-sm font-semibold text-white transition hover:from-cyan-500 hover:to-cyan-700"
-        >
-          View Details
-        </Link>
+        <div className="mt-4 flex gap-2">
+          <Link
+            to={`/events/${slug}`}
+            className="flex-1 block rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 py-2.5 text-center text-sm font-semibold text-white transition hover:from-cyan-500 hover:to-cyan-700"
+          >
+            View Details
+          </Link>
+          <button
+            onClick={() => setIsSaved(!isSaved)}
+            className="rounded-lg border border-slate-300 px-4 py-2.5 text-slate-700 transition hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+            aria-label={isSaved ? 'Remove from saved' : 'Save for later'}
+          >
+            {isSaved ? (
+              <svg className="h-5 w-5 fill-red-500" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   )
