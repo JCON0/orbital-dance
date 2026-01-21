@@ -44,12 +44,12 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               About
             </Link>
-            <a
-              href="#get-started"
+            <Link
+              to="/sign-in"
               className="ml-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
             >
               Sign In
-            </a>
+            </Link>
           </div>
 
           {/* Desktop theme toggle and mobile menu button */}
@@ -118,13 +118,13 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               About
             </Link>
-            <a
-              href="#get-started"
+            <Link
+              to="/sign-in"
               onClick={() => setIsOpen(false)}
               className="mt-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
             >
               Sign In
-            </a>
+            </Link>
           </div>
         </div>
       )}

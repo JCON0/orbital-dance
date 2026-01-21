@@ -7,6 +7,7 @@ import HomePage from './assets/Pages/HomePage'
 import EventsPage from './assets/Pages/EventsPage'
 import AboutPage from './assets/Pages/AboutPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
+import SignInPage from './assets/Pages/SignInPage'
 
 const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/events" element={<EventsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/events/:slug" element={<EventDetailPage />} />
+          <Route path="/sign-in" element={<SignInPage />} />
         </Routes>
       </BrowserRouter>
     </ToastProvider>
