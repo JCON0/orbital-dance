@@ -14,9 +14,9 @@ const EventHero = ({ event }) => {
       {/* Back Button */}
       <Link 
         to="/events"
-        className="absolute left-6 top-20 flex items-center gap-2 rounded-lg bg-card/90 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm transition hover:bg-card"
+        className="absolute left-6 top-20 flex items-center gap-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 px-4 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-sm transition"
       >
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
         Back to Events
