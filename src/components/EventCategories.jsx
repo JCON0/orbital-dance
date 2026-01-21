@@ -62,7 +62,7 @@ const EventCategories = () => {
             >
               {/* Background gradient accent */}
               <div
-                className={`absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-20 bg-gradient-to-br ${category.color}`}
+                className={`absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-20 bg-linear-to-br ${category.color}`}
               />
 
               {/* Content */}

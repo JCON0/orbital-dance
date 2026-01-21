@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const EventHero = ({ event }) => {
   return (
-    <div className="relative h-[480px] overflow-hidden -mt-16 pt-16">
+    <div className="relative h-120 overflow-hidden -mt-16 pt-16">
       <img 
         src={event.image} 
         alt={event.title}

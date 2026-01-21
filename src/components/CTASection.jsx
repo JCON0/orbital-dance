@@ -17,8 +17,8 @@ const CTASection = () => {
     <section id="get-started" className="relative isolate overflow-hidden bg-white py-24 dark:bg-slate-950 sm:py-32">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10 blur-3xl dark:opacity-5" aria-hidden>
-        <div className="absolute -left-20 top-1/2 h-64 w-64 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600" />
-        <div className="absolute -right-20 -bottom-10 h-64 w-64 rounded-full bg-gradient-to-br from-fuchsia-400 to-cyan-400" />
+        <div className="absolute -left-20 top-1/2 h-64 w-64 rounded-full bg-linear-to-br from-cyan-400 to-cyan-600" />
+        <div className="absolute -right-20 -bottom-10 h-64 w-64 rounded-full bg-linear-to-br from-fuchsia-400 to-cyan-400" />
       </div>
 
       <div className="relative mx-auto max-w-2xl px-6">
@@ -45,7 +45,7 @@ const CTASection = () => {
             />
             <button
               type="submit"
-              className="rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 px-8 py-4 font-semibold text-white shadow-lg transition hover:shadow-xl hover:from-cyan-500 hover:to-cyan-700 sm:rounded-l-none"
+              className="rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-8 py-4 font-semibold text-white shadow-lg transition hover:shadow-xl hover:from-cyan-500 hover:to-cyan-700 sm:rounded-l-none"
             >
               {submitted ? '✓ Success!' : 'Get Started'}
             </button>

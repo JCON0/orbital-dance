@@ -10,7 +10,7 @@ const Navbar = ({ isDark, setIsDark }) => {
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
             OD
           </span>
           <span className="hidden sm:inline">Orbital Dance</span>
@@ -39,14 +39,14 @@ const Navbar = ({ isDark, setIsDark }) => {
               Events
             </Link>
             <Link
-              to="/how-it-works"
+              to="/about"
               className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
             >
-              How It Works
+              About
             </Link>
             <a
               href="#get-started"
-              className="ml-2 rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
+              className="ml-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
             >
               Sign In
             </a>
@@ -112,16 +112,16 @@ const Navbar = ({ isDark, setIsDark }) => {
               Events
             </Link>
             <Link
-              to="/how-it-works"
+              to="/about"
               onClick={() => setIsOpen(false)}
               className="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
             >
-              How It Works
+              About
             </Link>
             <a
               href="#get-started"
               onClick={() => setIsOpen(false)}
-              className="mt-2 rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
+              className="mt-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
             >
               Sign In
             </a>

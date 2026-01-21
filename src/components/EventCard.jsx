@@ -81,7 +81,7 @@ const EventCard = ({ event }) => {
         <div className="mt-4 flex gap-2">
           <Link
             to={`/events/${slug}`}
-            className="flex-1 block rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 py-2.5 text-center text-sm font-semibold text-white transition hover:from-cyan-500 hover:to-cyan-700"
+            className="flex-1 block rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 py-2.5 text-center text-sm font-semibold text-white transition hover:from-cyan-500 hover:to-cyan-700"
           >
             View Details
           </Link>

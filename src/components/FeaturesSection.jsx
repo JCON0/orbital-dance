@@ -42,10 +42,10 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-8 transition hover:border-cyan-300 hover:shadow-lg dark:border-slate-700 dark:from-slate-800 dark:to-slate-900 dark:hover:border-cyan-400 dark:hover:shadow-lg dark:hover:shadow-cyan-900/20"
+              className="group rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-8 transition hover:border-cyan-300 hover:shadow-lg dark:border-slate-700 dark:from-slate-800 dark:to-slate-900 dark:hover:border-cyan-400 dark:hover:shadow-lg dark:hover:shadow-cyan-900/20"
             >
               {/* Icon */}
-              <div className="mb-4 inline-block rounded-xl bg-gradient-to-br from-cyan-100 to-cyan-50 p-3 transition group-hover:from-cyan-200 group-hover:to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:group-hover:from-cyan-800/40 dark:group-hover:to-cyan-700/40">
+              <div className="mb-4 inline-block rounded-xl bg-linear-to-br from-cyan-100 to-cyan-50 p-3 transition group-hover:from-cyan-200 group-hover:to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:group-hover:from-cyan-800/40 dark:group-hover:to-cyan-700/40">
                 <span className="text-3xl">{feature.icon}</span>
               </div>
 
@@ -58,7 +58,7 @@ const FeaturesSection = () => {
               </p>
 
               {/* Accent line on hover */}
-              <div className="mt-4 h-1 w-0 bg-gradient-to-r from-cyan-400 to-cyan-600 transition-all duration-300 group-hover:w-12" />
+              <div className="mt-4 h-1 w-0 bg-linear-to-r from-cyan-400 to-cyan-600 transition-all duration-300 group-hover:w-12" />
             </div>
           ))}
         </div>

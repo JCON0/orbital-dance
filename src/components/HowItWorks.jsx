@@ -48,7 +48,7 @@ const HowItWorks = () => {
               {/* Card */}
               <div className="rounded-2xl border border-slate-200 bg-white p-8 dark:border-slate-700 dark:bg-slate-800">
                 {/* Step Number Badge */}
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-100 to-cyan-50 text-lg font-bold text-cyan-600 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:text-cyan-400">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-100 to-cyan-50 text-lg font-bold text-cyan-600 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:text-cyan-400">
                   {step.number}
                 </div>
 
@@ -66,7 +66,7 @@ const HowItWorks = () => {
 
               {/* Connector line (hidden on last item and mobile) */}
               {index < steps.length - 1 && (
-                <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-cyan-300 to-transparent md:block" />
+                <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-linear-to-r from-cyan-300 to-transparent md:block" />
               )}
             </div>
           ))}
@@ -79,7 +79,7 @@ const HowItWorks = () => {
           </p>
           <a
             href="#get-started"
-            className="inline-block rounded-full bg-gradient-to-r from-cyan-400 to-cyan-600 px-8 py-3 text-lg font-semibold text-white shadow-lg transition hover:shadow-xl hover:from-cyan-500 hover:to-cyan-700"
+            className="inline-block rounded-full bg-linear-to-r from-cyan-400 to-cyan-600 px-8 py-3 text-lg font-semibold text-white shadow-lg transition hover:shadow-xl hover:from-cyan-500 hover:to-cyan-700"
           >
             Get Started Now
           </a>
