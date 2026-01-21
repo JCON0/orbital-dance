@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { createSlug } from '../utils/slugUtils'
 
 const EventCard = ({ event }) => {
   const formatDate = (dateString) => {
@@ -16,6 +18,8 @@ const EventCard = ({ event }) => {
     }
     return `${symbols[currency] || currency}${price}`
   }
+
+  const slug = createSlug(event.title)
 
   return (
     <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
@@ -73,9 +77,12 @@ const EventCard = ({ event }) => {
         </div>
 
         {/* View Details Button */}
-        <button className="mt-4 w-full rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 py-2.5 text-sm font-semibold text-white transition hover:from-cyan-500 hover:to-cyan-700">
+        <Link
+          to={`/events/${slug}`}
+          className="mt-4 block w-full rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600 py-2.5 text-center text-sm font-semibold text-white transition hover:from-cyan-500 hover:to-cyan-700"
+        >
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   )
