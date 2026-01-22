@@ -28,7 +28,7 @@ const Hero = () => {
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200" style={{textShadow: '0 2px 10px rgba(0,0,0,0.8)'}}>Event Discovery</p>
           <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
             Discover <span 
-              className="inline-block bg-linear-to-r from-cyan-200 to-blue-300 bg-clip-text text-transparent"
+              className="inline-block bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
             >
               Dance
             </span> events anywhere in the world.
