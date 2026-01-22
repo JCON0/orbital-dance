@@ -82,31 +82,40 @@ const AboutHero = () => {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-primary flex flex-col -mt-16 pt-16">
+    <div ref={containerRef} className="relative min-h-screen flex flex-col -mt-16 pt-16 text-white overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <img
+          src="/src/assets/Images/tyler-clemmensen-GjIOvAAdqew-unsplash.jpg"
+          alt="Crowd dancing at night"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/80" />
+      </div>
+
       {/* Main Content */}
       <div className="flex-1 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-        <div className="max-w-3xl text-center">
+        <div className="max-w-5xl w-full text-center bg-black/40 border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-xl rounded-2xl px-6 py-10 sm:px-10 sm:py-12">
           <div ref={badgeRef} className="mb-6">
-            <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-600 dark:text-cyan-400">
+            <span className="inline-block rounded-full bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-100">
               About Orbital Dance
             </span>
           </div>
           
-          <h1 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+          <h1 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             <div>For every struggle,</div>
             <div>
               <span
                 ref={solutionTextRef}
                 onMouseEnter={handleSolutionHover}
                 onMouseLeave={handleSolutionHoverEnd}
-                className="bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent cursor-pointer inline-block"
+                className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent cursor-pointer inline-block"
               >
                 a solution is born
               </span>
             </div>
           </h1>
           
-          <p ref={paragraphRef} className="text-xl text-secondary mb-8 leading-relaxed">
+          <p ref={paragraphRef} className="text-xl text-slate-200 mb-8 leading-relaxed">
             We created Orbital Dance to solve a simple problem: finding authentic electronic music events shouldn't be complicated. We're here to connect artists, promoters, and music lovers in one unified platform.
           </p>
 
