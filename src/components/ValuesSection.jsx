@@ -1,51 +1,57 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 
 const ValuesSection = () => {
   const cardsRef = useRef([])
+
+  useEffect(() => {
+    return () => {
+      // Kill all tweens on unmount
+      cardsRef.current.forEach(card => {
+        if (card) gsap.killTweensOf(card)
+      })
+    }
+  }, [])
 
   const values = [
     {
       icon: '🎯',
       title: 'Discovery',
       description: 'We believe discovering authentic events should be effortless, not an endless scroll through noise.',
-      bgColor: 'bg-cyan-500/10',
-      borderColor: 'border-cyan-500',
+      gradient: 'from-cyan-500 to-cyan-600',
       shadowColor: 'rgba(6, 182, 212, 0.3)'
     },
     {
       icon: '🤝',
       title: 'Community',
       description: 'At our core, we\'re building a global community where music lovers find their tribe.',
-      bgColor: 'bg-blue-500/10',
-      borderColor: 'border-blue-500',
+      gradient: 'from-blue-500 to-blue-600',
       shadowColor: 'rgba(59, 130, 246, 0.3)'
     },
     {
       icon: '✨',
       title: 'Authenticity',
       description: 'Every event on our platform is real, curated, and ready to create unforgettable moments.',
-      bgColor: 'bg-purple-500/10',
-      borderColor: 'border-purple-500',
+      gradient: 'from-purple-500 to-purple-600',
       shadowColor: 'rgba(168, 85, 247, 0.3)'
     },
     {
       icon: '🌍',
       title: 'Accessibility',
       description: 'Great events should be accessible to everyone, no matter where you are or what genre you love.',
-      bgColor: 'bg-emerald-500/10',
-      borderColor: 'border-emerald-500',
+      gradient: 'from-emerald-500 to-emerald-600',
       shadowColor: 'rgba(16, 185, 129, 0.3)'
     }
   ]
 
   const handleMouseEnter = (index) => {
     const card = cardsRef.current[index]
+    if (!card) return
+    
+    gsap.killTweensOf(card)
     const shadowColor = values[index].shadowColor
     
     gsap.to(card, {
-      y: -15,
-      scale: 1.05,
       boxShadow: `0 0 30px ${shadowColor}, 0 0 60px ${shadowColor}, 0 0 90px ${shadowColor}`,
       duration: 0.4,
       ease: 'power2.out'
@@ -54,13 +60,9 @@ const ValuesSection = () => {
 
   const handleMouseLeave = (index) => {
     const card = cardsRef.current[index]
+    if (!card) return
+    
     gsap.killTweensOf(card)
-    gsap.to(card, {
-      y: 0,
-      scale: 1,
-      duration: 0.4,
-      ease: 'power2.out'
-    })
     gsap.to(card, {
       boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
       duration: 1.5,
@@ -81,13 +83,22 @@ const ValuesSection = () => {
             <div
               key={index}
               ref={el => cardsRef.current[index] = el}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-              className={`rounded-xl ${value.bgColor} bg-primary p-6 text-center cursor-pointer`}
+              className="group relative overflow-hidden rounded-2xl border border-primary bg-card p-8 transition cursor-pointer"
             >
-              <div className="mb-4 text-4xl">{value.icon}</div>
-              <h3 className="mb-2 text-lg font-bold text-primary">{value.title}</h3>
-              <p className="text-sm text-secondary leading-relaxed">{value.description}</p>
+              {/* Background gradient accent */}
+              <div
+                className={`absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-20 bg-linear-to-br ${value.gradient}`}
+              />
+
+              {/* Content */}
+              <div className="relative z-10 text-center">
+                <div className="mb-4 text-4xl">{value.icon}</div>
+                <h3 className="mb-2 text-lg font-bold text-primary">{value.title}</h3>
+                <p className="text-sm text-secondary leading-relaxed">{value.description}</p>
+              </div>
+
+              {/* Border accent on hover */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition group-hover:border-slate-300 dark:group-hover:border-slate-600" />
             </div>
           ))}
         </div>

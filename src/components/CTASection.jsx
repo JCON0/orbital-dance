@@ -72,7 +72,7 @@ const CTASection = () => {
             <div className="h-12 w-px bg-slate-300 dark:bg-slate-700" />
             <div className="text-center">
               <p className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">Free</p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">To Download</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">To Use</p>
             </div>
           </div>
 

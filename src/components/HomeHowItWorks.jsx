@@ -78,7 +78,7 @@ const HomeHowItWorks = () => {
             Ready to discover your next favorite event?
           </p>
           <a
-            href="#get-started"
+            href="/events"
             className="inline-block rounded-full bg-linear-to-r from-cyan-500 to-blue-500 px-8 py-3 text-lg font-semibold text-white shadow-lg transition hover:shadow-xl hover:from-cyan-600 hover:to-blue-600"
           >
             Get Started Now

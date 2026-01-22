@@ -40,7 +40,11 @@ const Navbar = ({ isDark, setIsDark }) => {
             </Link>
             <Link
               to="/about"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                location.pathname === '/about'
+                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+              }`}
             >
               About
             </Link>
@@ -114,7 +118,11 @@ const Navbar = ({ isDark, setIsDark }) => {
             <Link
               to="/about"
               onClick={() => setIsOpen(false)}
-              className="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+              className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                location.pathname === '/about'
+                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                  : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+              }`}
             >
               About
             </Link>
