@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from 'react'
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react'
 
 const ToastContext = createContext()
 
@@ -12,6 +12,16 @@ export const useToast = () => {
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([])
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const addToast = useCallback((message, type = 'default') => {
     const id = Date.now()
@@ -29,7 +39,7 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
-      <div className="fixed top-20 right-4 z-50 flex flex-col gap-2">
+      <div className={`fixed right-4 z-[51] flex flex-col gap-2 ${isScrolled ? 'top-4' : 'top-20'}`}>
         {toasts.map((toast, index) => {
           const bgColor = toast.type === 'success' ? 'bg-emerald-600/90' : toast.type === 'error' ? 'bg-rose-600/90' : 'bg-slate-900/90'
           return (
