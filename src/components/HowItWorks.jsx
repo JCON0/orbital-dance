@@ -73,7 +73,7 @@ const HowItWorks = () => {
         {/* Timeline Journey */}
         <div className="relative">
           {/* Center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-linear-to-b from-cyan-500 via-blue-500 to-purple-500" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-linear-to-b from-cyan-500 via-blue-500 to-purple-500 hidden md:block" />
 
           {/* Steps */}
           <div className="space-y-16">
@@ -83,7 +83,7 @@ const HowItWorks = () => {
                 <div
                   key={index}
                   ref={el => cardsRef.current[index] = el}
-                  className={`flex items-center gap-8 ${isEven ? '' : 'flex-row-reverse'}`}
+                  className={`flex items-center gap-8 md:gap-8 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 >
                   {/* Card */}
                   <div className="flex-1">
@@ -107,12 +107,12 @@ const HowItWorks = () => {
                   </div>
 
                   {/* Timeline dot */}
-                  <div className="flex justify-center">
+                  <div className="hidden md:flex justify-center">
                     <div className="h-6 w-6 rounded-full bg-cyan-500 ring-4 ring-secondary" />
                   </div>
 
                   {/* Spacer */}
-                  <div className="flex-1" />
+                  <div className="hidden md:flex flex-1" />
                 </div>
               )
             })}
