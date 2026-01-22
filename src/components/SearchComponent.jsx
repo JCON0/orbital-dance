@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-const SearchComponent = ({ onSearchChange, onLocationChange, onCategoryChange }) => {
-  const [selectedCategories, setSelectedCategories] = useState(['All'])
+const SearchComponent = ({ onSearchChange, onLocationChange, onCategoryChange, initialCategories = ['All'] }) => {
+  const [selectedCategories, setSelectedCategories] = useState(initialCategories)
+
+  useEffect(() => {
+    setSelectedCategories(initialCategories)
+  }, [initialCategories])
 
   const handleCategoryClick = (category) => {
     let updatedCategories

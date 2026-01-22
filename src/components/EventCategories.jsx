@@ -6,36 +6,42 @@ const EventCategories = () => {
     {
       icon: '🏠',
       name: 'Techno & House',
+      category: ['Techno', 'House'],
       description: 'Deep underground beats, industrial sounds, and hypnotic grooves from Berlin to Amsterdam.',
       color: 'from-purple-500 to-pink-500',
     },
     {
       icon: '⚡',
       name: 'Trance & Progressive',
+      category: ['Trance', 'Progressive'],
       description: 'Uplifting melodies, epic buildups, and euphoric journeys through sound.',
       color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: '🔊',
       name: 'Bass Music',
+      category: ['Bass', 'Drum & Bass', 'Dubstep'],
       description: 'Drum & Bass, Dubstep, and heavy basslines that shake the floor.',
       color: 'from-amber-500 to-orange-500',
     },
     {
       icon: '🌀',
       name: 'Psytrance & Goa',
+      category: ['Psytrance', 'Goa'],
       description: 'Mind-bending psychedelic experiences with progressive and full-power sets.',
       color: 'from-red-500 to-rose-500',
     },
     {
       icon: '⚠️',
       name: 'Hardstyle & Hardcore',
+      category: ['Hardstyle', 'Hardcore'],
       description: 'Raw kicks, euphoric anthems, and maximum energy for the hardcore family.',
       color: 'from-green-500 to-emerald-500',
     },
     {
       icon: '✨',
       name: 'Future Bass & Melodic',
+      category: ['Melodic', 'Future Bass'],
       description: 'Emotional journeys with beautiful melodies meeting heavy drops.',
       color: 'from-indigo-500 to-purple-500',
     },
@@ -57,8 +63,9 @@ const EventCategories = () => {
         {/* Categories Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((category, index) => (
-            <div
+            <Link
               key={index}
+              to={`/events?categories=${encodeURIComponent(JSON.stringify(category.category))}`}
               className="group relative overflow-hidden rounded-2xl border border-primary bg-card p-8 transition"
             >
               {/* Background gradient accent */}
@@ -89,7 +96,7 @@ const EventCategories = () => {
 
               {/* Border accent on hover */}
               <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition group-hover:border-slate-300 dark:group-hover:border-slate-600" />
-            </div>
+            </Link>
           ))}
         </div>
 

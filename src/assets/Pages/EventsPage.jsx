@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import SearchComponent from '../../components/SearchComponent'
 import ExploreHeader from '../../components/ExploreHeader'
 import ResultsCount from '../../components/ResultsCount'
@@ -7,10 +8,24 @@ import Footer from '../../components/Footer'
 import eventsData from '../../data/events.json'
 
 const EventsPage = () => {
+  const [searchParams] = useSearchParams()
   const [searchQuery, setSearchQuery] = useState('')
   const [location, setLocation] = useState('All Locations')
   const [categories, setCategories] = useState(['All'])
   const [filteredEvents, setFilteredEvents] = useState(eventsData.events)
+
+  // Initialize categories from URL params
+  useEffect(() => {
+    const categoriesParam = searchParams.get('categories')
+    if (categoriesParam) {
+      try {
+        const parsedCategories = JSON.parse(categoriesParam)
+        setCategories(parsedCategories)
+      } catch (e) {
+        setCategories(['All'])
+      }
+    }
+  }, [searchParams])
 
   useEffect(() => {
     let filtered = eventsData.events
@@ -48,6 +63,7 @@ const EventsPage = () => {
             onSearchChange={setSearchQuery}
             onLocationChange={setLocation}
             onCategoryChange={setCategories}
+            initialCategories={categories}
           />
 
           <ResultsCount count={filteredEvents.length} />
