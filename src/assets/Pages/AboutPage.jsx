@@ -8,14 +8,14 @@ import Footer from '../../components/Footer'
 
 const AboutPage = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <AboutHero />
       <MissionAndApproach />
       <ValuesSection />
       <HowItWorks />
       <AboutCTA />
       <Footer />
-    </>
+    </div>
   )
 }
 

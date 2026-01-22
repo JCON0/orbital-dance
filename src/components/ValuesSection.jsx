@@ -71,7 +71,7 @@ const ValuesSection = () => {
   }
 
   return (
-    <div className="bg-primary py-16 sm:py-20 px-4">
+    <div className="bg-primary py-16 sm:py-20 px-4 overflow-x-hidden">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Our Values</h2>

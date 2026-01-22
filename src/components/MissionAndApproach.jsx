@@ -73,7 +73,7 @@ const MissionAndApproach = () => {
   }, [])
 
   return (
-    <div ref={sectionRef}>
+    <div ref={sectionRef} className="overflow-x-hidden">
       {/* Mission Section */}
       <div className="bg-secondary py-8 sm:py-12 px-4">
         <div className="mx-auto max-w-4xl">

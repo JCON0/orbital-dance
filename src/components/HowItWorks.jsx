@@ -46,7 +46,7 @@ const HowItWorks = () => {
             toggleActions: 'play none none reverse'
           },
           opacity: 0,
-          x: index % 2 === 0 ? -100 : 100,
+          x: index % 2 === 0 ? -30 : 30,
           y: 50,
           duration: 0.9,
           ease: 'power2.out'
@@ -58,7 +58,7 @@ const HowItWorks = () => {
   }, [])
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="bg-secondary py-20 px-6">
+    <section id="how-it-works" ref={sectionRef} className="bg-secondary py-20 px-6 overflow-x-hidden">
       <div className="mx-auto max-w-4xl">
         {/* Section Header */}
         <div className="mb-16 text-center">

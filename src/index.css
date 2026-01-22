@@ -3,6 +3,19 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  body {
+    position: relative;
+  }
+  
   :root {
     /* Light mode colors */
     --color-bg-primary: 250 245 240; /* stone-50 */
