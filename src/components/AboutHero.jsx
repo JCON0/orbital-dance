@@ -82,18 +82,18 @@ const AboutHero = () => {
   }
 
   return (
-    <div ref={containerRef} className="relative min-h-screen flex flex-col -mt-16 pt-16 text-white overflow-hidden">
-      <div className="absolute inset-0 -z-10">
+    <div ref={containerRef} className="relative min-h-screen flex flex-col text-white overflow-hidden">
+      <div className="fixed inset-0 top-0 -z-10 h-screen">
         <img
           src="/src/assets/Images/tyler-clemmensen-GjIOvAAdqew-unsplash.jpg"
           alt="Crowd dancing at night"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/80" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/80" />
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <div className="relative flex-1 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
         <div className="max-w-5xl w-full text-center bg-black/40 border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-xl rounded-2xl px-6 py-10 sm:px-10 sm:py-12">
           <div ref={badgeRef} className="mb-6">
             <span className="inline-block rounded-full bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-100">

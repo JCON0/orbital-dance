@@ -50,7 +50,7 @@ const Testimonials = () => {
             >
               {/* Rating Stars with reveal effect */}
               <div className="mb-4">
-                <div className="relative inline-flex items-center min-w-[90px]">
+                <div className="relative inline-flex items-center min-w-22.5">
                   {/* Default single star to imply 1-star */}
                   <div className="flex items-center text-slate-400">
                     <span className="text-lg">★</span>
@@ -68,7 +68,7 @@ const Testimonials = () => {
               </div>
 
               {/* Quote with playful bait-and-switch */}
-              <div className="relative mb-6 min-h-[96px]">
+              <div className="relative mb-6 min-h-24">
                 <p className="text-slate-700 transition-opacity duration-400 dark:text-slate-300 group-hover:opacity-0">
                   "{testimonial.teaser}"
                 </p>
