@@ -46,9 +46,9 @@ const HomeHowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {/* Card */}
-              <div className="rounded-2xl border border-primary bg-primary p-8">
+              <div className="group rounded-2xl border border-primary bg-primary p-8 hover:shadow-lg transition-shadow duration-300">
                 {/* Step Number Badge */}
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-100 to-cyan-50 text-lg font-bold text-cyan-600 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:text-cyan-400">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-100 to-cyan-50 text-lg font-bold text-cyan-600 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:text-cyan-400 transition-all duration-300 group-hover:from-cyan-600 group-hover:to-cyan-600 group-hover:text-cyan-50 group-hover:dark:from-cyan-500 group-hover:dark:to-cyan-500 group-hover:dark:text-cyan-900">
                   {step.number}
                 </div>
 

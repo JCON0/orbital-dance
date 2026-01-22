@@ -1,26 +1,48 @@
 import React from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const Footer = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
   const currentYear = new Date().getFullYear()
+
+  const handleScrollToSection = (sectionId) => {
+    // If we're not on home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const element = document.querySelector(`#${sectionId}`)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // Already on home, just scroll
+      const element = document.querySelector(`#${sectionId}`)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
 
   const footerLinks = {
     Product: [
-      { name: 'Features', href: '#features' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'Security', href: '#security' },
+      { name: 'Features', href: '#features', isScrollLink: true },
+      { name: 'How It Works', href: '#how-it-works', isScrollLink: true },
+      { name: 'Pricing', href: '/pricing' },
+      { name: 'Security', href: '/security' },
     ],
     Company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Blog', href: '#blog' },
-      { name: 'Careers', href: '#careers' },
-      { name: 'Press', href: '#press' },
+      { name: 'About Us', href: '/about' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Careers', href: '/careers' },
+      { name: 'Press', href: '/press' },
     ],
     Legal: [
-      { name: 'Privacy Policy', href: '#privacy' },
-      { name: 'Terms of Service', href: '#terms' },
-      { name: 'Cookie Policy', href: '#cookies' },
-      { name: 'Contact', href: '#contact' },
+      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Terms of Service', href: '/terms' },
+      { name: 'Cookie Policy', href: '/cookies' },
+      { name: 'Contact', href: '/contact' },
     ],
   }
 
@@ -69,12 +91,21 @@ const Footer = () => {
               <ul className="mt-6 space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                    >
-                      {link.name}
-                    </a>
+                    {link.isScrollLink ? (
+                      <button
+                        onClick={() => handleScrollToSection(link.href.substring(1))}
+                        className="text-sm text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white cursor-pointer"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

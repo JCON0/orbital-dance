@@ -9,6 +9,8 @@ import AboutPage from './assets/Pages/AboutPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
 import SignInPage from './assets/Pages/SignInPage'
 import SignUpPage from './assets/Pages/SignUpPage'
+import NotFoundPage from './assets/Pages/NotFoundPage'
+import ComingSoonPage from './assets/Pages/ComingSoonPage'
 
 const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -42,6 +44,16 @@ const App = () => {
           <Route path="/events/:slug" element={<EventDetailPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/blog" element={<ComingSoonPage />} />
+          <Route path="/careers" element={<ComingSoonPage />} />
+          <Route path="/press" element={<ComingSoonPage />} />
+          <Route path="/pricing" element={<ComingSoonPage />} />
+          <Route path="/security" element={<ComingSoonPage />} />
+          <Route path="/privacy" element={<ComingSoonPage />} />
+          <Route path="/terms" element={<ComingSoonPage />} />
+          <Route path="/cookies" element={<ComingSoonPage />} />
+          <Route path="/contact" element={<ComingSoonPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </ToastProvider>
