@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useToast } from '../../contexts/ToastContext'
 import Footer from '../../components/Footer'
 import EventHero from '../../components/EventHero'
 import EventInfoGrid from '../../components/EventInfoGrid'
@@ -10,6 +11,8 @@ import { findEventBySlug } from '../../utils/slugUtils'
 
 const EventDetailPage = () => {
   const { slug } = useParams()
+  const [isSaved, setIsSaved] = useState(false)
+  const { addToast } = useToast()
   const event = findEventBySlug(eventsData.events, slug)
 
   if (!event) {
@@ -40,6 +43,14 @@ const EventDetailPage = () => {
     return `${symbols[currency] || currency}${price}`
   }
 
+  const handleSaveEvent = () => {
+    const willBeSaved = !isSaved
+    setIsSaved(willBeSaved)
+    const message = willBeSaved ? `✓ ${event.title} saved!` : `✗ ${event.title} removed from saved`
+    const type = willBeSaved ? 'success' : 'error'
+    addToast(message, type)
+  }
+
   return (
     <>
       <div className="min-h-screen bg-primary">
@@ -60,7 +71,9 @@ const EventDetailPage = () => {
 
           <EventTags tags={event.tags} />
 
-          <EventActions />
+          <div className="mb-8">
+            <EventActions isSaved={isSaved} onSave={handleSaveEvent} />
+          </div>
         </div>
       </div>
       <Footer />
