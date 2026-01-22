@@ -7,42 +7,42 @@ const Testimonials = () => {
       location: 'Barcelona, Spain',
       avatar: '👩',
       rating: 5,
-      quote: 'I discovered this underground jazz night in Barcelona through Orbital Dance that I never would have found otherwise. Felt like a true local for the first time traveling!',
+      quote: 'I discovered this underground techno night in Barcelona through Orbital Dance that I never would have found otherwise. The vibe was incredible and I made friends who are still in my life!',
     },
     {
       name: 'Marco Rossi',
       location: 'Berlin, Germany',
       avatar: '👨',
       rating: 5,
-      quote: 'The app is a game-changer. Instead of wandering around looking for things to do, I had a personalized list of events tailored to my interests. Best travel hack ever.',
+      quote: 'As a music lover, this platform is a game-changer. I found events from promoters I never knew existed. Now I\'m at a different show every weekend.',
     },
     {
       name: 'Amira Patel',
       location: 'Copenhagen, Denmark',
       avatar: '👩',
       rating: 5,
-      quote: 'Met some amazing people at a food pop-up I found on Orbital Dance. Made memories and connections I would never have made on typical tourist tours.',
+      quote: 'Met some amazing producers and DJs at events I found on Orbital Dance. This platform really connects the electronic music community.',
     },
     {
       name: 'Lucas Santos',
       location: 'Lisbon, Portugal',
       avatar: '👨',
       rating: 5,
-      quote: 'As a frequent traveler, this is the only app I need for discovering authentic experiences. Beats any guidebook or travel blog out there.',
+      quote: 'Finally, a place where real events are curated by people who actually care about the scene. No spam, just authentic electronic music experiences.',
     },
     {
       name: 'Emma Wilson',
       location: 'Amsterdam, Netherlands',
       avatar: '👩',
       rating: 5,
-      quote: 'Real events, real people, real experiences. Orbital Dance connects you with the heart of a city, not just the touristy surface.',
+      quote: 'Orbital Dance is my go-to for finding house and techno events. The notifications ensure I never miss a set from my favorite artists.',
     },
     {
       name: 'Kai Nakamura',
       location: 'Vienna, Austria',
       avatar: '👨',
       rating: 5,
-      quote: 'The notifications are so helpful. I discovered a last-minute gallery opening that became the highlight of my Vienna trip. Thank you, Orbital Dance!',
+      quote: 'Great discovery platform for electronic music events. I\'ve found some amazing underground venues and promoters that have become part of my regular scene.',
     },
   ]
 
@@ -52,10 +52,10 @@ const Testimonials = () => {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Loved by Travelers
+            Loved by Music Lovers
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            See what travelers around the world are saying about Orbital Dance
+            See what the electronic music community is saying about Orbital Dance
           </p>
         </div>
 
