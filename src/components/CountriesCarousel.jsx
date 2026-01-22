@@ -36,7 +36,7 @@ const CountriesCarousel = () => {
           {duplicatedCountries.map((country, index) => (
             <div
               key={`${country.name}-${index}`}
-              className="flex min-w-50 shrink-0 flex-col items-center gap-3 rounded-xl border border-primary bg-card px-8 py-6 shadow-sm transition hover:border-cyan-300 hover:shadow-md dark:hover:border-cyan-400 dark:hover:shadow-cyan-900/20"
+              className="flex min-w-50 shrink-0 flex-col items-center gap-3 rounded-xl border border-primary bg-card px-8 py-6 shadow-sm"
             >
               <img 
                 src={`https://flagcdn.com/w80/${country.code}.png`}
@@ -65,9 +65,6 @@ const CountriesCarousel = () => {
           width: max-content;
         }
 
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
       `}</style>
     </section>
   )
