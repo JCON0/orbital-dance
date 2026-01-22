@@ -41,10 +41,12 @@ const ValuesSection = () => {
 
   const handleMouseEnter = (index) => {
     const card = cardsRef.current[index]
+    const shadowColor = values[index].shadowColor
+    
     gsap.to(card, {
       y: -15,
       scale: 1.05,
-      boxShadow: `0 20px 40px ${values[index].shadowColor}`,
+      boxShadow: `0 0 30px ${shadowColor}, 0 0 60px ${shadowColor}, 0 0 90px ${shadowColor}`,
       duration: 0.4,
       ease: 'power2.out'
     })
@@ -52,17 +54,22 @@ const ValuesSection = () => {
 
   const handleMouseLeave = (index) => {
     const card = cardsRef.current[index]
+    gsap.killTweensOf(card)
     gsap.to(card, {
       y: 0,
       scale: 1,
-      boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
       duration: 0.4,
+      ease: 'power2.out'
+    })
+    gsap.to(card, {
+      boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
+      duration: 1.5,
       ease: 'power2.out'
     })
   }
 
   return (
-    <div className="bg-secondary py-16 sm:py-20 px-4">
+    <div className="bg-primary py-16 sm:py-20 px-4">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Our Values</h2>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const AboutCTA = () => {
   return (
-    <div className="bg-primary py-16 sm:py-20 px-4">
+    <div className="bg-secondary py-16 sm:py-20 px-4">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">Join the Orbital Dance Movement</h2>
         <p className="text-lg text-secondary mb-8 leading-relaxed">

@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from '../../components/Hero'
 import CountriesCarousel from '../../components/CountriesCarousel'
 import FeaturesSection from '../../components/FeaturesSection'
-import HowItWorks from '../../components/HowItWorks'
+import HomeHowItWorks from '../../components/HomeHowItWorks'
 import EventCategories from '../../components/EventCategories'
 import Testimonials from '../../components/Testimonials'
 import CTASection from '../../components/CTASection'
@@ -15,7 +15,7 @@ const HomePage = () => {
         <Hero />
         <FeaturesSection />
         <CountriesCarousel />
-        <HowItWorks />
+        <HomeHowItWorks />
         <EventCategories />
         <Testimonials />
         <CTASection />

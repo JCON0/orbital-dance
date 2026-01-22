@@ -1,7 +1,6 @@
 import React from 'react'
 import AboutHero from '../../components/AboutHero'
-import ProblemSolution from '../../components/ProblemSolution'
-import MissionSection from '../../components/MissionSection'
+import MissionAndApproach from '../../components/MissionAndApproach'
 import ValuesSection from '../../components/ValuesSection'
 import HowItWorks from '../../components/HowItWorks'
 import AboutCTA from '../../components/AboutCTA'
@@ -11,8 +10,7 @@ const AboutPage = () => {
   return (
     <>
       <AboutHero />
-      <ProblemSolution />
-      <MissionSection />
+      <MissionAndApproach />
       <ValuesSection />
       <HowItWorks />
       <AboutCTA />
