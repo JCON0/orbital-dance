@@ -7,42 +7,24 @@ const Testimonials = () => {
       location: 'Barcelona, Spain',
       avatar: '👩',
       rating: 5,
-      quote: 'I discovered this underground techno night in Barcelona through Orbital Dance that I never would have found otherwise. The vibe was incredible and I made friends who are still in my life!',
+      teaser: 'Thought it was another “influencer brunch” app—braced for avocado toast shots...',
+      quote: 'Then it dropped a warehouse techno night with a Funktion-One rig. I ended up dancing till 6am and made friends I still go out with.',
     },
     {
       name: 'Marco Rossi',
       location: 'Berlin, Germany',
       avatar: '👨',
       rating: 5,
-      quote: 'As a music lover, this platform is a game-changer. I found events from promoters I never knew existed. Now I\'m at a different show every weekend.',
-    },
-    {
-      name: 'Amira Patel',
-      location: 'Copenhagen, Denmark',
-      avatar: '👩',
-      rating: 5,
-      quote: 'Met some amazing producers and DJs at events I found on Orbital Dance. This platform really connects the electronic music community.',
-    },
-    {
-      name: 'Lucas Santos',
-      location: 'Lisbon, Portugal',
-      avatar: '👨',
-      rating: 5,
-      quote: 'Finally, a place where real events are curated by people who actually care about the scene. No spam, just authentic electronic music experiences.',
+      teaser: 'Expected generic tourist traps. Was ready to uninstall in 5 minutes...',
+      quote: 'Instead it surfaced a secret lineup at a Kreuzberg spot and a sunrise set on the Spree. I haven’t missed a weekend since.',
     },
     {
       name: 'Emma Wilson',
       location: 'Amsterdam, Netherlands',
       avatar: '👩',
       rating: 5,
-      quote: 'Orbital Dance is my go-to for finding house and techno events. The notifications ensure I never miss a set from my favorite artists.',
-    },
-    {
-      name: 'Kai Nakamura',
-      location: 'Vienna, Austria',
-      avatar: '👨',
-      rating: 5,
-      quote: 'Great discovery platform for electronic music events. I\'ve found some amazing underground venues and promoters that have become part of my regular scene.',
+      teaser: 'Was convinced it would just push overpriced festivals and VIP up-sells...',
+      quote: 'It actually pinged me about a 200-cap house night with my favorite local DJ. Zero spam, all signal. Now it’s my go-to.',
     },
   ]
 
@@ -64,21 +46,36 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-primary bg-primary p-8 shadow-sm transition hover:shadow-md"
+              className="group rounded-2xl border border-primary bg-primary p-8 shadow-sm transition hover:shadow-md"
             >
-              {/* Rating Stars */}
-              <div className="mb-4 flex gap-1">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-lg">
-                    ⭐
-                  </span>
-                ))}
+              {/* Rating Stars with reveal effect */}
+              <div className="mb-4">
+                <div className="relative inline-flex items-center min-w-[90px]">
+                  {/* Default single star to imply 1-star */}
+                  <div className="flex items-center text-slate-400">
+                    <span className="text-lg">★</span>
+                  </div>
+
+                  {/* Hover reveal: full 5 stars slide in via width expansion */}
+                  <div className="absolute left-0 top-0 h-full w-0 overflow-hidden transition-all duration-500 ease-out group-hover:w-full">
+                    <div className="flex items-center text-cyan-500">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <span key={i} className="text-lg">★</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Quote */}
-              <p className="mb-6 text-slate-700 dark:text-slate-300">
-                "{testimonial.quote}"
-              </p>
+              {/* Quote with playful bait-and-switch */}
+              <div className="relative mb-6 min-h-[96px]">
+                <p className="text-slate-700 transition-opacity duration-400 dark:text-slate-300 group-hover:opacity-0">
+                  "{testimonial.teaser}"
+                </p>
+                <p className="absolute inset-0 opacity-0 text-slate-700 transition-opacity duration-400 dark:text-slate-300 group-hover:opacity-100">
+                  "{testimonial.quote}"
+                </p>
+              </div>
 
               {/* User Info */}
               <div className="flex items-center gap-3 border-t border-slate-200 pt-4 dark:border-slate-700">
