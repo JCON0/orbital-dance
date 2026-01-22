@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -18,12 +19,12 @@ const Hero = () => {
             Find authentic social experiences that only locals know about. From underground concerts to community gatherings, uncover the events that make each destination unique.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <a
+            <Link
+              to="/events"
               className="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-cyan-400/30 transition hover:scale-[1.01] hover:shadow-cyan-300/40"
-              href="#explore"
             >
               Explore Events
-            </a>
+            </Link>
             <a
               className="rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/5"
               href="#how-it-works"
