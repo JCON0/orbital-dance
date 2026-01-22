@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 const AboutCTA = () => {
   return (
     <div className="bg-secondary py-16 sm:py-20 px-4">
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">Join the Orbital Dance Movement</h2>
+      <div className="mx-auto max-w-full px-8">
+        <div className="rounded-3xl border border-primary bg-primary p-8 sm:p-12 text-center shadow-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">Join the Orbital Dance Movement</h2>
         <p className="text-lg text-secondary mb-8 leading-relaxed">
           Whether you're a passionate music lover, an emerging artist, or an event organizer, there's a place for you in our community. Let's dance together.
         </p>
@@ -24,6 +25,7 @@ const AboutCTA = () => {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   )
 }
