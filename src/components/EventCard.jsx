@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { createSlug } from '../utils/slugUtils'
 import { useToast } from '../contexts/ToastContext'
+import { useAuth } from '../contexts/AuthContext'
+import AuthPromptModal from './AuthPromptModal'
 
 const EventCard = ({ event }) => {
   const [isSaved, setIsSaved] = useState(false)
+  const [showAuthPrompt, setShowAuthPrompt] = useState(false)
   const { addToast } = useToast()
+  const { isAuthenticated } = useAuth()
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -25,6 +29,11 @@ const EventCard = ({ event }) => {
   const slug = createSlug(event.title)
 
   const handleSaveEvent = () => {
+    if (!isAuthenticated) {
+      setShowAuthPrompt(true)
+      addToast('Please sign in to save events', 'info')
+      return
+    }
     const willBeSaved = !isSaved
     setIsSaved(willBeSaved)
     const message = willBeSaved ? `✓ ${event.title} saved!` : `✗ ${event.title} removed from saved`
@@ -114,6 +123,7 @@ const EventCard = ({ event }) => {
         </div>
       </div>
     </div>
+    <AuthPromptModal isOpen={showAuthPrompt} onClose={() => setShowAuthPrompt(false)} />
     </>
   )
 }
