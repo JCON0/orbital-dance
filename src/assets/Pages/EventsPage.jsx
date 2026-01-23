@@ -5,14 +5,38 @@ import ExploreHeader from '../../components/ExploreHeader'
 import ResultsCount from '../../components/ResultsCount'
 import EventsGrid from '../../components/EventsGrid'
 import Footer from '../../components/Footer'
-import eventsData from '../../data/events.json'
 
 const EventsPage = () => {
   const [searchParams] = useSearchParams()
   const [searchQuery, setSearchQuery] = useState('')
   const [location, setLocation] = useState('All Locations')
   const [categories, setCategories] = useState(['All'])
-  const [filteredEvents, setFilteredEvents] = useState(eventsData.events)
+  const [filteredEvents, setFilteredEvents] = useState([])
+  const [events, setEvents] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  // Fetch events from localhost:8000
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('http://localhost:8000/events')
+        if (!response.ok) {
+          throw new Error('Failed to fetch events')
+        }
+        const data = await response.json()
+        setEvents(data.events || data)
+      } catch (err) {
+        setError(err.message)
+        console.error('Error fetching events:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchEvents()
+  }, [])
 
   // Initialize categories from URL params
   useEffect(() => {
@@ -28,7 +52,7 @@ const EventsPage = () => {
   }, [searchParams])
 
   useEffect(() => {
-    let filtered = eventsData.events
+    let filtered = events
 
     // Filter by search query
     if (searchQuery) {
@@ -51,7 +75,7 @@ const EventsPage = () => {
     }
 
     setFilteredEvents(filtered)
-  }, [searchQuery, location, categories])
+  }, [searchQuery, location, categories, events])
 
   return (
     <>
@@ -66,9 +90,14 @@ const EventsPage = () => {
             initialCategories={categories}
           />
 
-          <ResultsCount count={filteredEvents.length} />
-
-          <EventsGrid events={filteredEvents} />
+          {loading && <p className="text-center text-lg text-gray-500 py-8">Loading events...</p>}
+          {error && <p className="text-center text-lg text-red-500 py-8">Error: {error}</p>}
+          {!loading && !error && (
+            <>
+              <ResultsCount count={filteredEvents.length} />
+              <EventsGrid events={filteredEvents} />
+            </>
+          )}
         </div>
       </div>
       <Footer />

@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
+import { useToast } from '../../contexts/ToastContext'
 import SignInHeader from '../../components/SignInHeader'
 import SignInForm from '../../components/SignInForm'
 import SocialSignIn from '../../components/SocialSignIn'
@@ -7,11 +10,45 @@ import SignInFooter from '../../components/SignInFooter'
 const SignInPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const { login, user } = useAuth()
+  const navigate = useNavigate()
+  const { showToast } = useToast()
 
-  const handleSignIn = (e) => {
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      const dashboardPath = user.type === 'customer' ? '/dashboard/customer' : '/dashboard/promoter'
+      navigate(dashboardPath, { replace: true })
+    }
+  }, [user, navigate])
+
+  const handleSignIn = async (e) => {
     e.preventDefault()
-    // TODO: Implement sign-in logic
-    console.log('Sign in with email:', email, password)
+    setIsLoading(true)
+
+    try {
+      const result = await login(email, password)
+
+      if (result.success) {
+        showToast('Login successful!', 'success')
+        
+        // Redirect based on user type
+        if (result.user.type === 'customer') {
+          navigate('/dashboard/customer')
+        } else if (result.user.type === 'promoter') {
+          navigate('/dashboard/promoter')
+        } else {
+          navigate('/')
+        }
+      } else {
+        showToast(result.error || 'Login failed', 'error')
+      }
+    } catch (error) {
+      showToast('An error occurred during login', 'error')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleGoogleSignIn = () => {

@@ -1,9 +1,23 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 const Navbar = ({ isDark, setIsDark }) => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
+  const { user, logout } = useAuth()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+    setIsOpen(false)
+  }
+
+  const getDashboardLink = () => {
+    if (!user) return null
+    return user.type === 'customer' ? '/dashboard/customer' : '/dashboard/promoter'
+  }
 
   return (
     <nav className="sticky top-0 z-50 border-b border-stone-200 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-md transition dark:border-slate-700">
@@ -48,12 +62,33 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               About
             </Link>
-            <Link
-              to="/sign-in"
-              className="ml-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
-            >
-              Sign In
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  to={getDashboardLink()}
+                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                    location.pathname.includes('/dashboard')
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                  }`}
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="ml-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/sign-in"
+                className="ml-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -108,13 +143,35 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               About
             </Link>
-            <Link
-              to="/sign-in"
-              onClick={() => setIsOpen(false)}
-              className="mt-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
-            >
-              Sign In
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  to={getDashboardLink()}
+                  onClick={() => setIsOpen(false)}
+                  className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                    location.pathname.includes('/dashboard')
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="mt-2 rounded-lg bg-red-500 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/sign-in"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
         </div>
       )}

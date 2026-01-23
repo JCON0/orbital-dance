@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastProvider } from './contexts/ToastContext'
+import { AuthProvider } from './contexts/AuthContext'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
+import ProtectedRoute from './components/ProtectedRoute'
 import HomePage from './assets/Pages/HomePage'
 import EventsPage from './assets/Pages/EventsPage'
 import AboutPage from './assets/Pages/AboutPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
 import SignInPage from './assets/Pages/SignInPage'
 import SignUpPage from './assets/Pages/SignUpPage'
+import CustomerDashboard from './assets/Pages/CustomerDashboard'
+import PromoterDashboard from './assets/Pages/PromoterDashboard'
 import NotFoundPage from './assets/Pages/NotFoundPage'
 import ComingSoonPage from './assets/Pages/ComingSoonPage'
 
@@ -34,28 +38,49 @@ const App = () => {
 
   return (
     <ToastProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Navbar isDark={isDark} setIsDark={setIsDark} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/events/:slug" element={<EventDetailPage />} />
-          <Route path="/sign-in" element={<SignInPage />} />
-          <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/blog" element={<ComingSoonPage />} />
-          <Route path="/careers" element={<ComingSoonPage />} />
-          <Route path="/press" element={<ComingSoonPage />} />
-          <Route path="/pricing" element={<ComingSoonPage />} />
-          <Route path="/security" element={<ComingSoonPage />} />
-          <Route path="/privacy" element={<ComingSoonPage />} />
-          <Route path="/terms" element={<ComingSoonPage />} />
-          <Route path="/cookies" element={<ComingSoonPage />} />
-          <Route path="/contact" element={<ComingSoonPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Navbar isDark={isDark} setIsDark={setIsDark} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/events/:slug" element={<EventDetailPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            
+            {/* Protected Dashboard Routes */}
+            <Route
+              path="/dashboard/customer"
+              element={
+                <ProtectedRoute allowedRoles={['customer']}>
+                  <CustomerDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/promoter"
+              element={
+                <ProtectedRoute allowedRoles={['promoter']}>
+                  <PromoterDashboard />
+                </ProtectedRoute>
+              }
+            />
+            
+            <Route path="/blog" element={<ComingSoonPage />} />
+            <Route path="/careers" element={<ComingSoonPage />} />
+            <Route path="/press" element={<ComingSoonPage />} />
+            <Route path="/pricing" element={<ComingSoonPage />} />
+            <Route path="/security" element={<ComingSoonPage />} />
+            <Route path="/privacy" element={<ComingSoonPage />} />
+            <Route path="/terms" element={<ComingSoonPage />} />
+            <Route path="/cookies" element={<ComingSoonPage />} />
+            <Route path="/contact" element={<ComingSoonPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </ToastProvider>
   )
 }
