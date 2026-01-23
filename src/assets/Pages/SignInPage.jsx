@@ -18,8 +18,7 @@ const SignInPage = () => {
   // Redirect if already logged in
   useEffect(() => {
     if (user) {
-      const dashboardPath = user.type === 'customer' ? '/dashboard/customer' : '/dashboard/promoter'
-      navigate(dashboardPath, { replace: true })
+      navigate('/dashboard', { replace: true })
     }
   }, [user, navigate])
 
@@ -33,14 +32,8 @@ const SignInPage = () => {
       if (result.success) {
         showToast('Login successful!', 'success')
         
-        // Redirect based on user type
-        if (result.user.type === 'customer') {
-          navigate('/dashboard/customer')
-        } else if (result.user.type === 'promoter') {
-          navigate('/dashboard/promoter')
-        } else {
-          navigate('/')
-        }
+        // Redirect to dashboard
+        navigate('/dashboard')
       } else {
         showToast(result.error || 'Login failed', 'error')
       }

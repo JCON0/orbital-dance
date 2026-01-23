@@ -11,8 +11,7 @@ import AboutPage from './assets/Pages/AboutPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
 import SignInPage from './assets/Pages/SignInPage'
 import SignUpPage from './assets/Pages/SignUpPage'
-import CustomerDashboard from './assets/Pages/CustomerDashboard'
-import PromoterDashboard from './assets/Pages/PromoterDashboard'
+import Dashboard from './assets/Pages/Dashboard'
 import NotFoundPage from './assets/Pages/NotFoundPage'
 import ComingSoonPage from './assets/Pages/ComingSoonPage'
 
@@ -50,20 +49,12 @@ const App = () => {
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
             
-            {/* Protected Dashboard Routes */}
+            {/* Protected Dashboard Route */}
             <Route
-              path="/dashboard/customer"
+              path="/dashboard"
               element={
-                <ProtectedRoute allowedRoles={['customer']}>
-                  <CustomerDashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/dashboard/promoter"
-              element={
-                <ProtectedRoute allowedRoles={['promoter']}>
-                  <PromoterDashboard />
+                <ProtectedRoute allowedRoles={['customer', 'promoter']}>
+                  <Dashboard />
                 </ProtectedRoute>
               }
             />

@@ -4,19 +4,20 @@ import { useAuth } from '../contexts/AuthContext'
 
 const Navbar = ({ isDark, setIsDark }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isAccountOpen, setIsAccountOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
   const { user, logout } = useAuth()
-
   const handleLogout = () => {
     logout()
     navigate('/')
     setIsOpen(false)
+    setIsAccountOpen(false)
   }
+  
 
   const getDashboardLink = () => {
-    if (!user) return null
-    return user.type === 'customer' ? '/dashboard/customer' : '/dashboard/promoter'
+    return '/dashboard'
   }
 
   return (
@@ -74,12 +75,39 @@ const Navbar = ({ isDark, setIsDark }) => {
                 >
                   Dashboard
                 </Link>
-                <button
-                  onClick={handleLogout}
-                  className="ml-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-600"
-                >
-                  Logout
-                </button>
+                {/* Account Dropdown (Desktop) */}
+                <div className="relative">
+                  <button
+                    onClick={() => setIsAccountOpen((prev) => !prev)}
+                    className="ml-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"
+                    aria-haspopup="menu"
+                    aria-expanded={isAccountOpen}
+                  >
+                    {user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : 'Account'}
+                  </button>
+                  {isAccountOpen && (
+                    <div
+                      className="absolute right-0 mt-2 w-40 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] shadow-lg dark:border-slate-700"
+                      role="menu"
+                    >
+                      <Link
+                        to={getDashboardLink()}
+                        onClick={() => setIsAccountOpen(false)}
+                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                        role="menuitem"
+                      >
+                        Account
+                      </Link>
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-slate-100 dark:text-red-400 dark:hover:bg-slate-800"
+                        role="menuitem"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
               </>
             ) : (
               <Link
@@ -156,12 +184,21 @@ const Navbar = ({ isDark, setIsDark }) => {
                 >
                   Dashboard
                 </Link>
-                <button
-                  onClick={handleLogout}
-                  className="mt-2 rounded-lg bg-red-500 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-600"
-                >
-                  Logout
-                </button>
+                {/* Account + Logout (Mobile) */}
+                <div className="mt-2 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] dark:border-slate-700">
+                  <button
+                    onClick={() => navigate(getDashboardLink())}
+                    className="w-full px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                  >
+                    {user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : 'Account'}
+                  </button>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full px-4 py-3 text-left text-sm font-medium text-red-600 hover:bg-slate-100 dark:text-red-400 dark:hover:bg-slate-800"
+                  >
+                    Logout
+                  </button>
+                </div>
               </>
             ) : (
               <Link
