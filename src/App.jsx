@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastProvider } from './contexts/ToastContext'
 import { AuthProvider } from './contexts/AuthContext'
+import { SavedEventsProvider } from './contexts/SavedEventsContext'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -38,39 +39,41 @@ const App = () => {
   return (
     <ToastProvider>
       <AuthProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <Navbar isDark={isDark} setIsDark={setIsDark} />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/events/:slug" element={<EventDetailPage />} />
-            <Route path="/sign-in" element={<SignInPage />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            
-            {/* Protected Dashboard Route */}
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute allowedRoles={['customer', 'promoter']}>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-            
-            <Route path="/blog" element={<ComingSoonPage />} />
-            <Route path="/careers" element={<ComingSoonPage />} />
-            <Route path="/press" element={<ComingSoonPage />} />
-            <Route path="/pricing" element={<ComingSoonPage />} />
-            <Route path="/security" element={<ComingSoonPage />} />
-            <Route path="/privacy" element={<ComingSoonPage />} />
-            <Route path="/terms" element={<ComingSoonPage />} />
-            <Route path="/cookies" element={<ComingSoonPage />} />
-            <Route path="/contact" element={<ComingSoonPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </BrowserRouter>
+        <SavedEventsProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <Navbar isDark={isDark} setIsDark={setIsDark} />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/events/:slug" element={<EventDetailPage />} />
+              <Route path="/sign-in" element={<SignInPage />} />
+              <Route path="/sign-up" element={<SignUpPage />} />
+              
+              {/* Protected Dashboard Route */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute allowedRoles={['customer', 'promoter']}>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              
+              <Route path="/blog" element={<ComingSoonPage />} />
+              <Route path="/careers" element={<ComingSoonPage />} />
+              <Route path="/press" element={<ComingSoonPage />} />
+              <Route path="/pricing" element={<ComingSoonPage />} />
+              <Route path="/security" element={<ComingSoonPage />} />
+              <Route path="/privacy" element={<ComingSoonPage />} />
+              <Route path="/terms" element={<ComingSoonPage />} />
+              <Route path="/cookies" element={<ComingSoonPage />} />
+              <Route path="/contact" element={<ComingSoonPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </BrowserRouter>
+        </SavedEventsProvider>
       </AuthProvider>
     </ToastProvider>
   )

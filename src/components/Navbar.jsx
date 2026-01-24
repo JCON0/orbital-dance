@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 const Navbar = ({ isDark, setIsDark }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isAccountOpen, setIsAccountOpen] = useState(false)
+  const accountMenuRef = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
   const { user, logout } = useAuth()
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (accountMenuRef.current && !accountMenuRef.current.contains(event.target)) {
+        setIsAccountOpen(false)
+      }
+    }
+
+    if (isAccountOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isAccountOpen])
   const handleLogout = () => {
     logout()
     navigate('/')
@@ -76,7 +90,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                   Dashboard
                 </Link>
                 {/* Account Dropdown (Desktop) */}
-                <div className="relative">
+                <div className="relative" ref={accountMenuRef}>
                   <button
                     onClick={() => setIsAccountOpen((prev) => !prev)}
                     className="ml-2 rounded-lg bg-linear-to-r from-cyan-400 to-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-cyan-500 hover:to-cyan-700"

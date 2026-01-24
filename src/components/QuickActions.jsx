@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const QuickActions = ({ userType }) => {
+const QuickActions = ({ userType, onViewSavedEvents }) => {
   const navigate = useNavigate()
   const isCustomer = userType === 'customer'
 
@@ -18,7 +18,7 @@ const QuickActions = ({ userType }) => {
             Browse Events
           </button>
           <button
-            onClick={() => navigate('/events')}
+            onClick={onViewSavedEvents}
             className="px-6 py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-card-hover transition"
           >
             View Saved Events

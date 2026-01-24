@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { createSlug } from '../utils/slugUtils'
-import { useToast } from '../contexts/ToastContext'
 import { useAuth } from '../contexts/AuthContext'
+import { useSavedEvents } from '../contexts/SavedEventsContext'
 import AuthPromptModal from './AuthPromptModal'
 
 const EventCard = ({ event }) => {
-  const [isSaved, setIsSaved] = useState(false)
-  const [showAuthPrompt, setShowAuthPrompt] = useState(false)
-  const { addToast } = useToast()
   const { isAuthenticated } = useAuth()
+  const { isSaved, toggleSavedEvent } = useSavedEvents()
+  const [showAuthPrompt, setShowAuthPrompt] = React.useState(false)
+
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -33,12 +33,10 @@ const EventCard = ({ event }) => {
       setShowAuthPrompt(true)
       return
     }
-    const willBeSaved = !isSaved
-    setIsSaved(willBeSaved)
-    const message = willBeSaved ? `✓ ${event.title} saved!` : `✗ ${event.title} removed from saved`
-    const type = willBeSaved ? 'success' : 'error'
-    addToast(message, type)
+    toggleSavedEvent(event.id)
   }
+
+  const eventIsSaved = isSaved(event.id)
 
   return (
     <>
@@ -107,9 +105,9 @@ const EventCard = ({ event }) => {
           <button
             onClick={handleSaveEvent}
             className="rounded-lg border border-primary px-4 py-2.5 text-secondary transition hover:bg-secondary"
-            aria-label={isSaved ? 'Remove from saved' : 'Save for later'}
+            aria-label={eventIsSaved ? 'Remove from saved' : 'Save for later'}
           >
-            {isSaved ? (
+            {eventIsSaved ? (
               <svg className="h-5 w-5 fill-red-500" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
               </svg>

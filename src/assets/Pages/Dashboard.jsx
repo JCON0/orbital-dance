@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import DashboardHeader from '../../components/DashboardHeader'
 import StatsGrid from '../../components/StatsGrid'
@@ -6,10 +6,12 @@ import QuickActions from '../../components/QuickActions'
 import RecentEvents from '../../components/RecentEvents'
 import AccountInfo from '../../components/AccountInfo'
 import Footer from '../../components/Footer'
+import SavedEvents from '../../components/SavedEvents'
 
 const Dashboard = () => {
   const { user } = useAuth()
   const isPromoter = user?.type === 'promoter'
+  const [showSavedEvents, setShowSavedEvents] = useState(false)
 
   return (
     <>
@@ -23,7 +25,14 @@ const Dashboard = () => {
         
         <StatsGrid userType={user?.type} />
         
-        <QuickActions userType={user?.type} />
+        <QuickActions 
+          userType={user?.type} 
+          onViewSavedEvents={() => setShowSavedEvents(true)}
+        />
+        
+        {showSavedEvents && !isPromoter && (
+          <SavedEvents onClose={() => setShowSavedEvents(false)} />
+        )}
         
         {isPromoter && <RecentEvents />}
         
