@@ -31,7 +31,6 @@ const EventCard = ({ event }) => {
   const handleSaveEvent = () => {
     if (!isAuthenticated) {
       setShowAuthPrompt(true)
-      addToast('Please sign in to save events', 'info')
       return
     }
     const willBeSaved = !isSaved
