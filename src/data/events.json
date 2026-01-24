@@ -2,6 +2,7 @@
   "events": [
     {
       "id": 1,
+      "promoterId": 2,
       "title": "Techno Underground - Berlin Edition",
       "category": "Techno",
       "location": "Berlin, Germany",
@@ -23,6 +24,7 @@
     },
     {
       "id": 2,
+      "promoterId": 2,
       "title": "House Music Marathon",
       "category": "House",
       "location": "Amsterdam, Netherlands",
@@ -44,6 +46,7 @@
     },
     {
       "id": 3,
+      "promoterId": 2,
       "title": "Trance Euphoria Festival",
       "category": "Trance",
       "location": "London, UK",
@@ -64,6 +67,7 @@
       ]
     },
     {
+      "promoterId": 1,
       "id": 4,
       "title": "Drum & Bass Jungle Night",
       "category": "Drum & Bass",
@@ -85,6 +89,7 @@
       ]
     },
     {
+      "promoterId": 2,
       "id": 5,
       "title": "Dubstep Bass Shaker",
       "category": "Dubstep",
@@ -106,6 +111,7 @@
       ]
     },
     {
+      "promoterId": 1,
       "id": 6,
       "title": "Progressive Psytrance Journey",
       "category": "Psytrance",
@@ -126,7 +132,7 @@
         "trippy"
       ]
     },
-    {
+    {"promoterId": 2,
       "id": 7,
       "title": "Electro & Breaks Revival",
       "category": "Electro",
@@ -147,7 +153,7 @@
         "old-school"
       ]
     },
-    {
+    {"promoterId": 1,
       "id": 8,
       "title": "Future Bass & Melodic Dubstep",
       "category": "Future Bass",
@@ -168,7 +174,7 @@
         "drops"
       ]
     },
-    {
+    {"promoterId": 2,
       "id": 9,
       "title": "Hardstyle Supremacy",
       "category": "Hardstyle",
@@ -189,7 +195,7 @@
         "massive"
       ]
     },
-    {
+    {"promoterId": 1,
       "id": 10,
       "title": "Minimal Techno Deep Session",
       "category": "Minimal",
@@ -210,7 +216,7 @@
         "hypnotic"
       ]
     },
-    {
+    {"promoterId": 2,
       "id": 11,
       "title": "Garage & UK Bass Night",
       "category": "Garage",
@@ -232,6 +238,7 @@
       ]
     },
     {
+      "promoterId": 1,
       "id": 12,
       "title": "Industrial & EBM Dark Night",
       "category": "Industrial",
