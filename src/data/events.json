@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 1,
-      "promoterId": 2,
+      "promoterId": 3,
       "title": "Techno Underground - Berlin Edition",
       "category": "Techno",
       "location": "Berlin, Germany",
@@ -24,7 +24,7 @@
     },
     {
       "id": 2,
-      "promoterId": 2,
+      "promoterId": 3,
       "title": "House Music Marathon",
       "category": "House",
       "location": "Amsterdam, Netherlands",
@@ -46,7 +46,7 @@
     },
     {
       "id": 3,
-      "promoterId": 2,
+      "promoterId": 3,
       "title": "Trance Euphoria Festival",
       "category": "Trance",
       "location": "London, UK",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "promoterId": 2,
+      "promoterId": 3,
       "id": 5,
       "title": "Dubstep Bass Shaker",
       "category": "Dubstep",
@@ -132,7 +132,7 @@
         "trippy"
       ]
     },
-    {"promoterId": 2,
+    {"promoterId": 3,
       "id": 7,
       "title": "Electro & Breaks Revival",
       "category": "Electro",
@@ -174,7 +174,7 @@
         "drops"
       ]
     },
-    {"promoterId": 2,
+    {"promoterId": 3,
       "id": 9,
       "title": "Hardstyle Supremacy",
       "category": "Hardstyle",

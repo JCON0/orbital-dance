@@ -10,6 +10,9 @@ const Navbar = ({ isDark, setIsDark }) => {
   const navigate = useNavigate()
   const { user, logout } = useAuth()
 
+  const hideForPromoterDashboard =
+    location.pathname.startsWith('/dashboard') && user?.type === 'promoter'
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (accountMenuRef.current && !accountMenuRef.current.contains(event.target)) {
@@ -33,6 +36,8 @@ const Navbar = ({ isDark, setIsDark }) => {
   const getDashboardLink = () => {
     return '/dashboard'
   }
+
+  if (hideForPromoterDashboard) return null
 
   return (
     <nav className="sticky top-0 z-50 border-b border-stone-200 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-md transition dark:border-slate-700">
