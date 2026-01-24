@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import DashboardHeader from '../../components/DashboardHeader'
 import StatsGrid from '../../components/StatsGrid'
@@ -9,7 +9,6 @@ import SavedEvents from '../../components/SavedEvents'
 const Dashboard = () => {
   const { user } = useAuth()
   const isPromoter = user?.type === 'promoter'
-  const [showSavedEvents, setShowSavedEvents] = useState(false)
 
   return (
     <>
@@ -23,9 +22,7 @@ const Dashboard = () => {
         
         <StatsGrid userType={user?.type} />
         
-        <QuickActions 
-          <SavedEvents onClose={() => setShowSavedEvents(false)} />
-        )}
+        {!isPromoter && <SavedEvents />}
         
         {isPromoter && <RecentEvents />}
         
