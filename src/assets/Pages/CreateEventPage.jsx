@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { useToast } from '../../contexts/ToastContext'
 import Footer from '../../components/Footer'
+import CreateEventPreview from '../../components/CreateEventPreview'
 
 const CreateEventPage = () => {
   const navigate = useNavigate()
@@ -41,6 +42,7 @@ const CreateEventPage = () => {
 
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showPreview, setShowPreview] = useState(false)
 
   const categories = [
     'Techno', 'House', 'Trance', 'Drum & Bass', 
@@ -52,10 +54,11 @@ const CreateEventPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    // Clear error for this field
+    // Clear error for this field and hide preview to avoid stale data
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
     }
+    if (showPreview) setShowPreview(false)
   }
 
   const validateForm = () => {
@@ -84,49 +87,69 @@ const CreateEventPage = () => {
     return Object.keys(newErrors).length === 0
   }
 
+  const buildPreviewEvent = () => ({
+    id: -1,
+    title: formData.title || 'Untitled event',
+    category: formData.category,
+    location: formData.location || 'Location TBC',
+    venue: formData.venue || 'Venue TBC',
+    date: formData.date || new Date().toISOString().split('T')[0],
+    time: formData.time || '21:00',
+    price: formData.price ? parseFloat(formData.price) : 0,
+    currency: formData.currency,
+    image: formData.image || 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
+    description: formData.description || 'Description coming soon.',
+    attendees: 0,
+    maxCapacity: formData.maxCapacity ? parseInt(formData.maxCapacity, 10) : 0,
+    tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()).filter(Boolean) : []
+  })
+
+  const buildEventPayload = (events) => {
+    const nextId = Math.max(...events.map(e => e.id), 0) + 1
+    const preview = buildPreviewEvent()
+
+    return {
+      ...preview,
+      id: nextId,
+      promoterId: user?.id,
+      promoterName: `${user?.firstName} ${user?.lastName}`
+    }
+  }
+
   const saveDraft = () => {
     const draftKey = `eventDraft_${user?.id}`
     localStorage.setItem(draftKey, JSON.stringify(formData))
     showToast('Draft saved successfully', 'success')
   }
 
-  const handleSubmit = async (e) => {
+  const handleContinue = (e) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       showToast('Please fix the errors in the form', 'error')
+      return
+    }
+
+    setShowPreview(true)
+    showToast('Preview ready. Confirm to create.', 'success')
+  }
+
+  const handleCreate = async () => {
+    if (!validateForm()) {
+      showToast('Please fix the errors in the form', 'error')
+      setShowPreview(false)
       return
     }
 
     setIsSubmitting(true)
 
     try {
-      // Fetch current events
       const response = await fetch('http://localhost:8001/events')
       const data = await response.json()
       const events = data.events || data
 
-      // Create new event object
-      const newEvent = {
-        id: Math.max(...events.map(e => e.id), 0) + 1,
-        title: formData.title,
-        category: formData.category,
-        location: formData.location,
-        venue: formData.venue,
-        date: formData.date,
-        time: formData.time,
-        price: parseFloat(formData.price),
-        currency: formData.currency,
-        image: formData.image || 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
-        description: formData.description,
-        attendees: 0,
-        maxCapacity: parseInt(formData.maxCapacity),
-        tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : [],
-        promoterId: user?.id,
-        promoterName: `${user?.firstName} ${user?.lastName}`
-      }
+      const newEvent = buildEventPayload(events)
 
-      // Update events in db
       const updatedEvents = [...events, newEvent]
       
       await fetch('http://localhost:8001/events', {
@@ -137,7 +160,6 @@ const CreateEventPage = () => {
         body: JSON.stringify({ events: updatedEvents })
       })
 
-      // Clear draft after successful creation
       const draftKey = `eventDraft_${user?.id}`
       localStorage.removeItem(draftKey)
       
@@ -166,13 +188,25 @@ const CreateEventPage = () => {
               </svg>
               Back to Dashboard
             </button>
-            <h1 className="text-4xl font-bold text-primary mb-2">Create New Event</h1>
-            <p className="text-gray-400">Fill in the details to create your electronic music event</p>
+            {!showPreview && (
+              <>
+                <h1 className="text-4xl font-bold text-primary mb-2">Create New Event</h1>
+                <p className="text-gray-400">Fill in the details to create your electronic music event</p>
+              </>
+            )}
           </div>
 
-          {/* Form */}
+          {/* Form or Preview */}
           <div className="bg-card rounded-2xl p-8 border border-primary">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {showPreview ? (
+              <CreateEventPreview
+                formData={formData}
+                onEdit={() => setShowPreview(false)}
+                onConfirm={handleCreate}
+                isSubmitting={isSubmitting}
+              />
+            ) : (
+            <form onSubmit={handleContinue} className="space-y-6">
               {/* Event Title */}
               <div>
                 <label className="block text-sm font-semibold text-primary mb-2">
@@ -411,10 +445,11 @@ const CreateEventPage = () => {
                   className="flex-1 px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Creating Event...' : 'Continue'}
+                  {isSubmitting ? 'Preparing preview...' : 'Preview & Continue'}
                 </button>
               </div>
             </form>
+            )}
           </div>
         </div>
       </div>
