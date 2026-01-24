@@ -59,7 +59,7 @@ const EventCard = ({ event }) => {
       {/* Event Details */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
+        <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white truncate">
           {event.title}
         </h3>
 
