@@ -14,7 +14,12 @@
       "description": "World-class techno night at Berlin's most iconic venue. International DJs spinning dark, industrial techno. Strictly 21+. No photos policy.",
       "attendees": 1245,
       "maxCapacity": 1500,
-      "tags": ["techno", "underground", "berlin", "nightlife"]
+      "tags": [
+        "techno",
+        "underground",
+        "berlin",
+        "nightlife"
+      ]
     },
     {
       "id": 2,
@@ -30,7 +35,12 @@
       "description": "12-hour house music journey featuring deep house, tech house, and progressive sets. Multiple rooms with different vibes.",
       "attendees": 567,
       "maxCapacity": 800,
-      "tags": ["house", "deep-house", "tech-house", "marathon"]
+      "tags": [
+        "house",
+        "deep-house",
+        "tech-house",
+        "marathon"
+      ]
     },
     {
       "id": 3,
@@ -46,7 +56,12 @@
       "description": "Epic trance event with legendary DJs. Uplifting melodies and massive drops. State-of-the-art sound system and visuals.",
       "attendees": 892,
       "maxCapacity": 1200,
-      "tags": ["trance", "uplifting", "festival", "massive"]
+      "tags": [
+        "trance",
+        "uplifting",
+        "festival",
+        "massive"
+      ]
     },
     {
       "id": 4,
@@ -62,7 +77,12 @@
       "description": "High-energy drum & bass night with jungle vibes. Fast breaks, heavy bass, and non-stop dancing. Local and international selectors.",
       "attendees": 456,
       "maxCapacity": 600,
-      "tags": ["drum-and-bass", "jungle", "breakbeat", "bass"]
+      "tags": [
+        "drum-and-bass",
+        "jungle",
+        "breakbeat",
+        "bass"
+      ]
     },
     {
       "id": 5,
@@ -78,7 +98,12 @@
       "description": "Bass-heavy dubstep night with massive sound system. Featuring riddim, brostep, and classic dubstep. Floor will be shaking.",
       "attendees": 324,
       "maxCapacity": 450,
-      "tags": ["dubstep", "bass", "riddim", "heavy"]
+      "tags": [
+        "dubstep",
+        "bass",
+        "riddim",
+        "heavy"
+      ]
     },
     {
       "id": 6,
@@ -94,7 +119,12 @@
       "description": "Mind-bending psytrance experience. Progressive grooves building to full-power psytrance. UV lights and psychedelic visuals.",
       "attendees": 289,
       "maxCapacity": 350,
-      "tags": ["psytrance", "progressive", "psychedelic", "trippy"]
+      "tags": [
+        "psytrance",
+        "progressive",
+        "psychedelic",
+        "trippy"
+      ]
     },
     {
       "id": 7,
@@ -110,7 +140,12 @@
       "description": "Old-school electro and breakbeat party. Vintage vibes with modern production. For true electronic music heads.",
       "attendees": 234,
       "maxCapacity": 300,
-      "tags": ["electro", "breaks", "vintage", "old-school"]
+      "tags": [
+        "electro",
+        "breaks",
+        "vintage",
+        "old-school"
+      ]
     },
     {
       "id": 8,
@@ -126,7 +161,12 @@
       "description": "Emotional journey through future bass and melodic dubstep. Beautiful melodies meet heavy drops. All ages welcome.",
       "attendees": 412,
       "maxCapacity": 550,
-      "tags": ["future-bass", "melodic", "emotional", "drops"]
+      "tags": [
+        "future-bass",
+        "melodic",
+        "emotional",
+        "drops"
+      ]
     },
     {
       "id": 9,
@@ -142,7 +182,12 @@
       "description": "Massive hardstyle event with top-tier producers. Raw kicks, euphoric melodies, and intense energy. Hardstyle family unite!",
       "attendees": 1567,
       "maxCapacity": 2000,
-      "tags": ["hardstyle", "raw", "euphoric", "massive"]
+      "tags": [
+        "hardstyle",
+        "raw",
+        "euphoric",
+        "massive"
+      ]
     },
     {
       "id": 10,
@@ -158,7 +203,12 @@
       "description": "Stripped-back minimal techno for purists. Hypnotic grooves and subtle progressions. Intimate underground atmosphere.",
       "attendees": 178,
       "maxCapacity": 250,
-      "tags": ["minimal", "techno", "deep", "hypnotic"]
+      "tags": [
+        "minimal",
+        "techno",
+        "deep",
+        "hypnotic"
+      ]
     },
     {
       "id": 11,
@@ -174,7 +224,12 @@
       "description": "UK garage throwback with modern bass. 2-step, grime, and bassline. Celebrating British underground culture.",
       "attendees": 678,
       "maxCapacity": 900,
-      "tags": ["garage", "uk-bass", "2-step", "grime"]
+      "tags": [
+        "garage",
+        "uk-bass",
+        "2-step",
+        "grime"
+      ]
     },
     {
       "id": 12,
@@ -190,7 +245,12 @@
       "description": "Dark industrial and EBM night. Harsh beats, distorted synths, and gothic atmosphere. For the darker side of electronic music.",
       "attendees": 267,
       "maxCapacity": 400,
-      "tags": ["industrial", "ebm", "dark", "gothic"]
+      "tags": [
+        "industrial",
+        "ebm",
+        "dark",
+        "gothic"
+      ]
     }
   ]
 }

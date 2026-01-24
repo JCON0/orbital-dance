@@ -144,21 +144,23 @@ const CreateEventPage = () => {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('http://localhost:8001/events')
+      const response = await fetch('http://localhost:8000/events')
       const data = await response.json()
-      const events = data.events || data
+      const events = Array.isArray(data) ? data : data.events || []
 
       const newEvent = buildEventPayload(events)
 
-      const updatedEvents = [...events, newEvent]
-      
-      await fetch('http://localhost:8001/events', {
-        method: 'PUT',
+      const createResponse = await fetch('http://localhost:8000/events', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ events: updatedEvents })
+        body: JSON.stringify(newEvent)
       })
+
+      if (!createResponse.ok) {
+        throw new Error('Failed to create event')
+      }
 
       const draftKey = `eventDraft_${user?.id}`
       localStorage.removeItem(draftKey)
