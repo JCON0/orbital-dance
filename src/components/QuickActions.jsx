@@ -26,7 +26,10 @@ const QuickActions = ({ userType, onViewSavedEvents }) => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="px-6 py-3 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 transition">
+          <button 
+            onClick={() => navigate('/create-event')}
+            className="px-6 py-3 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 transition"
+          >
             Create New Event
           </button>
           <button className="px-6 py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-card-hover transition">

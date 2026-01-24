@@ -13,6 +13,7 @@ import EventDetailPage from './assets/Pages/EventDetailPage'
 import SignInPage from './assets/Pages/SignInPage'
 import SignUpPage from './assets/Pages/SignUpPage'
 import Dashboard from './assets/Pages/Dashboard'
+import CreateEventPage from './assets/Pages/CreateEventPage'
 import NotFoundPage from './assets/Pages/NotFoundPage'
 import ComingSoonPage from './assets/Pages/ComingSoonPage'
 
@@ -57,6 +58,16 @@ const App = () => {
                 element={
                   <ProtectedRoute allowedRoles={['customer', 'promoter']}>
                     <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              
+              {/* Protected Create Event Route */}
+              <Route
+                path="/create-event"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <CreateEventPage />
                   </ProtectedRoute>
                 }
               />
