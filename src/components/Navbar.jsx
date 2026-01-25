@@ -5,7 +5,9 @@ import { useAuth } from '../contexts/AuthContext'
 const Navbar = ({ isDark, setIsDark }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isAccountOpen, setIsAccountOpen] = useState(false)
+  const [isDashboardOpen, setIsDashboardOpen] = useState(false)
   const accountMenuRef = useRef(null)
+  const dashboardMenuRef = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
   const { user, logout } = useAuth()
@@ -18,13 +20,16 @@ const Navbar = ({ isDark, setIsDark }) => {
       if (accountMenuRef.current && !accountMenuRef.current.contains(event.target)) {
         setIsAccountOpen(false)
       }
+      if (dashboardMenuRef.current && !dashboardMenuRef.current.contains(event.target)) {
+        setIsDashboardOpen(false)
+      }
     }
 
-    if (isAccountOpen) {
+    if (isAccountOpen || isDashboardOpen) {
       document.addEventListener('mousedown', handleClickOutside)
       return () => document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isAccountOpen])
+  }, [isAccountOpen, isDashboardOpen])
   const handleLogout = () => {
     logout()
     navigate('/')
@@ -84,16 +89,59 @@ const Navbar = ({ isDark, setIsDark }) => {
             </Link>
             {user ? (
               <>
-                <Link
-                  to={getDashboardLink()}
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
-                    location.pathname.includes('/dashboard')
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
-                  }`}
-                >
-                  Dashboard
-                </Link>
+                {/* Dashboard Dropdown (Desktop) - For both customers and promoters */}
+                <div className="relative" ref={dashboardMenuRef}>
+                  <button
+                    onClick={() => setIsDashboardOpen((prev) => !prev)}
+                    className={`rounded-lg px-4 py-2 text-sm font-medium transition flex items-center gap-2 ${
+                      location.pathname.includes('/dashboard')
+                        ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                    }`}
+                    aria-haspopup="menu"
+                    aria-expanded={isDashboardOpen}
+                  >
+                    Dashboard
+                    <svg className={`h-4 w-4 transition ${isDashboardOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </button>
+                  {isDashboardOpen && (
+                    <div
+                      className="absolute left-0 mt-2 w-48 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] shadow-lg dark:border-slate-700"
+                      role="menu"
+                    >
+                      <Link
+                        to="/dashboard"
+                        onClick={() => setIsDashboardOpen(false)}
+                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                        role="menuitem"
+                      >
+                        Overview
+                      </Link>
+                      {user?.type === 'promoter' && (
+                        <>
+                          <Link
+                            to="/dashboard/my-events"
+                            onClick={() => setIsDashboardOpen(false)}
+                            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                            role="menuitem"
+                          >
+                            My Events
+                          </Link>
+                          <Link
+                            to="/dashboard/statistics"
+                            onClick={() => setIsDashboardOpen(false)}
+                            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                            role="menuitem"
+                          >
+                            Statistics
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  )}
+                </div>
                 {/* Account Dropdown (Desktop) */}
                 <div className="relative" ref={accountMenuRef}>
                   <button
@@ -203,6 +251,32 @@ const Navbar = ({ isDark, setIsDark }) => {
                 >
                   Dashboard
                 </Link>
+                {user?.type === 'promoter' && (
+                  <>
+                    <Link
+                      to="/dashboard/my-events"
+                      onClick={() => setIsOpen(false)}
+                      className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                        location.pathname === '/dashboard/my-events'
+                          ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                          : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      My Events
+                    </Link>
+                    <Link
+                      to="/dashboard/statistics"
+                      onClick={() => setIsOpen(false)}
+                      className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                        location.pathname === '/dashboard/statistics'
+                          ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                          : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      Statistics
+                    </Link>
+                  </>
+                )}
                 {/* Account + Logout (Mobile) */}
                 <div className="mt-2 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] dark:border-slate-700">
                   <button

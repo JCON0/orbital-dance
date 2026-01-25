@@ -22,16 +22,30 @@ const SavedEvents = ({ onClose }) => {
               type="button"
               aria-pressed={viewMode === 'grid'}
               onClick={() => setViewMode('grid')}
-              className={`px-3 py-1 text-sm font-semibold transition ${viewMode === 'grid' ? 'bg-primary text-white' : 'text-primary hover:bg-card-hover'}`}
+              className={`px-3 py-1 text-sm font-semibold transition flex items-center gap-1.5 ${viewMode === 'grid' ? 'bg-primary text-white' : 'text-primary hover:bg-card-hover'}`}
             >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
               Grid
             </button>
             <button
               type="button"
               aria-pressed={viewMode === 'list'}
               onClick={() => setViewMode('list')}
-              className={`px-3 py-1 text-sm font-semibold transition ${viewMode === 'list' ? 'bg-primary text-white' : 'text-primary hover:bg-card-hover'}`}
+              className={`px-3 py-1 text-sm font-semibold transition flex items-center gap-1.5 ${viewMode === 'list' ? 'bg-primary text-white' : 'text-primary hover:bg-card-hover'}`}
             >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <line x1="8" y1="6" x2="21" y2="6" strokeLinecap="round" />
+                <line x1="8" y1="12" x2="21" y2="12" strokeLinecap="round" />
+                <line x1="8" y1="18" x2="21" y2="18" strokeLinecap="round" />
+                <line x1="3" y1="6" x2="3.01" y2="6" strokeLinecap="round" strokeWidth="3" />
+                <line x1="3" y1="12" x2="3.01" y2="12" strokeLinecap="round" strokeWidth="3" />
+                <line x1="3" y1="18" x2="3.01" y2="18" strokeLinecap="round" strokeWidth="3" />
+              </svg>
               List
             </button>
           </div>

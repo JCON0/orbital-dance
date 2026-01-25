@@ -18,6 +18,7 @@ import CreateEventPage from './assets/Pages/CreateEventPage'
 import NotFoundPage from './assets/Pages/NotFoundPage'
 import ComingSoonPage from './assets/Pages/ComingSoonPage'
 import PromoterEventsPage from './assets/Pages/PromoterEventsPage'
+import StatisticsPage from './assets/Pages/StatisticsPage'
 
 const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -73,6 +74,14 @@ const App = () => {
                 element={
                   <ProtectedRoute allowedRoles={['promoter']}>
                     <PromoterEventsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/statistics"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <StatisticsPage />
                   </ProtectedRoute>
                 }
               />
