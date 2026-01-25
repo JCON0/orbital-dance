@@ -117,7 +117,7 @@ const RecentEvents = () => {
                     </div>
                   </div>
                   <Link
-                    to={`/events/${createSlug(upcomingEvent.title)}`}
+                    to={`/events/${createSlug(upcomingEvent.title)}/preview`}
                     className="block w-full text-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-600 shadow-md"
                   >
                     View Event

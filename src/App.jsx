@@ -10,6 +10,7 @@ import HomePage from './assets/Pages/HomePage'
 import EventsPage from './assets/Pages/EventsPage'
 import AboutPage from './assets/Pages/AboutPage'
 import EventDetailPage from './assets/Pages/EventDetailPage'
+import EventPreviewPage from './assets/Pages/EventPreviewPage'
 import SignInPage from './assets/Pages/SignInPage'
 import SignUpPage from './assets/Pages/SignUpPage'
 import Dashboard from './assets/Pages/Dashboard'
@@ -49,6 +50,11 @@ const App = () => {
               <Route path="/events" element={<EventsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/events/:slug" element={<EventDetailPage />} />
+              <Route path="/events/:slug/preview" element={
+                <ProtectedRoute allowedRoles={['promoter']}>
+                  <EventPreviewPage />
+                </ProtectedRoute>
+              } />
               <Route path="/sign-in" element={<SignInPage />} />
               <Route path="/sign-up" element={<SignUpPage />} />
               

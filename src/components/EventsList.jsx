@@ -80,7 +80,7 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
                       </div>
                     </div>
                     <Link
-                      to={`/events/${slug}`}
+                      to={isOwnDashboard ? `/events/${slug}/preview` : `/events/${slug}`}
                       className="rounded-lg bg-cyan-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700 shadow-md"
                     >
                       View Event

@@ -10,8 +10,8 @@ const Navbar = ({ isDark, setIsDark }) => {
   const navigate = useNavigate()
   const { user, logout } = useAuth()
 
-  const hideForPromoterDashboard =
-    location.pathname.startsWith('/dashboard') && user?.type === 'promoter'
+  // Keep navbar visible on promoter dashboard as well
+  const hideForPromoterDashboard = false
 
   useEffect(() => {
     const handleClickOutside = (event) => {
