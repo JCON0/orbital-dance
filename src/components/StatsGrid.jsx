@@ -54,10 +54,16 @@ const StatsGrid = ({ userType }) => {
     )
   }
 
+  const totalSalesValue = new Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency: 'GBP',
+    maximumFractionDigits: 0
+  }).format(promoterStats?.totalRevenue || 0)
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       <StatCard title="Active Events" value={promoterStats?.activeEvents || 0} />
-      <StatCard title="Total Sales" value={`€${(promoterStats?.totalRevenue || 0).toLocaleString()}`} />
+      <StatCard title="Total Sales" value={totalSalesValue} />
       <StatCard title="Attendees" value={promoterStats?.totalAttendees || 0} />
     </div>
   )
