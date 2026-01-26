@@ -1,27 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+/* Context Providers */
 import { ToastProvider } from './contexts/ToastContext'
 import { AuthProvider } from './contexts/AuthContext'
 import { SavedEventsProvider } from './contexts/SavedEventsContext'
+
+/* Layout / UI */
 import Navbar from './components/navigation/Navbar'
 import ScrollToTop from './components/navigation/ScrollToTop'
 import ProtectedRoute from './components/auth/ProtectedRoute'
+
+/* Public Pages */
 import HomePage from './assets/Pages/public/HomePage'
-import EventsPage from './assets/Pages/customer/EventsPage'
 import AboutPage from './assets/Pages/public/AboutPage'
-import EventDetailPage from './assets/Pages/promoter/EventDetailPage'
-import EventPreviewPage from './assets/Pages/promoter/EventPreviewPage'
 import SignInPage from './assets/Pages/public/SignInPage'
 import SignUpPage from './assets/Pages/public/SignUpPage'
-import Dashboard from './assets/Pages/Dashboard'
-import CreateEventPage from './assets/Pages/promoter/CreateEventPage'
-import NotFoundPage from './assets/Pages/public/NotFoundPage'
 import ComingSoonPage from './assets/Pages/public/ComingSoonPage'
-import PromoterEventsPage from './assets/Pages/promoter/PromoterEventsPage'
-import StatisticsPage from './assets/Pages/promoter/StatisticsPage'
+import NotFoundPage from './assets/Pages/public/NotFoundPage'
+
+/* Dashboard Redirect */
+import Dashboard from './assets/Pages/Dashboard'
+
+/* Customer Pages */
+import UserDashboard from './assets/Pages/customer/UserDashboard'
+import EventsPage from './assets/Pages/customer/EventsPage'
 import CustomerTicketsPage from './assets/Pages/customer/CustomerTicketsPage'
 
+/* Promoter Pages */
+import PromoterDashboard from './assets/Pages/promoter/PromoterDashboard'
+import CreateEventPage from './assets/Pages/promoter/CreateEventPage'
+import EventDetailPage from './assets/Pages/promoter/EventDetailPage'
+import EventPreviewPage from './assets/Pages/promoter/EventPreviewPage'
+import PromoterEventsPage from './assets/Pages/promoter/PromoterEventsPage'
+import StatisticsPage from './assets/Pages/promoter/StatisticsPage'
+
 const App = () => {
+  /* Dark Mode */
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme')
@@ -31,12 +46,13 @@ const App = () => {
   })
 
   useEffect(() => {
-    const htmlElement = document.documentElement
+    const html = document.documentElement
+
     if (isDark) {
-      htmlElement.classList.add('dark')
+      html.classList.add('dark')
       localStorage.setItem('theme', 'dark')
     } else {
-      htmlElement.classList.remove('dark')
+      html.classList.remove('dark')
       localStorage.setItem('theme', 'light')
     }
   }, [isDark])
@@ -47,64 +63,22 @@ const App = () => {
         <SavedEventsProvider>
           <BrowserRouter>
             <ScrollToTop />
+
+            {/* Main Navbar */}
             <Navbar isDark={isDark} setIsDark={setIsDark} />
+
             <Routes>
+
+              {/* ========== PUBLIC ROUTES ========== */}
+
               <Route path="/" element={<HomePage />} />
-              <Route path="/events" element={<EventsPage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/events/:slug" element={<EventDetailPage />} />
-              <Route path="/events/:slug/preview" element={
-                <ProtectedRoute allowedRoles={['promoter']}>
-                  <EventPreviewPage />
-                </ProtectedRoute>
-              } />
+              <Route path="/events" element={<EventsPage />} />
+
               <Route path="/sign-in" element={<SignInPage />} />
               <Route path="/sign-up" element={<SignUpPage />} />
-              
-              {/* Protected Dashboard Route */}
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute allowedRoles={['customer', 'promoter']}>
-                    <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dashboard/tickets"
-                element={
-                  <ProtectedRoute allowedRoles={['customer']}>
-                    <CustomerTicketsPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dashboard/my-events"
-                element={
-                  <ProtectedRoute allowedRoles={['promoter']}>
-                    <PromoterEventsPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dashboard/statistics"
-                element={
-                  <ProtectedRoute allowedRoles={['promoter']}>
-                    <StatisticsPage />
-                  </ProtectedRoute>
-                }
-              />
-              
-              {/* Protected Create Event Route */}
-              <Route
-                path="/create-event"
-                element={
-                  <ProtectedRoute allowedRoles={['promoter']}>
-                    <CreateEventPage />
-                  </ProtectedRoute>
-                }
-              />
-              
+
+              {/* Static Pages */}
               <Route path="/blog" element={<ComingSoonPage />} />
               <Route path="/careers" element={<ComingSoonPage />} />
               <Route path="/press" element={<ComingSoonPage />} />
@@ -114,7 +88,101 @@ const App = () => {
               <Route path="/terms" element={<ComingSoonPage />} />
               <Route path="/cookies" element={<ComingSoonPage />} />
               <Route path="/contact" element={<ComingSoonPage />} />
+
+
+              {/* ========== DASHBOARD ENTRY ========== */}
+
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute allowedRoles={['customer', 'promoter']}>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+
+              {/* ========== CUSTOMER DASHBOARD ========== */}
+
+              <Route
+                path="/dashboard/customer"
+                element={
+                  <ProtectedRoute allowedRoles={['customer']}>
+                    <UserDashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/dashboard/customer/tickets"
+                element={
+                  <ProtectedRoute allowedRoles={['customer']}>
+                    <CustomerTicketsPage />
+                  </ProtectedRoute>
+                }
+              />
+
+
+              {/* ========== PROMOTER DASHBOARD ========== */}
+
+              <Route
+                path="/dashboard/promoter"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <PromoterDashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/dashboard/promoter/events"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <PromoterEventsPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/dashboard/promoter/statistics"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <StatisticsPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/create-event"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <CreateEventPage />
+                  </ProtectedRoute>
+                }
+              />
+
+
+              {/* ========== EVENT ROUTES ========== */}
+
+              <Route
+                path="/events/:slug"
+                element={<EventDetailPage />}
+              />
+
+              <Route
+                path="/events/:slug/preview"
+                element={
+                  <ProtectedRoute allowedRoles={['promoter']}>
+                    <EventPreviewPage />
+                  </ProtectedRoute>
+                }
+              />
+
+
+              {/* ========== 404 ========== */}
+
               <Route path="*" element={<NotFoundPage />} />
+
             </Routes>
           </BrowserRouter>
         </SavedEventsProvider>

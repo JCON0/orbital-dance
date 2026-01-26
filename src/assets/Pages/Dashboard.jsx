@@ -1,20 +1,18 @@
-import React from 'react'
+import { Navigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
-import PromoterDashboard from './promoter/PromoterDashboard'
-import UserDashboard from './customer/UserDashboard'
 
 const Dashboard = () => {
   const { user, loading } = useAuth()
 
   if (loading) return null
 
-  if (!user) return null
+  if (!user) return <Navigate to="/login" />
 
   if (user.type === 'promoter') {
-    return <PromoterDashboard />
+    return <Navigate to="/dashboard/promoter" />
   }
 
-  return <UserDashboard />
+  return <Navigate to="/dashboard/customer" />
 }
 
 export default Dashboard
