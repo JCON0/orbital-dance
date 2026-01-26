@@ -90,7 +90,7 @@ const EventPreviewPage = () => {
     <>
       <div className="min-h-screen bg-primary">
         {/* Preview Mode Banner */}
-        <div className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 shadow-lg">
+        <div className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 shadow-lg relative z-10">
           <div className="mx-auto max-w-4xl flex items-center justify-between">
             <div className="flex items-center gap-3">
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,8 +101,8 @@ const EventPreviewPage = () => {
               <span className="text-cyan-100">This is how your event appears to customers</span>
             </div>
             <Link 
-              to="/dashboard" 
-              className="text-sm font-medium hover:text-cyan-100 transition flex items-center gap-1"
+              to="/dashboard/my-events" 
+              className="text-sm font-medium hover:text-cyan-100 transition flex items-center gap-1 px-4 py-2 rounded hover:bg-white/10 cursor-pointer"
             >
               ← Back to Dashboard
             </Link>
