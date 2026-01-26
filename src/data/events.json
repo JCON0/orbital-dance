@@ -45,28 +45,6 @@
       ]
     },
     {
-      "id": 3,
-      "promoterId": 2,
-      "title": "Trance Euphoria Festival",
-      "category": "Trance",
-      "location": "London, UK",
-      "venue": "Ministry of Sound",
-      "date": "2026-02-18",
-      "time": "21:00",
-      "price": 35,
-      "currency": "GBP",
-      "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800",
-      "description": "Epic trance event with legendary DJs. Uplifting melodies and massive drops. State-of-the-art sound system and visuals.",
-      "attendees": 892,
-      "maxCapacity": 1200,
-      "tags": [
-        "trance",
-        "uplifting",
-        "festival",
-        "massive"
-      ]
-    },
-    {
       "promoterId": 1,
       "id": 4,
       "title": "Drum & Bass Jungle Night",
@@ -221,28 +199,6 @@
       ]
     },
     {
-      "promoterId": 2,
-      "id": 11,
-      "title": "Garage & UK Bass Night",
-      "category": "Garage",
-      "location": "London, UK",
-      "venue": "Fabric",
-      "date": "2026-02-24",
-      "time": "22:00",
-      "price": 25,
-      "currency": "GBP",
-      "image": "https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=800",
-      "description": "UK garage throwback with modern bass. 2-step, grime, and bassline. Celebrating British underground culture.",
-      "attendees": 678,
-      "maxCapacity": 900,
-      "tags": [
-        "garage",
-        "uk-bass",
-        "2-step",
-        "grime"
-      ]
-    },
-    {
       "promoterId": 1,
       "id": 12,
       "title": "Industrial & EBM Dark Night",
@@ -273,12 +229,12 @@
       "venue": "NX",
       "date": "2026-02-12",
       "time": "22:30",
-      "price": 30,
+      "price": 15,
       "currency": "GBP",
       "image": "https://geo-media.beatport.com/image_size/590x404/5fa580e7-6e79-4cc7-bd2a-ed966a9fc02d.jpg",
       "description": "Experience an atmosphere like no other at NX, with CultureKind. Putting the bang in Bangalore and bringing the heat straight to Newcastle.",
-      "attendees": 1245,
-      "maxCapacity": 1500,
+      "attendees": 2000,
+      "maxCapacity": 2000,
       "tags": [
         "CultureKind",
         "House",

@@ -12,8 +12,8 @@ const Navbar = ({ isDark, setIsDark }) => {
   const navigate = useNavigate()
   const { user, logout } = useAuth()
 
-  // Keep navbar visible on promoter dashboard as well
-  const hideForPromoterDashboard = false
+  // Hide navbar for promoters on dashboard - sidebar is the main navigator
+  const isPromoterOnDashboard = user?.type === 'promoter' && location.pathname.includes('/dashboard')
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -42,7 +42,7 @@ const Navbar = ({ isDark, setIsDark }) => {
     return '/dashboard'
   }
 
-  if (hideForPromoterDashboard) return null
+  if (isPromoterOnDashboard) return null
 
   return (
     <nav className="sticky top-0 z-50 border-b border-stone-200 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-md transition dark:border-slate-700">
@@ -57,36 +57,40 @@ const Navbar = ({ isDark, setIsDark }) => {
         <div className="ml-auto flex items-center gap-4">
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-1 md:flex">
-            <Link
-              to="/"
-              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
-                location.pathname === '/'
-                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/events"
-              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
-                location.pathname === '/events'
-                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
-              }`}
-            >
-              Events
-            </Link>
-            <Link
-              to="/about"
-              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
-                location.pathname === '/about'
-                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
-              }`}
-            >
-              About
-            </Link>
+            {user?.type !== 'promoter' && (
+              <>
+                <Link
+                  to="/"
+                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                    location.pathname === '/'
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                  }`}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/events"
+                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                    location.pathname === '/events'
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                  }`}
+                >
+                  Events
+                </Link>
+                <Link
+                  to="/about"
+                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                    location.pathname === '/about'
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                  }`}
+                >
+                  About
+                </Link>
+              </>
+            )}
             {user ? (
               <>
                 {/* Dashboard Dropdown (Desktop) - For both customers and promoters */}
@@ -225,39 +229,43 @@ const Navbar = ({ isDark, setIsDark }) => {
       {isOpen && (
         <div className="border-t border-stone-200 bg-primary px-4 py-4 dark:border-slate-700 md:hidden">
           <div className="flex flex-col gap-2">
-            <Link
-              to="/"
-              onClick={() => setIsOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
-                location.pathname === '/'
-                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                  : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/events"
-              onClick={() => setIsOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
-                location.pathname === '/events'
-                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                  : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-              }`}
-            >
-              Events
-            </Link>
-            <Link
-              to="/about"
-              onClick={() => setIsOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
-                location.pathname === '/about'
-                  ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                  : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-              }`}
-            >
-              About
-            </Link>
+            {user?.type !== 'promoter' && (
+              <>
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                    location.pathname === '/'
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/events"
+                  onClick={() => setIsOpen(false)}
+                  className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                    location.pathname === '/events'
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  Events
+                </Link>
+                <Link
+                  to="/about"
+                  onClick={() => setIsOpen(false)}
+                  className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
+                    location.pathname === '/about'
+                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
+                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  About
+                </Link>
+              </>
+            )}
             {user ? (
               <>
                 <Link

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 import { useToast } from '../../contexts/ToastContext'
 import Footer from '../../components/Footer'
 import EventHero from '../../components/EventHero'
@@ -11,9 +12,18 @@ import { findEventBySlug } from '../../utils/slugUtils'
 
 const EventDetailPage = () => {
   const { slug } = useParams()
+  const navigate = useNavigate()
+  const { user } = useAuth()
   const [isSaved, setIsSaved] = useState(false)
   const { addToast } = useToast()
   const event = findEventBySlug(eventsData.events, slug)
+
+  // Redirect promoters to preview page if viewing their own event
+  React.useEffect(() => {
+    if (event && user && user.type === 'promoter' && event.promoterId === user.id) {
+      navigate(`/preview/${slug}`)
+    }
+  }, [event, user, slug, navigate])
 
   if (!event) {
     return (

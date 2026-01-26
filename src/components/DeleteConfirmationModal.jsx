@@ -4,7 +4,7 @@ const DeleteConfirmationModal = ({ isOpen, eventTitle, onConfirm, onCancel, isLo
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
       <div className="mx-4 w-full max-w-sm rounded-xl bg-card border border-primary shadow-lg z-51">
         <div className="p-6">
           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">

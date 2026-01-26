@@ -6,6 +6,7 @@ import EventHero from '../../components/EventHero'
 import EventInfoGrid from '../../components/EventInfoGrid'
 import EventTags from '../../components/EventTags'
 import DeleteConfirmationModal from '../../components/DeleteConfirmationModal'
+import ErrorModal from '../../components/ErrorModal'
 import eventsData from '../../data/events.json'
 import { findEventBySlug } from '../../utils/slugUtils'
 
@@ -16,6 +17,7 @@ const EventPreviewPage = () => {
   const event = findEventBySlug(eventsData.events, slug)
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [errorModal, setErrorModal] = useState({ isOpen: false, title: '', message: '' })
 
   // Redirect to regular event page if user is not the event's promoter
   React.useEffect(() => {
@@ -51,11 +53,20 @@ const EventPreviewPage = () => {
       console.error('Failed to delete event:', error)
       setIsDeleting(false)
       setIsDeleteModalOpen(false)
+      setErrorModal({
+        isOpen: true,
+        title: 'Unable to Delete Event',
+        message: 'Sorry, something went wrong while deleting your event. Please try again.'
+      })
     }
   }
 
   const handleCancelDelete = () => {
     setIsDeleteModalOpen(false)
+  }
+
+  const handleCloseErrorModal = () => {
+    setErrorModal({ isOpen: false, title: '', message: '' })
   }
 
   if (!event) {
@@ -179,6 +190,12 @@ const EventPreviewPage = () => {
         onConfirm={handleConfirmDelete}
         onCancel={handleCancelDelete}
         isLoading={isDeleting}
+      />
+      <ErrorModal
+        isOpen={errorModal.isOpen}
+        title={errorModal.title}
+        message={errorModal.message}
+        onClose={handleCloseErrorModal}
       />
     </>
   )
