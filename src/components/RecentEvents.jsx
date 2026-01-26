@@ -14,9 +14,9 @@ const RecentEvents = () => {
   useEffect(() => {
     if (user?.id) {
       // Filter events by promoterId matching current user
-      const filteredEvents = eventsData.events.filter(
-        (event) => event.promoterId === user.id
-      )
+      const filteredEvents = eventsData.events
+        .filter((event) => event.promoterId === user.id)
+        .sort((a, b) => new Date(a.date) - new Date(b.date))
       
       // Find next upcoming event
       const now = new Date()
@@ -25,7 +25,6 @@ const RecentEvents = () => {
           const eventDate = new Date(event.date)
           return eventDate >= now
         })
-        .sort((a, b) => new Date(a.date) - new Date(b.date))
       
       setUpcomingEvent(upcoming.length > 0 ? upcoming[0] : null)
       setEvents(filteredEvents)

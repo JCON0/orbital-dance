@@ -25,8 +25,8 @@ const Dashboard = () => {
             {!isPromoter && (
               <div className="mb-8 rounded-xl border border-primary bg-card p-6 shadow-sm">
                 <div className="mb-3">
-                  <p className="text-sm font-semibold uppercase tracking-wide text-secondary">Upcoming</p>
-                  <h2 className="text-2xl font-bold text-primary">Next Event</h2>
+                  <p className="text-2xl font-bold uppercase tracking-wide text-primary mb-2">Upcoming</p>
+                  <h2 className="text-sm font-semibold text-secondary mb-6">Next Event</h2>
                 </div>
                 <div className="flex flex-col gap-4 rounded-lg border border-dashed border-primary/50 bg-card-hover px-4 py-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
                   <div>

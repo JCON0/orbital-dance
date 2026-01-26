@@ -9,12 +9,14 @@ const SavedEvents = ({ onClose }) => {
   const [viewMode, setViewMode] = useState('grid')
 
   const savedEvents = useMemo(() => {
-    return eventsData.events.filter(event => savedEventIds.includes(event.id))
+    return eventsData.events
+      .filter(event => savedEventIds.includes(event.id))
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
   }, [savedEventIds])
 
   return (
     <div className="bg-card rounded-xl p-6 border border-primary mb-8">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-2">
         <h2 className="text-2xl font-bold text-primary">Your Saved Events</h2>
         <div className="flex items-center gap-3">
           <div className="inline-flex rounded-lg border border-primary overflow-hidden">

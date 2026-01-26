@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import Footer from '../../components/Footer'
 import EventHero from '../../components/EventHero'
 import EventInfoGrid from '../../components/EventInfoGrid'
 import EventTags from '../../components/EventTags'
+import DeleteConfirmationModal from '../../components/DeleteConfirmationModal'
 import eventsData from '../../data/events.json'
 import { findEventBySlug } from '../../utils/slugUtils'
 
@@ -13,6 +14,8 @@ const EventPreviewPage = () => {
   const { user } = useAuth()
   const navigate = useNavigate()
   const event = findEventBySlug(eventsData.events, slug)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   // Redirect to regular event page if user is not the event's promoter
   React.useEffect(() => {
@@ -20,6 +23,34 @@ const EventPreviewPage = () => {
       navigate(`/events/${slug}`)
     }
   }, [event, user, slug, navigate])
+
+  const handleDeleteClick = () => {
+    setIsDeleteModalOpen(true)
+  }
+
+  const handleConfirmDelete = () => {
+    setIsDeleting(true)
+    try {
+      // Remove event from the data
+      const eventIndex = eventsData.events.findIndex(e => e.id === event.id)
+      if (eventIndex > -1) {
+        eventsData.events.splice(eventIndex, 1)
+        // In a real app, you'd make an API call to persist this change
+        // For now, navigate back to dashboard after a brief delay for UX
+        setTimeout(() => {
+          navigate('/dashboard/my-events')
+        }, 500)
+      }
+    } catch (error) {
+      console.error('Failed to delete event:', error)
+      setIsDeleting(false)
+      setIsDeleteModalOpen(false)
+    }
+  }
+
+  const handleCancelDelete = () => {
+    setIsDeleteModalOpen(false)
+  }
 
   if (!event) {
     return (
@@ -110,7 +141,7 @@ const EventPreviewPage = () => {
                 </button>
                 <button 
                   className="rounded-lg border border-red-300 dark:border-red-600 px-6 py-3 font-semibold text-red-600 dark:text-red-400 transition hover:bg-red-50 dark:hover:bg-red-900/20"
-                  onClick={() => {/* TODO: Implement delete functionality */}}
+                  onClick={handleDeleteClick}
                 >
                   Delete Event
                 </button>
@@ -136,6 +167,13 @@ const EventPreviewPage = () => {
         </div>
       </div>
       <Footer />
+      <DeleteConfirmationModal
+        isOpen={isDeleteModalOpen}
+        eventTitle={event?.title}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        isLoading={isDeleting}
+      />
     </>
   )
 }

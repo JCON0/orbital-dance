@@ -10,7 +10,9 @@ const PromoterEventsPage = () => {
   const [viewMode, setViewMode] = useState('list')
   const events = useMemo(() => {
     if (!user?.id) return []
-    return eventsData.events.filter(event => event.promoterId === user.id)
+    return eventsData.events
+      .filter(event => event.promoterId === user.id)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
   }, [user])
 
   const hasEvents = events.length > 0
