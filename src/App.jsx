@@ -19,6 +19,7 @@ import NotFoundPage from './assets/Pages/NotFoundPage'
 import ComingSoonPage from './assets/Pages/ComingSoonPage'
 import PromoterEventsPage from './assets/Pages/PromoterEventsPage'
 import StatisticsPage from './assets/Pages/StatisticsPage'
+import CustomerTicketsPage from './assets/Pages/CustomerTicketsPage'
 
 const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -66,6 +67,14 @@ const App = () => {
                 element={
                   <ProtectedRoute allowedRoles={['customer', 'promoter']}>
                     <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/tickets"
+                element={
+                  <ProtectedRoute allowedRoles={['customer']}>
+                    <CustomerTicketsPage />
                   </ProtectedRoute>
                 }
               />

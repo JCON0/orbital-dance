@@ -121,6 +121,16 @@ const Navbar = ({ isDark, setIsDark }) => {
                       </Link>
                       {user?.type === 'customer' && (
                         <Link
+                          to="/dashboard/tickets"
+                          onClick={() => setIsDashboardOpen(false)}
+                          className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                          role="menuitem"
+                        >
+                          My Tickets
+                        </Link>
+                      )}
+                      {user?.type === 'customer' && (
+                        <Link
                           to="/events"
                           onClick={() => setIsDashboardOpen(false)}
                           className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
