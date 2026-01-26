@@ -132,7 +132,8 @@
         "trippy"
       ]
     },
-    {"promoterId": 3,
+    {
+      "promoterId": 3,
       "id": 7,
       "title": "Electro & Breaks Revival",
       "category": "Electro",
@@ -153,7 +154,8 @@
         "old-school"
       ]
     },
-    {"promoterId": 1,
+    {
+      "promoterId": 1,
       "id": 8,
       "title": "Future Bass & Melodic Dubstep",
       "category": "Future Bass",
@@ -174,7 +176,8 @@
         "drops"
       ]
     },
-    {"promoterId": 3,
+    {
+      "promoterId": 3,
       "id": 9,
       "title": "Hardstyle Supremacy",
       "category": "Hardstyle",
@@ -195,7 +198,8 @@
         "massive"
       ]
     },
-    {"promoterId": 1,
+    {
+      "promoterId": 1,
       "id": 10,
       "title": "Minimal Techno Deep Session",
       "category": "Minimal",
@@ -216,7 +220,8 @@
         "hypnotic"
       ]
     },
-    {"promoterId": 2,
+    {
+      "promoterId": 2,
       "id": 11,
       "title": "Garage & UK Bass Night",
       "category": "Garage",
@@ -259,7 +264,7 @@
         "gothic"
       ]
     },
-        {
+    {
       "promoterId": 2,
       "id": 13,
       "title": "The CultureKind Experience",
@@ -283,4 +288,3 @@
     }
   ]
 }
-

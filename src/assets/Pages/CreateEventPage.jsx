@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { useToast } from '../../contexts/ToastContext'
 import Footer from '../../components/Footer'
 import CreateEventPreview from '../../components/CreateEventPreview'
+import EventCreationResultModal from '../../components/EventCreationResultModal'
 
 const CreateEventPage = () => {
   const navigate = useNavigate()
@@ -43,6 +44,8 @@ const CreateEventPage = () => {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
+  const [showResultModal, setShowResultModal] = useState(false)
+  const [creationSuccess, setCreationSuccess] = useState(false)
 
   const categories = [
     'Techno', 'House', 'Trance', 'Drum & Bass', 
@@ -165,13 +168,28 @@ const CreateEventPage = () => {
       const draftKey = `eventDraft_${user?.id}`
       localStorage.removeItem(draftKey)
       
-      showToast('Event created successfully!', 'success')
-      navigate('/dashboard')
+      // Show success modal
+      setCreationSuccess(true)
+      setShowResultModal(true)
+
+      // Redirect to dashboard after modal closes
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 2600) // Slightly longer than modal timeout
     } catch (error) {
       console.error('Error creating event:', error)
-      showToast('Failed to create event. Please try again.', 'error')
+      // Show failure modal
+      setCreationSuccess(false)
+      setShowResultModal(true)
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  const handleResultModalClose = () => {
+    setShowResultModal(false)
+    if (creationSuccess) {
+      navigate('/dashboard')
     }
   }
 
@@ -456,6 +474,11 @@ const CreateEventPage = () => {
         </div>
       </div>
       <Footer />
+      <EventCreationResultModal
+        isOpen={showResultModal}
+        success={creationSuccess}
+        onClose={handleResultModalClose}
+      />
     </>
   )
 }

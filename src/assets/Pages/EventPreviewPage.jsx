@@ -28,19 +28,25 @@ const EventPreviewPage = () => {
     setIsDeleteModalOpen(true)
   }
 
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = async () => {
     setIsDeleting(true)
     try {
-      // Remove event from the data
-      const eventIndex = eventsData.events.findIndex(e => e.id === event.id)
-      if (eventIndex > -1) {
-        eventsData.events.splice(eventIndex, 1)
-        // In a real app, you'd make an API call to persist this change
-        // For now, navigate back to dashboard after a brief delay for UX
-        setTimeout(() => {
-          navigate('/dashboard/my-events')
-        }, 500)
+      // Make API call to delete the event
+      const deleteResponse = await fetch(`http://localhost:8000/events/${event.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+
+      if (!deleteResponse.ok) {
+        throw new Error('Failed to delete event')
       }
+
+      // Navigate back to dashboard after successful deletion
+      setTimeout(() => {
+        navigate('/dashboard/my-events')
+      }, 500)
     } catch (error) {
       console.error('Failed to delete event:', error)
       setIsDeleting(false)
