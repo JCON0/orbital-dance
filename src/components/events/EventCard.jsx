@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { createSlug } from '../utils/slugUtils'
-import { useAuth } from '../contexts/AuthContext'
-import { useSavedEvents } from '../contexts/SavedEventsContext'
-import AuthPromptModal from './AuthPromptModal'
+import { createSlug } from '../../utils/slugUtils'
+import { useAuth } from '../../contexts/AuthContext'
+import { useSavedEvents } from '../../contexts/SavedEventsContext'
+import AuthPromptModal from '../auth/AuthPromptModal'
 
 const EventCard = ({ event }) => {
   const { isAuthenticated } = useAuth()

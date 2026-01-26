@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { createSlug } from '../utils/slugUtils'
+import { createSlug } from '../../utils/slugUtils'
 
 const EventsList = ({ events, isOwnDashboard = false }) => {
   const formatDate = (dateString) => {

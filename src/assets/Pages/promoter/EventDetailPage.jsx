@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import { useToast } from '../../contexts/ToastContext'
-import Footer from '../../components/Footer'
-import EventHero from '../../components/EventHero'
-import EventInfoGrid from '../../components/EventInfoGrid'
-import EventTags from '../../components/EventTags'
-import EventActions from '../../components/EventActions'
-import eventsData from '../../data/events.json'
-import { findEventBySlug } from '../../utils/slugUtils'
+import { useAuth } from '../../../contexts/AuthContext'
+import { useToast } from '../../../contexts/ToastContext'
+import Footer from '../../../components/landing/landing/Footer'
+import EventHero from '../../../components/events/EventHero'
+import EventInfoGrid from '../../../components/events/EventInfoGrid'
+import EventTags from '../../../components/events/EventTags'
+import EventActions from '../../../components/events/EventActions'
+import eventsData from '../../../data/events.json'
+import { findEventBySlug } from '../../../utils/slugUtils'
 
 const EventDetailPage = () => {
   const { slug } = useParams()

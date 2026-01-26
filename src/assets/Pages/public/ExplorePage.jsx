@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import SearchComponent from '../../components/SearchComponent'
-import ExploreHeader from '../../components/ExploreHeader'
-import ResultsCount from '../../components/ResultsCount'
-import EventsGrid from '../../components/EventsGrid'
-import Footer from '../../components/Footer'
-import eventsData from '../../data/events.json'
+import SearchComponent from '../../../components/SearchComponent'
+import ExploreHeader from '../../../components/ExploreHeader'
+import ResultsCount from '../../../components/ResultsCount'
+import EventsGrid from '../../../components/EventsGrid'
+import Footer from '../../../components/Footer'
+import eventsData from '../../../data/events.json'
 
 const EventsPage = () => {
   const [searchQuery, setSearchQuery] = useState('')

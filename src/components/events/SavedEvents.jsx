@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { useSavedEvents } from '../contexts/SavedEventsContext'
-import EventCard from './EventCard'
-import EventsList from './EventsList'
+import EventCard from './events/EventCard'
+import EventsList from './events/EventsList'
 import eventsData from '../data/events.json'
 
 const SavedEvents = ({ onClose }) => {

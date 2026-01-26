@@ -1,5 +1,5 @@
 import React from 'react'
-import { useToast } from '../contexts/ToastContext'
+import { useToast } from '../../contexts/ToastContext'
 
 const EventActions = ({ isSaved, onSave }) => {
   const { addToast } = useToast()
