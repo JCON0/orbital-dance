@@ -1,12 +1,12 @@
 import React from 'react'
-import Hero from '../../components/Hero'
-import CountriesCarousel from '../../components/CountriesCarousel'
-import FeaturesSection from '../../components/FeaturesSection'
-import HomeHowItWorks from '../../components/HomeHowItWorks'
-import EventCategories from '../../components/EventCategories'
-import Testimonials from '../../components/Testimonials'
-import CTASection from '../../components/CTASection'
-import Footer from '../../components/Footer'
+import Hero from '../../../components/marketing/Hero'
+import CountriesCarousel from '../../../components/marketing/CountriesCarousel'
+import FeaturesSection from '../../../components/marketing/FeaturesSection'
+import HomeHowItWorks from '../../../components/marketing/HomeHowItWorks'
+import EventCategories from '../../../components/events/EventCategories'
+import Testimonials from '../../../components/marketing/Testimonials'
+import CTASection from '../../../components/marketing/CTASection'
+import Footer from '../../../components/navigation/Footer'
 
 const HomePage = () => {
   return (

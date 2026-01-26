@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import eventsData from '../../data/events.json'
-import EventsList from '../../components/EventsList'
-import EventCard from '../../components/EventCard'
+import { useAuth } from '../../../contexts/AuthContext'
+import eventsData from '../../../data/events.json'
+import EventsList from '../../../components/events/EventsList'
+import EventCard from '../../../components/events/EventCard'
 
 const PromoterEventsPage = () => {
   const { user } = useAuth()

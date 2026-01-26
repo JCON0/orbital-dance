@@ -1,9 +1,9 @@
 import React from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
-import SideNav from '../../../components/SideNav'
-import DashboardHeader from '../../../components/DashboardHeader'
-import StatsGrid from '../../../components/StatsGrid'
-import RecentEvents from '../../../components/RecentEvents'
+import SideNav from '../../../components/navigation/SideNav'
+import DashboardHeader from '../../../components/dashboard/DashboardHeader'
+import StatsGrid from '../../../components/dashboard/StatsGrid'
+import RecentEvents from '../../../components/events/RecentEvents'
 
 const PromoterDashboard = () => {
   const { user } = useAuth()

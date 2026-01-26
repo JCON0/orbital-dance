@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import { useSavedEvents } from '../contexts/SavedEventsContext'
-import { useAuth } from '../contexts/AuthContext'
-import eventsData from '../data/events.json'
+import { useSavedEvents } from '../../contexts/SavedEventsContext'
+import { useAuth } from '../../contexts/AuthContext'
+import eventsData from '../../data/events.json'
 
 const StatCard = ({ title, value }) => (
   <div className="bg-card rounded-xl p-6 border border-primary">

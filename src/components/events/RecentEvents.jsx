@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom'
-import EventsList from './events/EventsList'
-import eventsData from '../data/events.json'
-import { createSlug } from '../utils/slugUtils'
+import EventsList from './EventsList'
+import eventsData from '../../data/events.json'
+import { createSlug } from '../../utils/slugUtils'
 
 const RecentEvents = () => {
   const { user } = useAuth()

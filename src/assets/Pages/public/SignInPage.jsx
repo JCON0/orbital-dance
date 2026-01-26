@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import { useToast } from '../../contexts/ToastContext'
-import SignInHeader from '../../components/SignInHeader'
-import SignInForm from '../../components/SignInForm'
-import SocialSignIn from '../../components/SocialSignIn'
-import SignInFooter from '../../components/SignInFooter'
+import { useAuth } from '../../../contexts/AuthContext'
+import { useToast } from '../../../contexts/ToastContext'
+import SignInHeader from '../../../components/auth/SignInHeader'
+import SignInForm from '../../../components/auth/SignInForm'
+import SocialSignIn from '../../../components/auth/SocialSignIn'
+import SignInFooter from '../../../components/auth/SignInFooter'
 
 const SignInPage = () => {
   const [email, setEmail] = useState('')

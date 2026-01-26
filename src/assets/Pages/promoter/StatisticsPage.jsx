@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
-import { useAuth } from '../../contexts/AuthContext'
-import eventsData from '../../data/events.json'
-import Footer from '../../components/Footer'
-import StatsGrid from '../../components/StatsGrid'
+import { useAuth } from '../../../contexts/AuthContext'
+import eventsData from '../../../data/events.json'
+import Footer from '../../../components/navigation/Footer'
+import StatsGrid from '../../../components/dashboard/StatsGrid'
 
 const StatisticsPage = () => {
   const { user } = useAuth()

@@ -4,10 +4,17 @@ import PromoterDashboard from './promoter/PromoterDashboard'
 import UserDashboard from './customer/UserDashboard'
 
 const Dashboard = () => {
-  const { user } = useAuth()
-  const isPromoter = user?.type === 'promoter'
+  const { user, loading } = useAuth()
 
-  return isPromoter ? <PromoterDashboard /> : <UserDashboard />
+  if (loading) return null
+
+  if (!user) return null
+
+  if (user.type === 'promoter') {
+    return <PromoterDashboard />
+  }
+
+  return <UserDashboard />
 }
 
 export default Dashboard

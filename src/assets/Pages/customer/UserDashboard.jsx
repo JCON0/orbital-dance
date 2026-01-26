@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../../contexts/AuthContext'
-import DashboardHeader from '../../../components/DashboardHeader'
-import StatsGrid from '../../../components/StatsGrid'
-import Footer from '../../../components/landing/landing/Footer'
-import SavedEvents from '../../../components/SavedEvents'
+import DashboardHeader from '../../../components/dashboard/DashboardHeader'
+import StatsGrid from '../../../components/dashboard/StatsGrid'
+import Footer from '../../../components/navigation/Footer'
+import SavedEvents from '../../../components/events/SavedEvents'
 
 const UserDashboard = () => {
   const { user } = useAuth()

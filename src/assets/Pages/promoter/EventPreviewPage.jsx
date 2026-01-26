@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import Footer from '../../components/Footer'
-import EventHero from '../../components/EventHero'
-import EventInfoGrid from '../../components/EventInfoGrid'
-import EventTags from '../../components/EventTags'
-import DeleteConfirmationModal from '../../components/DeleteConfirmationModal'
-import ErrorModal from '../../components/ErrorModal'
-import eventsData from '../../data/events.json'
-import { findEventBySlug } from '../../utils/slugUtils'
+import { useAuth } from '../../../contexts/AuthContext'
+import Footer from '../../../components/navigation/Footer'
+import EventHero from '../../../components/events/EventHero'
+import EventInfoGrid from '../../../components/events/EventInfoGrid'
+import EventTags from '../../../components/events/EventTags'
+import DeleteConfirmationModal from '../../../components/modals/DeleteConfirmationModal'
+import ErrorModal from '../../../components/modals/ErrorModal'
+import eventsData from '../../../data/events.json'
+import { findEventBySlug } from '../../../utils/slugUtils'
 
 const EventPreviewPage = () => {
   const { slug } = useParams()

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import SignUpHeader from '../../components/SignUpHeader'
-import RoleSelection from '../../components/RoleSelection'
-import SignUpForm from '../../components/SignUpForm'
-import SocialSignUp from '../../components/SocialSignUp'
-import SignUpFooter from '../../components/SignUpFooter'
+import SignUpHeader from '../../../components/auth/SignUpHeader'
+import RoleSelection from '../../../components/auth/RoleSelection'
+import SignUpForm from '../../../components/auth/SignUpForm'
+import SocialSignUp from '../../../components/auth/SocialSignUp'
+import SignUpFooter from '../../../components/auth/SignUpFooter'
 
 const SignUpPage = () => {
   const [role, setRole] = useState(null)

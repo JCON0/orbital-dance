@@ -1,10 +1,10 @@
 import React from 'react'
-import AboutHero from '../../components/AboutHero'
-import MissionAndApproach from '../../components/MissionAndApproach'
-import ValuesSection from '../../components/ValuesSection'
-import HowItWorks from '../../components/HowItWorks'
-import AboutCTA from '../../components/AboutCTA'
-import Footer from '../../components/Footer'
+import AboutHero from '../../../components/marketing/AboutHero'
+import MissionAndApproach from '../../../components/marketing/MissionAndApproach'
+import ValuesSection from '../../../components/marketing/ValuesSection'
+import HowItWorks from '../../../components/marketing/HowItWorks'
+import AboutCTA from '../../../components/marketing/AboutCTA'
+import Footer from '../../../components/navigation/Footer'
 
 const AboutPage = () => {
   return (

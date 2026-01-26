@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import { useToast } from '../../contexts/ToastContext'
-import Footer from '../../components/Footer'
-import CreateEventPreview from '../../components/CreateEventPreview'
-import EventCreationResultModal from '../../components/EventCreationResultModal'
+import { useAuth } from '../../../contexts/AuthContext'
+import { useToast } from '../../../contexts/ToastContext'
+import Footer from '../../../components/navigation/Footer'
+import CreateEventPreview from '../../../components/events/CreateEventPreview'
+import EventCreationResultModal from '../../../components/modals/EventCreationResultModal'
 
 const CreateEventPage = () => {
   const navigate = useNavigate()

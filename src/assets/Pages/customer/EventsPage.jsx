@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import { useSavedEvents } from '../../contexts/SavedEventsContext'
-import SearchComponent from '../../components/SearchComponent'
-import ExploreHeader from '../../components/ExploreHeader'
-import ResultsCount from '../../components/ResultsCount'
-import EventsGrid from '../../components/EventsGrid'
-import Footer from '../../components/Footer'
+import { useAuth } from '../../../contexts/AuthContext'
+import { useSavedEvents } from '../../../contexts/SavedEventsContext'
+import SearchComponent from '../../../components/events/SearchComponent'
+import ExploreHeader from '../../../components/events/ExploreHeader'
+import ResultsCount from '../../../components/events/ResultsCount'
+import EventsGrid from '../../../components/events/EventsGrid'
+import Footer from '../../../components/navigation/Footer'
 
 const EventsPage = () => {
   const [searchParams] = useSearchParams()
