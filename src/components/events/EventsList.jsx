@@ -45,7 +45,7 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
             >
               <div className="flex gap-6 items-center">
                 {/* Event Image */}
-                <div className="h-32 w-32 flex-shrink-0 overflow-hidden rounded-lg bg-slate-200 dark:bg-slate-700">
+                <div className="h-32 w-32 shrink-0 overflow-hidden rounded-lg bg-slate-200 dark:bg-slate-700">
                   <img
                     src={event.image}
                     alt={event.title}
