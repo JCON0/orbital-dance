@@ -63,13 +63,13 @@ const RecentEvents = () => {
       <div className="lg:col-span-2">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-primary">All Events</h2>
-          <Link to="/dashboard/my-events" className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+          <Link to="/dashboard/promoter/events" className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
             View All →
           </Link>
         </div>
 
         {events.length === 0 ? (
-          <div className="bg-card rounded-xl p-6 border border-primary text-center py-8 text-secondary">
+          <div className="bg-card rounded-xl p-6 border border-primary text-center py-12 text-secondary">
             No events created yet. Create your first event to get started!
           </div>
         ) : (
