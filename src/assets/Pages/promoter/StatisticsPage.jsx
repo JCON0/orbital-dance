@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import eventsData from '../../../data/events.json'
-import Footer from '../../../components/navigation/Footer'
 import StatsGrid from '../../../components/dashboard/StatsGrid'
+import SideNav from '../../../components/navigation/SideNav'
 
 const StatisticsPage = () => {
   const { user } = useAuth()
@@ -71,13 +71,15 @@ const StatisticsPage = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-primary -mt-16 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          {/* Header */}
-          <div className="mb-12">
-            <h1 className="text-4xl font-bold text-primary mb-2">Event Statistics</h1>
-            <p className="text-secondary">Track your event performance and attendee insights</p>
-          </div>
+      <SideNav />
+      <div className="ml-64 min-h-screen bg-primary pt-8 pb-8 flex flex-col">
+        <div className="px-4 py-0 sm:px-6 lg:px-8 flex-1 flex flex-col">
+          <main className="mx-auto flex-1 w-full max-w-6xl">
+            {/* Header */}
+            <div className="mb-12">
+              <h1 className="text-4xl font-bold text-primary mb-2">Event Statistics</h1>
+              <p className="text-secondary">Track your event performance and attendee insights</p>
+            </div>
 
           {/* Overall Stats */}
           <StatsGrid userType="promoter" />
@@ -152,7 +154,7 @@ const StatisticsPage = () => {
 
           {/* Event List */}
           {eventStats.totalEvents > 0 && (
-            <section className="mt-8 bg-card rounded-xl border border-primary p-8 shadow-lg">
+            <section className="mt-12 bg-card rounded-xl border border-primary p-12 shadow-lg">
               <h2 className="text-2xl font-bold text-primary mb-6">Events Overview</h2>
               <div className="space-y-4">
                 {eventsData.events
@@ -181,14 +183,14 @@ const StatisticsPage = () => {
           )}
 
           {eventStats.totalEvents === 0 && (
-            <div className="rounded-xl bg-card border border-primary p-12 text-center">
+            <div className="mt-8 rounded-xl bg-card border border-primary p-12 text-center">
               <h2 className="text-xl font-semibold text-primary mb-2">No Events Yet</h2>
               <p className="text-secondary mb-6">Create your first event to see statistics here.</p>
             </div>
           )}
+          </main>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
