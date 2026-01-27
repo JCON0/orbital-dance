@@ -11,9 +11,9 @@ const PromoterDashboard = () => {
   return (
     <>
       <SideNav />
-      <div className="ml-64 -mt-16 min-h-screen bg-primary pt-16">
-        <div className="px-4 py-12 sm:px-6 lg:px-8">
-          <main className="mx-auto">
+      <div className="ml-64 min-h-screen bg-primary pt-16 flex flex-col">
+        <div className="px-4 py-12 sm:px-6 lg:px-8 flex-1 flex flex-col">
+          <main className="mx-auto flex-1 w-full">
             <DashboardHeader
               userType={user?.type}
               firstName={user?.firstName}

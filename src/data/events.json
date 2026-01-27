@@ -219,28 +219,6 @@
         "dark",
         "gothic"
       ]
-    },
-    {
-      "promoterId": 2,
-      "id": 13,
-      "title": "The CultureKind Experience",
-      "category": "House",
-      "location": "Newcastle, UK",
-      "venue": "NX",
-      "date": "2026-02-12",
-      "time": "22:30",
-      "price": 15,
-      "currency": "GBP",
-      "image": "https://geo-media.beatport.com/image_size/590x404/5fa580e7-6e79-4cc7-bd2a-ed966a9fc02d.jpg",
-      "description": "Experience an atmosphere like no other at NX, with CultureKind. Putting the bang in Bangalore and bringing the heat straight to Newcastle.",
-      "attendees": 2000,
-      "maxCapacity": 2000,
-      "tags": [
-        "CultureKind",
-        "House",
-        "euphoric",
-        "emotional"
-      ]
     }
   ]
 }

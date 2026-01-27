@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 
 const navItems = [
@@ -8,14 +8,14 @@ const navItems = [
       <path d="M4 13h7V4H4v9zm0 7h7v-5H4v5zm9 0h7V11h-7v9zm0-18v4h7V2h-7z" />
     </svg>
   ) },
-  { label: 'My Events', to: '/dashboard/my-events', icon: (
+  { label: 'Events', to: '/dashboard/promoter/events', icon: (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
       <path d="M5 6h14v12H5z" />
       <path d="M9 10h6" />
       <path d="M9 14h4" />
     </svg>
   ) },
-  { label: 'Statistics', to: '/dashboard/statistics', icon: (
+  { label: 'Statistics', to: '/dashboard/promoter/statistics', icon: (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
       <path d="M6 18h12M6 6h12M6 12h5" />
       <path d="M13 12a3 3 0 100-6 3 3 0 000 6z" />
@@ -29,8 +29,9 @@ const navItems = [
 ]
 
 const SideNav = () => {
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
 
   // Only show sidebar for promoters
   if (!user || user?.type !== 'promoter') {
@@ -42,6 +43,11 @@ const SideNav = () => {
       return location.pathname === '/dashboard'
     }
     return location.pathname === itemTo || location.pathname.startsWith(itemTo)
+  }
+
+  const handleLogout = () => {
+    logout()
+    navigate('/sign-in')
   }
 
   return (
@@ -90,6 +96,21 @@ const SideNav = () => {
         <p className="text-xs font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">Need help?</p>
         <p className="mt-1 text-xs text-cyan-600 dark:text-cyan-400">Check our documentation or contact support for assistance.</p>
       </div>
+
+      <button
+        type="button"
+        onClick={handleLogout}
+        className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-800 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500 dark:bg-slate-800 dark:hover:bg-slate-700"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-700 text-white shadow-sm dark:bg-slate-700">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
+            <path d="M9 5H5v14h4" />
+            <path d="M16 17l4-5-4-5" />
+            <path d="M7 12h13" />
+          </svg>
+        </span>
+        <span className="tracking-tight">Log out</span>
+      </button>
     </aside>
   )
 }
