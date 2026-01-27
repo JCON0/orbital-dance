@@ -71,6 +71,7 @@ const SideNav = () => {
           <NavLink
             key={item.label}
             to={item.to}
+            end={item.to === '/dashboard'}
             className={({ isActive: linkActive }) => {
               const active = isActive(item.to) || linkActive
               return `group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition duration-150 ${
