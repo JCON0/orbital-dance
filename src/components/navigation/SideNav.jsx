@@ -17,8 +17,12 @@ const navItems = [
   ) },
   { label: 'Statistics', to: '/dashboard/promoter/statistics', icon: (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
-      <path d="M6 18h12M6 6h12M6 12h5" />
-      <path d="M13 12a3 3 0 100-6 3 3 0 000 6z" />
+      <path d="M4 18h16" />
+      <path d="M6 14l4-5 4 3 4-6" />
+      <circle cx="6" cy="14" r="1.3" />
+      <circle cx="10" cy="9" r="1.3" />
+      <circle cx="14" cy="12" r="1.3" />
+      <circle cx="18" cy="6" r="1.3" />
     </svg>
   ) },
   { label: 'Create Event', to: '/create-event', icon: (
