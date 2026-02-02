@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../contexts/AuthContext'
 import { useToast } from '../../../contexts/ToastContext'
-import Footer from '../../../components/navigation/Footer'
 import CreateEventPreview from '../../../components/events/CreateEventPreview'
 import EventCreationResultModal from '../../../components/modals/EventCreationResultModal'
+import SideNav from '../../../components/navigation/SideNav'
 
 const CreateEventPage = () => {
   const navigate = useNavigate()
@@ -195,29 +195,31 @@ const CreateEventPage = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-primary -mt-16 pt-16">
-        <div className="max-w-5xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="mb-8">
-            <button
-              onClick={() => navigate('/dashboard')}
-              className="flex items-center text-gray-400 hover:text-primary transition mb-4"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Dashboard
-            </button>
-            {!showPreview && (
-              <>
-                <h1 className="text-4xl font-bold text-primary mb-2">Create New Event</h1>
-                <p className="text-gray-400">Fill in the details to create your electronic music event</p>
-              </>
-            )}
-          </div>
+      <SideNav />
+      <div className="lg:ml-64 min-h-screen bg-primary pt-8 pb-8 flex flex-col">
+        <div className="px-4 py-0 sm:px-6 lg:px-8 flex-1 flex flex-col">
+          <main className="mx-auto flex-1 w-full max-w-5xl">
+            {/* Header */}
+            <div className="mb-8">
+              <button
+                onClick={() => navigate('/dashboard/promoter')}
+                className="flex items-center text-gray-400 hover:text-primary transition mb-4"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Dashboard
+              </button>
+              {!showPreview && (
+                <>
+                  <h1 className="text-4xl font-bold text-primary mb-2">Create New Event</h1>
+                  <p className="text-secondary">Fill in the details to create your electronic music event</p>
+                </>
+              )}
+            </div>
 
-          {/* Form or Preview */}
-          <div className="bg-card rounded-2xl p-8 border border-primary">
+            {/* Form or Preview */}
+            <div className="bg-card rounded-2xl p-4 sm:p-6 lg:p-8 border border-primary shadow-lg">
             {showPreview ? (
               <CreateEventPreview
                 formData={formData}
@@ -471,9 +473,9 @@ const CreateEventPage = () => {
             </form>
             )}
           </div>
-        </div>
+        </main>
       </div>
-      <Footer />
+    </div>
       <EventCreationResultModal
         isOpen={showResultModal}
         success={creationSuccess}
