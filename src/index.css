@@ -57,4 +57,15 @@
   .text-secondary {
     color: rgb(var(--color-text-secondary));
   }
+  
+  /* Date/time picker calendar icon */
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+  }
+  
+  .dark input[type="date"]::-webkit-calendar-picker-indicator,
+  .dark input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
 }

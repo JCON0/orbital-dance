@@ -219,6 +219,50 @@
         "dark",
         "gothic"
       ]
+    },
+    {
+      "id": 13,
+      "title": "New dance event",
+      "category": "Progressive",
+      "location": "Newcastle, UK",
+      "venue": "World Head Quarters",
+      "date": "2026-02-08",
+      "time": "21:00",
+      "price": 15,
+      "currency": "GBP",
+      "image": "https://th.bing.com/th/id/R.425b9f839fd165cd403d02899e12fdf0?rik=QfgXp6gXNwC4Pg&pid=ImgRaw&r=0",
+      "description": "WHQ Dance event starting at 21:00",
+      "attendees": 0,
+      "maxCapacity": 500,
+      "tags": [
+        "Progressive",
+        "Dance"
+      ],
+      "promoterId": 2,
+      "promoterName": "Alex Jones"
+    },
+    {
+      "id": 14,
+      "title": "Orbital Dance Presents Bicep",
+      "category": "Techno",
+      "location": "London, UK",
+      "venue": "PrintWorks",
+      "date": "2026-02-22",
+      "time": "22:00",
+      "price": 45,
+      "currency": "GBP",
+      "image": "https://www.time-warp.de/imgdb/cropped-2-bicep-website.jpg",
+      "description": "Presenting Bicep's first event at PrintWorks with Orbital Dance",
+      "attendees": 3456,
+      "maxCapacity": 5000,
+      "tags": [
+        "Bicep",
+        "London",
+        "PrintWorks",
+        "Techno"
+      ],
+      "promoterId": 2,
+      "promoterName": "Alex Jones"
     }
   ]
 }

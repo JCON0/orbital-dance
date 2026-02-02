@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../../contexts/AuthContext'
 import eventsData from '../../../data/events.json'
 import StatsGrid from '../../../components/dashboard/StatsGrid'
@@ -186,6 +187,12 @@ const StatisticsPage = () => {
             <div className="mt-8 rounded-xl bg-card border border-primary p-12 text-center">
               <h2 className="text-xl font-semibold text-primary mb-2">No Events Yet</h2>
               <p className="text-secondary mb-6">Create your first event to see statistics here.</p>
+              <Link
+                to="/create-event"
+                className="inline-block px-6 py-3 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-md transition hover:from-cyan-600 hover:to-blue-600"
+              >
+                Create Event
+              </Link>
             </div>
           )}
           </main>
