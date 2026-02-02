@@ -29,7 +29,7 @@ const PromoterEventsPage = () => {
                 <h1 className="text-3xl font-bold text-primary">Your Events</h1>
               </div>
               <Link
-                to="/create-event"
+                to="/dashboard/promoter/create-event"
                 className="px-5 py-2 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-md transition hover:from-cyan-600 hover:to-blue-600"
               >
                 Create New Event
@@ -43,7 +43,7 @@ const PromoterEventsPage = () => {
                   Create your first event to start promoting and tracking performance.
                 </p>
                 <Link
-                  to="/create-event"
+                  to="/dashboard/promoter/create-event"
                   className="inline-block px-6 py-3 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-md transition hover:from-cyan-600 hover:to-blue-600"
                 >
                   Create Event

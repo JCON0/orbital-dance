@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 
 /* Context Providers */
 import { ToastProvider } from './contexts/ToastContext'
@@ -35,8 +35,16 @@ import EventPreviewPage from './assets/Pages/promoter/EventPreviewPage'
 import PromoterEventsPage from './assets/Pages/promoter/PromoterEventsPage'
 import StatisticsPage from './assets/Pages/promoter/StatisticsPage'
 
+const ConditionalNavbar = ({ isDark, setIsDark }) => {
+  const location = useLocation()
+  const hideNavbar = location.pathname.startsWith('/dashboard/promoter')
+  
+  if (hideNavbar) return null
+  return <Navbar isDark={isDark} setIsDark={setIsDark} />
+}
+
 const App = () => {
-  /* Dark Mode */
+  /* Dark Mode - always set to dark until scope requires change.*/
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme')
@@ -62,10 +70,8 @@ const App = () => {
       <AuthProvider>
         <SavedEventsProvider>
           <BrowserRouter>
+            <ConditionalNavbar isDark={isDark} setIsDark={setIsDark} />
             <ScrollToTop />
-
-            {/* Main Navbar */}
-            <Navbar isDark={isDark} setIsDark={setIsDark} />
 
             <Routes>
 
@@ -153,7 +159,7 @@ const App = () => {
               />
 
               <Route
-                path="/create-event"
+                path="/dashboard/promoter/create-event"
                 element={
                   <ProtectedRoute allowedRoles={['promoter']}>
                     <CreateEventPage />

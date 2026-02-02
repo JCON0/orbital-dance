@@ -27,7 +27,7 @@ const QuickActions = ({ userType, onViewSavedEvents }) => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <button 
-            onClick={() => navigate('/create-event')}
+            onClick={() => navigate('/dashboard/promoter/create-event')}
             className="px-6 py-3 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 transition"
           >
             Create New Event

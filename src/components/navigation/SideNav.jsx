@@ -25,7 +25,7 @@ const navItems = [
       <circle cx="18" cy="6" r="1.3" />
     </svg>
   ) },
-  { label: 'Create Event', to: '/create-event', icon: (
+  { label: 'Create Event', to: '/dashboard/promoter/create-event', icon: (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
       <path d="M12 5v14M5 12h14" />
     </svg>

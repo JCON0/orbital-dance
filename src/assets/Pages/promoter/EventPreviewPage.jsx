@@ -48,7 +48,7 @@ const EventPreviewPage = () => {
       // Navigate back to dashboard after successful deletion
       setTimeout(() => {
         navigate('/dashboard/promoter/events')
-      }, 500)
+      }, 100)
     } catch (error) {
       console.error('Failed to delete event:', error)
       setIsDeleting(false)
