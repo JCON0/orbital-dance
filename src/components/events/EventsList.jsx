@@ -37,11 +37,13 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
       <div className="space-y-4">
         {events.map((event) => {
           const slug = createSlug(event.title)
+          const eventUrl = isOwnDashboard ? `/events/${slug}/preview` : `/events/${slug}`
 
           return (
-            <div
+            <Link
               key={event.id}
-              className="rounded-xl p-6 border border-primary bg-card shadow-lg"
+              to={eventUrl}
+              className="block rounded-xl p-6 border border-primary bg-card shadow-lg transition hover:shadow-xl hover:border-cyan-500"
             >
               <div className="flex gap-6 items-center">
                 {/* Event Image */}
@@ -79,16 +81,13 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
                         </div>
                       </div>
                     </div>
-                    <Link
-                      to={isOwnDashboard ? `/events/${slug}/preview` : `/events/${slug}`}
-                      className="rounded-lg bg-cyan-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700 shadow-md"
-                    >
+                    <div className="rounded-lg bg-cyan-600 px-6 py-2 text-sm font-semibold text-white transition group-hover:bg-cyan-700 shadow-md">
                       View Event
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           )
         })}
       </div>
