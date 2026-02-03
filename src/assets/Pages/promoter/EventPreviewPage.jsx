@@ -142,14 +142,14 @@ const EventPreviewPage = () => {
             <div className="rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Event Management</h3>
               <div className="flex gap-4">
-                <Link
+                {/* <Link
                   to={`/events/${slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 rounded-lg bg-cyan-600 px-6 py-3 text-center font-semibold text-white shadow-lg transition hover:bg-cyan-700"
                 >
                   View Public Event Page
-                </Link>
+                </Link> */}
                 <button 
                   className="flex-1 rounded-lg border border-slate-300 dark:border-slate-600 px-6 py-3 font-semibold text-slate-700 dark:text-slate-300 transition hover:bg-slate-200 dark:hover:bg-slate-700"
                   onClick={() => {/* TODO: Implement edit functionality */}}

@@ -73,7 +73,11 @@ const CreateEventPage = () => {
     if (!formData.date) newErrors.date = 'Date is required'
     if (!formData.time) newErrors.time = 'Time is required'
     if (!formData.price || formData.price < 0) newErrors.price = 'Valid price is required'
-    if (!formData.description.trim()) newErrors.description = 'Description is required'
+    if (!formData.description.trim()) {
+      newErrors.description = 'Description is required'
+    } else if (formData.description.trim().length < 250) {
+      newErrors.description = 'Description must be at least 250 characters'
+    }
     if (!formData.maxCapacity || formData.maxCapacity < 1) newErrors.maxCapacity = 'Valid capacity is required'
 
     // Validate date is in the future
@@ -414,18 +418,25 @@ const CreateEventPage = () => {
               <div>
                 <label className="block text-sm font-semibold text-primary mb-2">
                   Description *
+                  <span className="text-secondary text-xs font-normal ml-2">(Min. 250 characters)</span>
                 </label>
                 <textarea
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
                   rows={6}
+                  minLength={250}
                   className={`w-full px-4 py-3 rounded-lg bg-primary border ${
                     errors.description ? 'border-red-500' : 'border-primary'
                   } text-primary focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none`}
                   placeholder="Describe your event, what attendees can expect, special features, etc."
                 />
-                {errors.description && <p className="text-red-500 text-sm mt-1">{errors.description}</p>}
+                <div className="flex items-center justify-between mt-1">
+                  {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
+                  <p className={`text-xs ml-auto ${formData.description.length < 250 ? 'text-secondary' : 'text-green-600 dark:text-green-400'}`}>
+                    {formData.description.length}/250 characters
+                  </p>
+                </div>
               </div>
 
               {/* Tags */}
