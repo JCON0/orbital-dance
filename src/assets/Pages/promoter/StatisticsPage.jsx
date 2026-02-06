@@ -127,7 +127,7 @@ const StatisticsPage = () => {
             <section className="mt-8 bg-card rounded-xl border border-primary p-8 shadow-lg">
               <h2 className="text-2xl font-bold text-primary mb-6">Revenue Summary</h2>
               <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 p-6 text-white">
+                <div className="rounded-lg bg-linear-to-br from-green-500 to-emerald-600 p-6 text-white">
                   <p className="text-sm text-green-100 mb-2">Total Revenue</p>
                   <p className="text-4xl font-bold">
                     £{new Intl.NumberFormat('en-GB', {
@@ -137,7 +137,7 @@ const StatisticsPage = () => {
                     }).format(eventStats.totalRevenue).slice(1)}
                   </p>
                 </div>
-                <div className="rounded-lg bg-gradient-to-br from-blue-500 to-cyan-600 p-6 text-white">
+                <div className="rounded-lg bg-linear-to-br from-blue-500 to-cyan-600 p-6 text-white">
                   <p className="text-sm text-blue-100 mb-2">Average Revenue Per Event</p>
                   <p className="text-4xl font-bold">
                     £{eventStats.totalEvents > 0

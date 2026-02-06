@@ -1,0 +1,54 @@
+========================
+start by npm run dev 
+ -- server 
+	-- users 
+========================
+
+TODO - Customer and Promoter pages
+
+✅ See if I can make the user log in pages using the users server. 
+	::
+	✅ Create the custom nav bars
+	
+Customer: 
+	✅ See events saved 
+	See events RSVP'd 
+
+
+What does a customer need to do? 
+
+
+
+
+Promoters: 
+	See events hosted
+	Edit events
+	Delete events
+	Create events  
+	See event statistics 
+	Create new events 
+
+	change route for create events for promoters
+
+General : 
+	✅ CTA for user to sign in before saving an event or RSVP
+	Add map location for venues 
+	Add a date range selector for events
+
+Low priority: 
+	Logo in head 
+	Logo applied across the pages
+	Footer:
+		Link social icons to relevant accounts
+		Check which pages are needed and not needed right now.
+			Remove unnecessary links
+	Translator 
+	
+
+Mid priority: 
+	Responsiveness on mobile for promoters
+			on tablet for customers
+
+High priority: 
+	Responsiveness on mobile for customers
+			on tablet for promoters 

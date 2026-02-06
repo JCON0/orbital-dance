@@ -101,7 +101,7 @@ const EventPreviewPage = () => {
     <>
       <div className="min-h-screen bg-primary">
         {/* Preview Mode Banner */}
-        <div className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 shadow-lg relative z-10">
+        <div className="bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 shadow-lg relative z-10">
           <div className="mx-auto max-w-4xl flex items-center justify-between">
             <div className="flex items-center gap-3">
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +112,7 @@ const EventPreviewPage = () => {
               <span className="text-cyan-100">This is how your event appears to customers</span>
             </div>
             <Link 
-              to="/dashboard/my-events" 
+              to="/dashboard/promoter/events" 
               className="text-sm font-medium hover:text-cyan-100 transition flex items-center gap-1 px-4 py-2 rounded hover:bg-white/10 cursor-pointer"
             >
               ← Back to Dashboard
@@ -167,15 +167,15 @@ const EventPreviewPage = () => {
 
             {/* Event Stats (Preview) */}
             <div className="grid grid-cols-3 gap-4">
-              <div className="rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 p-6 text-white shadow-lg">
+              <div className="rounded-xl bg-linear-to-br from-cyan-500 to-cyan-600 p-6 text-white shadow-lg">
                 <div className="text-3xl font-bold">0</div>
                 <div className="text-sm text-cyan-100">RSVPs</div>
               </div>
-              <div className="rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white shadow-lg">
+              <div className="rounded-xl bg-linear-to-br from-blue-500 to-blue-600 p-6 text-white shadow-lg">
                 <div className="text-3xl font-bold">0</div>
                 <div className="text-sm text-blue-100">Views</div>
               </div>
-              <div className="rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white shadow-lg">
+              <div className="rounded-xl bg-linear-to-br from-purple-500 to-purple-600 p-6 text-white shadow-lg">
                 <div className="text-3xl font-bold">0</div>
                 <div className="text-sm text-purple-100">Shares</div>
               </div>
