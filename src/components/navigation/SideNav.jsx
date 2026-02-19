@@ -33,7 +33,7 @@ const SideNav = () => {
   }
 
   return (
-    <aside className="fixed left-0 top-0 hidden h-screen w-64 shrink-0 border-r border-stone-200 bg-slate-900 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-950 lg:block overflow-y-auto">
+    <aside className="fixed left-0 top-0 hidden h-screen w-64 shrink-0 bg-slate-900 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-950 lg:block overflow-y-auto">
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-2 px-1 pb-6 pt-4">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">

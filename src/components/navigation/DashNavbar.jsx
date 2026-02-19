@@ -45,7 +45,7 @@ const DashNavbar = () => {
   }
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-stone-200 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-md transition dark:border-slate-700">
+    <nav className="sticky top-0 z-40 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-md transition dark:border-slate-700">
       <div className="mx-auto flex max-w-full items-center gap-8 px-6 py-3 sm:px-8">
         {/* Dashboard Title */}
         <h1 className="text-xl font-bold text-slate-900 dark:text-white whitespace-nowrap">
