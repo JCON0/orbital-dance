@@ -73,7 +73,7 @@ const EventPreviewPage = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-primary">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Event Not Found</h1>
+          <h1 className="text-4xl font-bold text-white">Event Not Found</h1>
           <Link to="/dashboard" className="mt-4 inline-block text-cyan-500 hover:text-cyan-600">
             Back to Dashboard
           </Link>
@@ -113,7 +113,7 @@ const EventPreviewPage = () => {
             </div>
             <Link 
               to="/dashboard/promoter/events" 
-              className="text-sm font-medium hover:text-cyan-100 transition flex items-center gap-1 px-4 py-2 rounded hover:bg-white/10 cursor-pointer"
+              className="text-sm font-medium hover:text-cyan-100 transition flex items-center gap-1 px-4 py-2 rounded hover:bg-slate-800 cursor-pointer"
             >
               ← Back to Dashboard
             </Link>
@@ -125,10 +125,10 @@ const EventPreviewPage = () => {
         {/* Event Details */}
         <div className="mx-auto max-w-4xl px-6 py-12">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               {event.title}
             </h1>
-            <p className="mt-4 text-xl text-slate-600 dark:text-slate-400">
+            <p className="mt-4 text-xl text-slate-400">
               {event.description}
             </p>
           </div>
@@ -139,8 +139,8 @@ const EventPreviewPage = () => {
 
           {/* Preview Mode Actions */}
           <div className="mb-8 space-y-4">
-            <div className="rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Event Management</h3>
+            <div className="rounded-xl bg-slate-800 border border-slate-700 p-6">
+              <h3 className="text-lg font-bold text-white mb-4">Event Management</h3>
               <div className="flex gap-4">
                 {/* <Link
                   to={`/events/${slug}`}
@@ -151,13 +151,13 @@ const EventPreviewPage = () => {
                   View Public Event Page
                 </Link> */}
                 <button 
-                  className="flex-1 rounded-lg border border-slate-300 dark:border-slate-600 px-6 py-3 font-semibold text-slate-700 dark:text-slate-300 transition hover:bg-slate-200 dark:hover:bg-slate-700"
+                  className="flex-1 rounded-lg border border-slate-600 px-6 py-3 font-semibold text-slate-300 transition hover:bg-slate-700"
                   onClick={() => {/* TODO: Implement edit functionality */}}
                 >
                   Edit Event
                 </button>
                 <button 
-                  className="rounded-lg border border-red-300 dark:border-red-600 px-6 py-3 font-semibold text-red-600 dark:text-red-400 transition hover:bg-red-50 dark:hover:bg-red-900/20"
+                  className="rounded-lg border border-red-600 px-6 py-3 font-semibold text-red-400 transition hover:bg-red-900/20"
                   onClick={handleDeleteClick}
                 >
                   Delete Event

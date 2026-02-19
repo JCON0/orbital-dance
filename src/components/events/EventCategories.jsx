@@ -52,10 +52,10 @@ const EventCategories = () => {
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Event Categories
           </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-lg text-slate-400">
             From techno to trance, discover every genre of electronic music
           </p>
         </div>
@@ -79,35 +79,35 @@ const EventCategories = () => {
                 <div className="mb-4 text-5xl">{category.icon}</div>
 
                 {/* Category Name */}
-                <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
+                <h3 className="mb-2 text-xl font-semibold text-white">
                   {category.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-400">
                   {category.description}
                 </p>
 
                 {/* Hover indicator */}
-                <div className="mt-4 flex items-center text-sm font-medium text-slate-700 transition group-hover:translate-x-1 dark:text-slate-300">
+                <div className="mt-4 flex items-center text-sm font-medium text-slate-300 transition group-hover:translate-x-1">
                   Explore →
                 </div>
               </div>
 
               {/* Border accent on hover */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition group-hover:border-slate-300 dark:group-hover:border-slate-600" />
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition group-hover:border-slate-600" />
             </Link>
           ))}
         </div>
 
         {/* Footer CTA */}
         <div className="mt-16 text-center">
-          <p className="mb-6 text-slate-600 dark:text-slate-400">
+          <p className="mb-6 text-slate-400">
             See all events happening in your city
           </p>
           <Link
             to="/events"
-            className="inline-block rounded-full border-2 border-slate-300 px-8 py-3 font-semibold text-slate-900 transition hover:border-cyan-400 hover:bg-cyan-50 dark:border-slate-600 dark:text-white dark:hover:border-cyan-400 dark:hover:bg-slate-800"
+            className="inline-block rounded-full border-2 border-slate-600 px-8 py-3 font-semibold text-white transition hover:border-cyan-400 hover:bg-slate-800"
           >
             Browse All Events
           </Link>

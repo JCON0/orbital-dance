@@ -8,8 +8,8 @@ const DeleteConfirmationModal = ({ isOpen, eventTitle, onConfirm, onCancel, isLo
     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
       <div className="mx-4 w-full max-w-sm rounded-xl bg-card border border-primary shadow-lg z-51">
         <div className="p-6">
-          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
-            <HiOutlineTrash className="h-6 w-6 text-red-600 dark:text-red-400" />
+          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-900/30">
+            <HiOutlineTrash className="h-6 w-6 text-red-400" />
           </div>
           
           <h3 className="text-lg font-bold text-primary mb-2">Delete Event</h3>

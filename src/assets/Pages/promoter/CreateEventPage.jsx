@@ -433,7 +433,7 @@ const CreateEventPage = () => {
                 />
                 <div className="flex items-center justify-between mt-1">
                   {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
-                  <p className={`text-xs ml-auto ${formData.description.length < 250 ? 'text-secondary' : 'text-green-600 dark:text-green-400'}`}>
+                  <p className={`text-xs ml-auto ${formData.description.length < 250 ? 'text-secondary' : 'text-green-400'}`}>
                     {formData.description.length}/250 characters
                   </p>
                 </div>

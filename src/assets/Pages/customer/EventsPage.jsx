@@ -100,7 +100,7 @@ const EventsPage = () => {
                 className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
                   showSavedOnly
                     ? 'bg-linear-to-r from-cyan-400 to-cyan-600 text-white shadow-md'
-                    : 'border border-primary text-slate-700 hover:bg-secondary dark:text-slate-300'
+                    : 'border border-primary text-slate-300 hover:bg-secondary'
                 }`}
               >
                 <svg className="h-5 w-5" fill={showSavedOnly ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@ const EventsPage = () => {
                 {showSavedOnly ? 'Showing Saved Events' : 'View Saved Events'}
               </button>
               {showSavedOnly && (
-                <span className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="text-sm text-slate-400">
                   {savedEventIds.length === 0 ? 'No saved events yet' : `${savedEventIds.length} saved`}
                 </span>
               )}

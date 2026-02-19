@@ -29,10 +29,10 @@ const FeaturesSection = () => {
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Why Choose Orbital Dance?
           </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-lg text-slate-400">
             Everything you need to experience cities like a true local
           </p>
         </div>
@@ -42,18 +42,18 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-8 transition hover:border-cyan-300 hover:shadow-lg dark:border-slate-700 dark:from-slate-800 dark:to-slate-900 dark:hover:border-cyan-400 dark:hover:shadow-lg dark:hover:shadow-cyan-900/20"
+              className="group rounded-2xl border border-slate-700 bg-linear-to-br from-slate-800 to-slate-900 p-8 transition hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-900/20"
             >
               {/* Icon */}
-              <div className="mb-4 inline-block rounded-xl bg-linear-to-br from-cyan-100 to-cyan-50 p-3 transition group-hover:from-cyan-200 group-hover:to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:group-hover:from-cyan-800/40 dark:group-hover:to-cyan-700/40">
+              <div className="mb-4 inline-block rounded-xl bg-linear-to-br from-cyan-900/30 to-cyan-800/30 p-3 transition group-hover:from-cyan-800/40 group-hover:to-cyan-700/40">
                 <span className="text-3xl">{feature.icon}</span>
               </div>
 
               {/* Content */}
-              <h3 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">
+              <h3 className="mb-3 text-xl font-semibold text-white">
                 {feature.title}
               </h3>
-              <p className="leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="leading-relaxed text-slate-400">
                 {feature.description}
               </p>
 

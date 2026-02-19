@@ -33,10 +33,10 @@ const Testimonials = () => {
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Loved by Music Lovers
           </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-lg text-slate-400">
             See what the electronic music community is saying about Orbital Dance
           </p>
         </div>
@@ -69,22 +69,22 @@ const Testimonials = () => {
 
               {/* Quote with playful bait-and-switch */}
               <div className="relative mb-6 min-h-24">
-                <p className="text-slate-700 transition-opacity duration-400 dark:text-slate-300 group-hover:opacity-0">
+                <p className="text-slate-300 transition-opacity duration-400 group-hover:opacity-0">
                   "{testimonial.teaser}"
                 </p>
-                <p className="absolute inset-0 opacity-0 text-slate-700 transition-opacity duration-400 dark:text-slate-300 group-hover:opacity-100">
+                <p className="absolute inset-0 opacity-0 text-slate-300 transition-opacity duration-400 group-hover:opacity-100">
                   "{testimonial.quote}"
                 </p>
               </div>
 
               {/* User Info */}
-              <div className="flex items-center gap-3 border-t border-slate-200 pt-4 dark:border-slate-700">
+              <div className="flex items-center gap-3 border-t border-slate-700 pt-4">
                 <div className="text-4xl">{testimonial.avatar}</div>
                 <div>
-                  <p className="font-semibold text-slate-900 dark:text-white">
+                  <p className="font-semibold text-white">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <p className="text-sm text-slate-400">
                     {testimonial.location}
                   </p>
                 </div>
@@ -96,16 +96,16 @@ const Testimonials = () => {
         {/* Social Proof Stats */}
         <div className="mt-16 grid gap-6 rounded-2xl border border-primary bg-primary p-8 md:grid-cols-3">
           <div className="text-center">
-            <p className="text-4xl font-bold text-cyan-600 dark:text-cyan-400">50k+</p>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">Active Users</p>
+            <p className="text-4xl font-bold text-cyan-400">50k+</p>
+            <p className="mt-2 text-slate-400">Active Users</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-cyan-600 dark:text-cyan-400">4.9★</p>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">Average Rating</p>
+            <p className="text-4xl font-bold text-cyan-400">4.9★</p>
+            <p className="mt-2 text-slate-400">Average Rating</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-cyan-600 dark:text-cyan-400">200k+</p>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">Events Attended</p>
+            <p className="text-4xl font-bold text-cyan-400">200k+</p>
+            <p className="mt-2 text-slate-400">Events Attended</p>
           </div>
         </div>
       </div>

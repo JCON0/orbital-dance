@@ -63,7 +63,7 @@ const RecentEvents = () => {
       <div className="lg:col-span-2">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-primary">All Events</h2>
-          <Link to="/dashboard/promoter/events" className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+          <Link to="/dashboard/promoter/events" className="text-sm text-cyan-400 hover:underline font-medium">
             View All →
           </Link>
         </div>

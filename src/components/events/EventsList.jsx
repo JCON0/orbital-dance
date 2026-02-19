@@ -22,10 +22,10 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
   if (events.length === 0) {
     return (
       <div className="py-20 text-center">
-        <p className="text-lg text-slate-600 dark:text-slate-400">
+        <p className="text-lg text-slate-400">
           No events found matching your criteria
         </p>
-        <p className="mt-2 text-sm text-slate-500 dark:text-slate-500">
+        <p className="mt-2 text-sm text-slate-500">
           Try adjusting your search or filters
         </p>
       </div>
@@ -47,7 +47,7 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
             >
               <div className="flex gap-6 items-center">
                 {/* Event Image */}
-                <div className="h-32 w-32 shrink-0 overflow-hidden rounded-lg bg-slate-200 dark:bg-slate-700">
+                <div className="h-32 w-32 shrink-0 overflow-hidden rounded-lg bg-slate-700">
                   <img
                     src={event.image}
                     alt={event.title}
@@ -59,10 +59,10 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      <h3 className="text-2xl font-bold text-white mb-2">
                         {event.title}
                       </h3>
-                      <div className="space-y-2 text-slate-600 dark:text-slate-400">
+                      <div className="space-y-2 text-slate-400">
                         <div className="flex items-center gap-2">
                           <span>📍</span>
                           <span className="font-medium">{event.location}</span>
@@ -75,7 +75,7 @@ const EventsList = ({ events, isOwnDashboard = false }) => {
                           <span className="rounded-full bg-cyan-500 px-3 py-1 text-sm font-semibold text-white">
                             {event.category}
                           </span>
-                          <span className="text-lg font-bold text-cyan-600 dark:text-cyan-400">
+                          <span className="text-lg font-bold text-cyan-400">
                             {formatPrice(event.price, event.currency)}
                           </span>
                         </div>

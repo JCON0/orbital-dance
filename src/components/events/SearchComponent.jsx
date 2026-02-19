@@ -70,7 +70,7 @@ const SearchComponent = ({ onSearchChange, onLocationChange, onCategoryChange, i
             className={`rounded-full px-6 py-2 text-sm font-medium transition ${
               selectedCategories.includes(category)
                 ? 'bg-cyan-500 text-white shadow-sm hover:bg-cyan-600'
-                : 'border border-slate-300 text-slate-700 hover:border-cyan-400 hover:bg-cyan-50 dark:border-slate-700 dark:text-slate-300 dark:hover:border-cyan-400 dark:hover:bg-slate-800'
+                : 'border border-slate-700 text-slate-300 hover:border-cyan-400 hover:bg-slate-800'
             }`}
           >
             {category}

@@ -46,10 +46,10 @@ const Navbar = ({ isDark, setIsDark }) => {
   if (isPromoterOnDashboard) return null
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-stone-200 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-md transition dark:border-slate-700">
+    <nav className="sticky top-0 z-50 border-b border-slate-700 bg-slate-950 backdrop-blur-md transition">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
             OD
           </span>
@@ -64,8 +64,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   to="/"
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
                     location.pathname === '/'
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                   }`}
                 >
                   Home
@@ -74,8 +74,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   to="/events"
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
                     location.pathname === '/events'
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                   }`}
                 >
                   Events
@@ -84,8 +84,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   to="/about"
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
                     location.pathname === '/about'
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                   }`}
                 >
                   About
@@ -100,8 +100,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                     onClick={() => setIsDashboardOpen((prev) => !prev)}
                     className={`rounded-lg px-4 py-2 text-sm font-medium transition flex items-center gap-2 ${
                       location.pathname.includes('/dashboard')
-                        ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+                        ? 'bg-cyan-900/30 text-cyan-300'
+                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                     }`}
                     aria-haspopup="menu"
                     aria-expanded={isDashboardOpen}
@@ -111,13 +111,13 @@ const Navbar = ({ isDark, setIsDark }) => {
                   </button>
                   {isDashboardOpen && (
                     <div
-                      className="absolute left-0 mt-2 w-48 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] shadow-lg dark:border-slate-700"
+                      className="absolute left-0 mt-2 w-48 rounded-lg border border-slate-700 bg-slate-800 shadow-lg"
                       role="menu"
                     >
                       <Link
                         to="/dashboard"
                         onClick={() => setIsDashboardOpen(false)}
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                        className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                         role="menuitem"
                       >
                         Overview
@@ -126,7 +126,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                         <Link
                           to="/dashboard/tickets"
                           onClick={() => setIsDashboardOpen(false)}
-                          className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                           role="menuitem"
                         >
                           My Tickets
@@ -136,7 +136,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                         <Link
                           to="/events"
                           onClick={() => setIsDashboardOpen(false)}
-                          className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                           role="menuitem"
                         >
                           Book Event
@@ -147,7 +147,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                           <Link
                             to="/dashboard/my-events"
                             onClick={() => setIsDashboardOpen(false)}
-                            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                            className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                             role="menuitem"
                           >
                             My Events
@@ -155,7 +155,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                           <Link
                             to="/dashboard/statistics"
                             onClick={() => setIsDashboardOpen(false)}
-                            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                            className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                             role="menuitem"
                           >
                             Statistics
@@ -177,20 +177,20 @@ const Navbar = ({ isDark, setIsDark }) => {
                   </button>
                   {isAccountOpen && (
                     <div
-                      className="absolute right-0 mt-2 w-40 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] shadow-lg dark:border-slate-700"
+                      className="absolute right-0 mt-2 w-40 rounded-lg border border-slate-700 bg-slate-800 shadow-lg"
                       role="menu"
                     >
                       <Link
                         to={getDashboardLink()}
                         onClick={() => setIsAccountOpen(false)}
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                        className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                         role="menuitem"
                       >
                         Account
                       </Link>
                       <button
                         onClick={handleLogout}
-                        className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-slate-100 dark:text-red-400 dark:hover:bg-slate-800"
+                        className="block w-full px-4 py-2 text-left text-sm text-red-400 hover:bg-slate-700"
                         role="menuitem"
                       >
                         Logout
@@ -213,7 +213,7 @@ const Navbar = ({ isDark, setIsDark }) => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex flex-col items-center justify-center gap-1.5 rounded-lg p-2 text-slate-700 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 md:hidden"
+              className="flex flex-col items-center justify-center gap-1.5 rounded-lg p-2 text-slate-300 transition hover:bg-slate-800 md:hidden"
               aria-label="Toggle menu"
             >
               <span className={`h-0.5 w-5 bg-current transition ${isOpen ? 'translate-y-2 rotate-45' : ''}`} />
@@ -226,7 +226,7 @@ const Navbar = ({ isDark, setIsDark }) => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="border-t border-stone-200 bg-primary px-4 py-4 dark:border-slate-700 md:hidden">
+        <div className="border-t border-slate-700 bg-slate-900 px-4 py-4 md:hidden">
           <div className="flex flex-col gap-2">
             {user?.type !== 'promoter' && (
               <>
@@ -235,8 +235,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   onClick={() => setIsOpen(false)}
                   className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
                     location.pathname === '/'
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   Home
@@ -246,8 +246,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   onClick={() => setIsOpen(false)}
                   className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
                     location.pathname === '/events'
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   Events
@@ -257,8 +257,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   onClick={() => setIsOpen(false)}
                   className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
                     location.pathname === '/about'
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   About
@@ -272,8 +272,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                   onClick={() => setIsOpen(false)}
                   className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
                     location.pathname.includes('/dashboard')
-                      ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                      ? 'bg-cyan-900/30 text-cyan-300'
+                      : 'text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   Dashboard
@@ -285,8 +285,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                       onClick={() => setIsOpen(false)}
                       className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
                         location.pathname === '/dashboard/my-events'
-                          ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                          : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                          ? 'bg-cyan-900/30 text-cyan-300'
+                          : 'text-slate-300 hover:bg-slate-800'
                       }`}
                     >
                       My Events
@@ -296,8 +296,8 @@ const Navbar = ({ isDark, setIsDark }) => {
                       onClick={() => setIsOpen(false)}
                       className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
                         location.pathname === '/dashboard/statistics'
-                          ? 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'
-                          : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                          ? 'bg-cyan-900/30 text-cyan-300'
+                          : 'text-slate-300 hover:bg-slate-800'
                       }`}
                     >
                       Statistics
@@ -305,16 +305,16 @@ const Navbar = ({ isDark, setIsDark }) => {
                   </>
                 )}
                 {/* Account + Logout (Mobile) */}
-                <div className="mt-2 rounded-lg border border-stone-200 bg-[rgb(var(--color-bg-primary))] dark:border-slate-700">
+                <div className="mt-2 rounded-lg border border-slate-700 bg-slate-800">
                   <button
                     onClick={() => navigate(getDashboardLink())}
-                    className="w-full px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                    className="w-full px-4 py-3 text-left text-sm font-medium text-slate-300 hover:bg-slate-700"
                   >
                     {user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : 'Account'}
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="w-full px-4 py-3 text-left text-sm font-medium text-red-600 hover:bg-slate-100 dark:text-red-400 dark:hover:bg-slate-800"
+                    className="w-full px-4 py-3 text-left text-sm font-medium text-red-400 hover:bg-slate-700"
                   >
                     Logout
                   </button>

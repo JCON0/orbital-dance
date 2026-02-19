@@ -16,7 +16,7 @@ const CTASection = () => {
   return (
     <section id="get-started" className="relative isolate overflow-hidden bg-primary py-24 sm:py-32">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10 blur-3xl dark:opacity-5" aria-hidden>
+      <div className="absolute inset-0 opacity-5 blur-3xl" aria-hidden>
         <div className="absolute -left-20 top-1/2 h-64 w-64 rounded-full bg-linear-to-br from-cyan-400 to-cyan-600" />
         <div className="absolute -right-20 -bottom-10 h-64 w-64 rounded-full bg-linear-to-br from-fuchsia-400 to-cyan-400" />
       </div>
@@ -24,12 +24,12 @@ const CTASection = () => {
       <div className="relative mx-auto max-w-2xl px-6">
         <div className="text-center">
           {/* Heading */}
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Start Discovering Events Today
           </h2>
 
           {/* Subheading */}
-          <p className="mt-6 text-xl leading-8 text-slate-600 dark:text-slate-400">
+          <p className="mt-6 text-xl leading-8 text-slate-400">
             Join thousands of travelers finding authentic experiences in every corner of the world. Your next adventure is just a tap away.
           </p>
 
@@ -53,7 +53,7 @@ const CTASection = () => {
 
           {/* Success message */}
           {submitted && (
-            <p className="mt-4 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+            <p className="mt-4 text-sm font-medium text-emerald-400">
               Great! Check your email for next steps.
             </p>
           )}
@@ -61,25 +61,25 @@ const CTASection = () => {
           {/* Trust indicators */}
           <div className="mt-12 flex flex-col items-center justify-center gap-8 sm:flex-row">
             <div className="text-center">
-              <p className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">150+</p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Countries</p>
+              <p className="text-3xl font-bold text-cyan-400">150+</p>
+              <p className="text-sm text-slate-400">Countries</p>
             </div>
-            <div className="h-12 w-px bg-slate-300 dark:bg-slate-700" />
+            <div className="h-12 w-px bg-slate-700" />
             <div className="text-center">
-              <p className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">24/7</p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Support</p>
+              <p className="text-3xl font-bold text-cyan-400">24/7</p>
+              <p className="text-sm text-slate-400">Support</p>
             </div>
-            <div className="h-12 w-px bg-slate-300 dark:bg-slate-700" />
+            <div className="h-12 w-px bg-slate-700" />
             <div className="text-center">
-              <p className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">Free</p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">To Use</p>
+              <p className="text-3xl font-bold text-cyan-400">Free</p>
+              <p className="text-sm text-slate-400">To Use</p>
             </div>
           </div>
 
           {/* Secondary CTA */}
-          <p className="mt-10 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mt-10 text-sm text-slate-400">
             Or{' '}
-            <a href="#explore" className="font-semibold text-cyan-600 transition hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">
+            <a href="#explore" className="font-semibold text-cyan-400 transition hover:text-cyan-300">
               browse events now
             </a>
             {' '}without signing up.

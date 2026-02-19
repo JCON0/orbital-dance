@@ -29,7 +29,7 @@ const EventDetailPage = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-primary">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Event Not Found</h1>
+          <h1 className="text-4xl font-bold text-white">Event Not Found</h1>
           <Link to="/events" className="mt-4 inline-block text-cyan-500 hover:text-cyan-600">
             Back to Events
           </Link>
@@ -69,10 +69,10 @@ const EventDetailPage = () => {
         {/* Event Details */}
         <div className="mx-auto max-w-4xl px-6 py-12">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               {event.title}
             </h1>
-            <p className="mt-4 text-xl text-slate-600 dark:text-slate-400">
+            <p className="mt-4 text-xl text-slate-400">
               {event.description}
             </p>
           </div>

@@ -64,9 +64,9 @@ const Footer = () => {
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
                 OD
               </span>
-              <span className="text-lg font-bold text-slate-900 dark:text-white">Orbital Dance</span>
+              <span className="text-lg font-bold text-white">Orbital Dance</span>
             </div>
-            <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+            <p className="mt-4 text-sm text-slate-400">
               Discover authentic events around the world. Travel like a local.
             </p>
             {/* Social Links */}
@@ -75,7 +75,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-600 dark:border-slate-600 dark:text-slate-400 dark:hover:border-cyan-400 dark:hover:bg-slate-800 dark:hover:text-cyan-400"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-600 text-slate-400 transition hover:border-cyan-400 hover:bg-slate-800 hover:text-cyan-400"
                   aria-label={social.name}
                 >
                   <span className="text-sm font-semibold">{social.icon}</span>
@@ -87,21 +87,21 @@ const Footer = () => {
           {/* Links sections */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{category}</h3>
+              <h3 className="text-sm font-semibold text-white">{category}</h3>
               <ul className="mt-6 space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
                     {link.isScrollLink ? (
                       <button
                         onClick={() => handleScrollToSection(link.href.substring(1))}
-                        className="text-sm text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white cursor-pointer"
+                        className="text-sm text-slate-400 transition hover:text-white cursor-pointer"
                       >
                         {link.name}
                       </button>
                     ) : (
                       <Link
                         to={link.href}
-                        className="text-sm text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                        className="text-sm text-slate-400 transition hover:text-white"
                       >
                         {link.name}
                       </Link>
@@ -114,11 +114,11 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-12 border-t border-slate-200 dark:border-slate-800" />
+        <div className="my-12 border-t border-slate-800" />
 
         {/* Bottom section */}
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-400">
             © {currentYear} Orbital Dance. All rights reserved.
           </p>
 

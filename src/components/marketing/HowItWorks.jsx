@@ -89,7 +89,7 @@ const HowItWorks = () => {
                   <div className="flex-1">
                     <div className="rounded-2xl border border-primary bg-secondary p-8 shadow-lg hover:shadow-xl transition">
                       {/* Step Number Badge */}
-                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-100 to-cyan-50 text-lg font-bold text-cyan-600 dark:from-cyan-900/30 dark:to-cyan-800/30 dark:text-cyan-400">
+                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-cyan-900/30 to-cyan-800/30 text-lg font-bold text-cyan-400">
                         {step.number}
                       </div>
 

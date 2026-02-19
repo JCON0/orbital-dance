@@ -23,10 +23,10 @@ const CountriesCarousel = () => {
   return (
     <section className="overflow-hidden bg-primary py-12">
       <div className="mx-auto max-w-5xl px-6 pb-8 text-center">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="text-2xl font-semibold tracking-tight text-white">
           Available Worldwide
         </h2>
-        <p className="mt-2 text-slate-600 dark:text-slate-400">
+        <p className="mt-2 text-slate-400">
           Discover events in major cities across these countries and more
         </p>
       </div>
@@ -44,7 +44,7 @@ const CountriesCarousel = () => {
                 alt={`${country.name} flag`}
                 className="h-12 w-auto object-contain"
               />
-              <span className="text-lg font-medium text-slate-900 dark:text-white">{country.name}</span>
+              <span className="text-lg font-medium text-white">{country.name}</span>
             </div>
           ))}
         </div>

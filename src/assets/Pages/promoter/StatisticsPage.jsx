@@ -56,7 +56,7 @@ const StatisticsPage = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-primary">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Loading statistics...</h1>
+          <h1 className="text-2xl font-bold text-white">Loading statistics...</h1>
         </div>
       </div>
     )

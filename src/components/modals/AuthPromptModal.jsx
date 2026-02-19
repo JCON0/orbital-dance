@@ -49,19 +49,19 @@ const AuthPromptModal = ({ isOpen, onClose }) => {
         className="w-full max-w-md rounded-2xl border border-primary bg-card p-6 shadow-xl"
       >
         <div className="flex items-start justify-between">
-          <h2 id="auth-prompt-title" className="text-xl font-semibold text-slate-900 dark:text-white">
+          <h2 id="auth-prompt-title" className="text-xl font-semibold text-white">
             Sign in to save events
           </h2>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="rounded-md p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800"
+            className="rounded-md p-2 text-slate-400 hover:bg-slate-800"
           >
             <HiOutlineXMark className="h-5 w-5" />
           </button>
         </div>
 
-        <p id="auth-prompt-desc" className="mt-3 text-sm text-slate-600 dark:text-slate-400">
+        <p id="auth-prompt-desc" className="mt-3 text-sm text-slate-400">
           You need an account to save events and get notified about updates. Continue to sign in or create a free account.
         </p>
 
@@ -74,14 +74,14 @@ const AuthPromptModal = ({ isOpen, onClose }) => {
           </button>
           <button
             onClick={() => goTo('/sign-up')}
-            className="flex-1 rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-secondary dark:text-white"
+            className="flex-1 rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-secondary"
           >
             Sign Up
           </button>
         </div>
 
         <div className="mt-4 text-center">
-          <Link to="/events" className="text-xs text-slate-500 underline hover:text-slate-700 dark:hover:text-slate-300" onClick={onClose}>
+          <Link to="/events" className="text-xs text-slate-400 underline hover:text-slate-300" onClick={onClose}>
             Continue browsing events
           </Link>
         </div>

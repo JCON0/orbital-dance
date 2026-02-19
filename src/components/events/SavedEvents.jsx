@@ -53,7 +53,7 @@ const SavedEvents = ({ onClose }) => {
 
       {savedEvents.length === 0 ? (
         <div className="text-center py-12">
-          <HiOutlineHeart className="mx-auto h-16 w-16 text-slate-400 dark:text-slate-600 mb-4" />
+          <HiOutlineHeart className="mx-auto h-16 w-16 text-slate-600 mb-4" />
           <h3 className="text-xl font-semibold text-primary mb-2">No Saved Events Yet</h3>
           <p className="text-secondary mb-6">
             Start exploring events and save your favorites to see them here!

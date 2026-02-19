@@ -66,7 +66,7 @@ const EventCard = ({ event, isOwnDashboard = false }) => {
         tabIndex={0}
       >
         {/* Event Image */}
-        <div className="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
+        <div className="relative h-48 overflow-hidden bg-slate-700">
           <img
             src={event.image}
             alt={event.title}
@@ -83,36 +83,36 @@ const EventCard = ({ event, isOwnDashboard = false }) => {
         {/* Event Details */}
         <div className="p-6">
           {/* Title */}
-          <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white truncate">
+          <h3 className="mb-2 text-xl font-semibold text-white truncate">
             {event.title}
           </h3>
 
           {/* Location and Venue */}
-          <div className="mb-3 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+          <div className="mb-3 flex items-center gap-2 text-sm text-slate-400">
             <span>📍</span>
             <span>{event.location}</span>
           </div>
 
           {/* Date and Time */}
-          <div className="mb-3 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+          <div className="mb-3 flex items-center gap-2 text-sm text-slate-400">
             <span>📅</span>
             <span>{formatDate(event.date)} at {event.time}</span>
           </div>
 
           {/* Description */}
-          <p className="mb-4 line-clamp-2 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mb-4 line-clamp-2 text-sm text-slate-400">
             {event.description}
           </p>
 
           {/* Bottom Section */}
-          <div className="flex items-center justify-between border-t border-slate-200 pt-4 dark:border-slate-700">
+          <div className="flex items-center justify-between border-t border-slate-700 pt-4">
             {/* Price */}
-            <div className="text-lg font-bold text-cyan-600 dark:text-cyan-400">
+            <div className="text-lg font-bold text-cyan-400">
               {formatPrice(event.price, event.currency)}
             </div>
 
             {/* Attendees */}
-            <div className="text-sm text-slate-600 dark:text-slate-400">
+            <div className="text-sm text-slate-400">
               <span>{event.attendees}/{event.maxCapacity}</span>
               <span className="ml-1">attending</span>
             </div>

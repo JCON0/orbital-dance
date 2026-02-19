@@ -98,7 +98,7 @@ const ValuesSection = () => {
               </div>
 
               {/* Border accent on hover */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition group-hover:border-slate-300 dark:group-hover:border-slate-600" />
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition group-hover:border-slate-600" />
             </div>
           ))}
         </div>
