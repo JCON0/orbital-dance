@@ -17,7 +17,7 @@ const navItems = [
   { label: 'Settings', to: '/dashboard/promoter/settings', icon: <HiOutlineCog6Tooth className="h-5 w-5" /> },
 ]
 
-const SideNav = () => {
+const SideNav = ({ isOpen = true }) => {
   const { user, logout } = useAuth()
   const location = useLocation()
   const navigate = useNavigate()
@@ -43,7 +43,11 @@ const SideNav = () => {
   }
 
   return (
-    <aside className="fixed left-0 top-0 hidden h-screen w-64 shrink-0 bg-slate-900 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-950 lg:block overflow-y-auto">
+    <aside
+      className={`fixed left-0 top-0 hidden h-screen w-64 shrink-0 bg-slate-900 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-950 overflow-y-auto lg:block transition-transform duration-300 ease-in-out ${
+        isOpen ? 'lg:translate-x-0' : 'lg:-translate-x-full'
+      }`}
+    >
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-2 px-1 pb-6 pt-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
@@ -100,7 +104,7 @@ const SideNav = () => {
                       <NavLink
                         to="/dashboard/promoter/events"
                         className={({ isActive: linkActive }) =>
-                          `rounded-xl px-3 py-2 text-xs font-semibold transition ${
+                          `rounded-xl px-3 py-2 text-sm font-semibold transition ${
                             linkActive
                               ? 'bg-white text-cyan-700 shadow-sm dark:bg-slate-800 dark:text-cyan-300'
                               : 'text-slate-600 hover:bg-white/60 hover:text-cyan-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-cyan-200'
@@ -112,7 +116,7 @@ const SideNav = () => {
                       <NavLink
                         to="/dashboard/promoter/create-event"
                         className={({ isActive: linkActive }) =>
-                          `rounded-xl px-3 py-2 text-xs font-semibold transition ${
+                          `rounded-xl px-3 py-2 text-sm font-semibold transition ${
                             linkActive
                               ? 'bg-white text-cyan-700 shadow-sm dark:bg-slate-800 dark:text-cyan-300'
                               : 'text-slate-600 hover:bg-white/60 hover:text-cyan-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-cyan-200'

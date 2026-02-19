@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import {
   HiOutlineMagnifyingGlass,
+  HiOutlineBars3,
   HiOutlineBell,
   HiOutlineCog6Tooth,
   HiOutlineInformationCircle,
@@ -11,7 +12,7 @@ import {
   HiOutlineChevronDown,
 } from 'react-icons/hi2'
 
-const DashNavbar = () => {
+const DashNavbar = ({ isSideNavOpen = true, onToggleSideNav }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false)
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false)
@@ -57,9 +58,20 @@ const DashNavbar = () => {
     <nav className="sticky top-0 z-40 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-md transition dark:border-slate-700">
       <div className="mx-auto flex max-w-full items-center gap-8 px-6 pt-5 sm:px-8">
         {/* Dashboard Title */}
-        <h1 className="text-xl font-bold text-slate-900 dark:text-white whitespace-nowrap">
-          Dashboard
-        </h1>
+        <div className="flex items-center gap-2 whitespace-nowrap">
+          <button
+            type="button"
+            onClick={onToggleSideNav}
+            aria-label={isSideNavOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+            aria-pressed={!isSideNavOpen}
+            className="rounded-lg p-1 text-slate-700 transition hover:bg-stone-100 hover:text-slate-900 dark:text-white dark:hover:bg-slate-800"
+          >
+            <HiOutlineBars3 className="h-6 w-6" />
+          </button>
+          <h1 className="text-xl font-bold text-slate-900 dark:text-white">
+            Dashboard
+          </h1>
+        </div>
 
         {/* Search Bar - Centered */}
         <form onSubmit={handleSearch} className="flex flex-1 justify-center">
