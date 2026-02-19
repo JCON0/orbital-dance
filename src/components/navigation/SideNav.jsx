@@ -36,7 +36,7 @@ const SideNav = () => {
     <aside className="fixed left-0 top-0 hidden h-screen w-64 shrink-0 border-r border-stone-200 bg-slate-900 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-950 lg:block overflow-y-auto">
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-2 px-1 pb-6 pt-4">
-          <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
             OD
           </div>
           <div className="text-base font-semibold text-slate-900 dark:text-white">Orbital Dance</div>
@@ -66,7 +66,7 @@ const SideNav = () => {
         </nav>
 
         {/* Spacer to push bottom items down */}
-        <div className="flex-grow" />
+        <div className="grow" />
 
         {/* Help section */}
         <div className="rounded-2xl bg-cyan-50 px-4 py-3 dark:bg-cyan-900/20">

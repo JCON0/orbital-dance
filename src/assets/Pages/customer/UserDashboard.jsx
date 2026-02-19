@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../../contexts/AuthContext'
-import DashboardHeader from '../../../components/dashboard/DashboardHeader'
 import StatsGrid from '../../../components/dashboard/StatsGrid'
 import Footer from '../../../components/navigation/Footer'
 import SavedEvents from '../../../components/events/SavedEvents'
@@ -14,11 +13,6 @@ const UserDashboard = () => {
       <div className="-mt-16 min-h-screen bg-primary pt-16">
         <div className="px-4 py-12 sm:px-6 lg:px-8">
           <main className="mx-auto max-w-6xl">
-            <DashboardHeader
-              userType={user?.type}
-              firstName={user?.firstName}
-              lastName={user?.lastName}
-            />
             <StatsGrid userType={user?.type} />
             <div className="mb-8 rounded-xl border border-primary bg-card p-6 shadow-sm">
               <div className="mb-3">
