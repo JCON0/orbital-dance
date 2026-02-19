@@ -1,35 +1,21 @@
 import React from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import {
+  HiOutlineSquares2X2,
+  HiOutlineCalendarDays,
+  HiOutlineChartBar,
+  HiOutlinePlusCircle,
+  HiOutlineUsers,
+  HiOutlineArrowRightOnRectangle,
+} from 'react-icons/hi2'
 import { useAuth } from '../../contexts/AuthContext'
 
 const navItems = [
-  { label: 'Dashboard', to: '/dashboard', icon: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
-      <path d="M4 13h7V4H4v9zm0 7h7v-5H4v5zm9 0h7V11h-7v9zm0-18v4h7V2h-7z" />
-    </svg>
-  ) },
-  { label: 'Events', to: '/dashboard/promoter/events', icon: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
-      <path d="M5 6h14v12H5z" />
-      <path d="M9 10h6" />
-      <path d="M9 14h4" />
-    </svg>
-  ) },
-  { label: 'Statistics', to: '/dashboard/promoter/statistics', icon: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
-      <path d="M4 18h16" />
-      <path d="M6 14l4-5 4 3 4-6" />
-      <circle cx="6" cy="14" r="1.3" />
-      <circle cx="10" cy="9" r="1.3" />
-      <circle cx="14" cy="12" r="1.3" />
-      <circle cx="18" cy="6" r="1.3" />
-    </svg>
-  ) },
-  { label: 'Create Event', to: '/dashboard/promoter/create-event', icon: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
-      <path d="M12 5v14M5 12h14" />
-    </svg>
-  ) },
+  { label: 'Dashboard', to: '/dashboard', icon: <HiOutlineSquares2X2 className="h-5 w-5" /> },
+  { label: 'Events', to: '/dashboard/promoter/events', icon: <HiOutlineCalendarDays className="h-5 w-5" /> },
+  { label: 'Statistics', to: '/dashboard/promoter/statistics', icon: <HiOutlineChartBar className="h-5 w-5" /> },
+  { label: 'Create Event', to: '/dashboard/promoter/create-event', icon: <HiOutlinePlusCircle className="h-5 w-5" /> },
+  { label: 'User Management', to: '/dashboard/promoter/create-event', icon: <HiOutlineUsers className="h-5 w-5" /> },
 ]
 
 const SideNav = () => {
@@ -63,13 +49,6 @@ const SideNav = () => {
           </div>
           <div className="text-base font-semibold text-slate-900 dark:text-white">Orbital Dance</div>
         </div>
-
-        {/* Promoter info section
-        <div className="mb-6 rounded-2xl bg-white/40 px-4 py-3 dark:bg-slate-800/40">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">Promoter Account</p>
-          <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">{user?.firstName} {user?.lastName}</p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">{user?.email}</p>
-        </div> */}
 
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
@@ -109,11 +88,7 @@ const SideNav = () => {
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-800 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-cyan-500 dark:bg-slate-800 dark:hover:bg-slate-700"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-700 text-white shadow-sm dark:bg-slate-700">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
-              <path d="M9 5H5v14h4" />
-              <path d="M16 17l4-5-4-5" />
-              <path d="M7 12h13" />
-            </svg>
+            <HiOutlineArrowRightOnRectangle className="h-5 w-5" />
           </span>
           <span className="tracking-tight">Log out</span>
         </button>
