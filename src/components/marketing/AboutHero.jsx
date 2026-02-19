@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { HiOutlineArrowDown } from 'react-icons/hi2'
 import gsap from 'gsap'
 
 const AboutHero = () => {
@@ -121,9 +122,7 @@ const AboutHero = () => {
 
           {/* Scroll indicator */}
           <div ref={scrollRef} className="flex items-center justify-center gap-2 text-secondary">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <HiOutlineArrowDown className="h-5 w-5" />
           </div>
         </div>
       </div>

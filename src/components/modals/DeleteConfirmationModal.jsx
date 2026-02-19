@@ -1,4 +1,5 @@
 import React from 'react'
+import { HiOutlineTrash } from 'react-icons/hi2'
 
 const DeleteConfirmationModal = ({ isOpen, eventTitle, onConfirm, onCancel, isLoading }) => {
   if (!isOpen) return null
@@ -8,9 +9,7 @@ const DeleteConfirmationModal = ({ isOpen, eventTitle, onConfirm, onCancel, isLo
       <div className="mx-4 w-full max-w-sm rounded-xl bg-card border border-primary shadow-lg z-51">
         <div className="p-6">
           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
-            <svg className="h-6 w-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-            </svg>
+            <HiOutlineTrash className="h-6 w-6 text-red-600 dark:text-red-400" />
           </div>
           
           <h3 className="text-lg font-bold text-primary mb-2">Delete Event</h3>

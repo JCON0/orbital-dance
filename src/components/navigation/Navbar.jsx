@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import { HiOutlineChevronDown } from 'react-icons/hi2'
 
 const Navbar = ({ isDark, setIsDark }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -106,9 +107,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                     aria-expanded={isDashboardOpen}
                   >
                     Dashboard
-                    <svg className={`h-4 w-4 transition ${isDashboardOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
+                    <HiOutlineChevronDown className={`h-4 w-4 transition ${isDashboardOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {isDashboardOpen && (
                     <div

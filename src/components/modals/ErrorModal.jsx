@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { HiOutlineExclamationCircle } from 'react-icons/hi2'
 
 const ErrorModal = ({ isOpen, title, message, onClose, autoCloseDelay = 0 }) => {
   useEffect(() => {
@@ -18,9 +19,7 @@ const ErrorModal = ({ isOpen, title, message, onClose, autoCloseDelay = 0 }) => 
         {/* Error Icon */}
         <div className="flex justify-center mb-6">
           <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-red-500 to-red-600">
-            <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <HiOutlineExclamationCircle className="h-8 w-8 text-white" />
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2'
 
 const EventCreationResultModal = ({ isOpen, success, onClose }) => {
   useEffect(() => {
@@ -20,9 +21,7 @@ const EventCreationResultModal = ({ isOpen, success, onClose }) => {
             {/* Success State */}
             <div className="flex justify-center mb-6">
               <div className="flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-br from-green-500 to-emerald-600">
-                <svg className="h-10 w-10 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                </svg>
+                <HiOutlineCheckCircle className="h-10 w-10 text-white animate-pulse" />
               </div>
             </div>
             <h2 className="text-2xl font-bold text-center text-primary mb-2">Event Created!</h2>
@@ -43,9 +42,7 @@ const EventCreationResultModal = ({ isOpen, success, onClose }) => {
             {/* Failure State */}
             <div className="flex justify-center mb-6">
               <div className="flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-br from-red-500 to-red-600">
-                <svg className="h-10 w-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <HiOutlineXCircle className="h-10 w-10 text-white" />
               </div>
             </div>
             <h2 className="text-2xl font-bold text-center text-primary mb-2">Creation Failed</h2>

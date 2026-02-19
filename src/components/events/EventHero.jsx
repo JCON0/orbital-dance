@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { HiOutlineArrowLeft } from 'react-icons/hi2'
 
 const EventHero = ({ event }) => {
   return (
@@ -16,9 +17,7 @@ const EventHero = ({ event }) => {
         to="/events"
         className="absolute left-6 top-20 flex items-center gap-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 px-4 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-sm transition"
       >
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
+        <HiOutlineArrowLeft className="h-5 w-5" />
         Back to Events
       </Link>
 

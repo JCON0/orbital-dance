@@ -3,6 +3,7 @@ import { useSavedEvents } from '../../contexts/SavedEventsContext'
 import EventCard from './EventCard'
 import EventsList from './EventsList'
 import eventsData from '../../data/events.json'
+import { HiOutlineSquares2X2, HiOutlineEllipsisVertical, HiOutlineHeart } from 'react-icons/hi2'
 
 const SavedEvents = ({ onClose }) => {
   const { savedEventIds } = useSavedEvents()
@@ -26,12 +27,7 @@ const SavedEvents = ({ onClose }) => {
               onClick={() => setViewMode('grid')}
               className={`px-3 py-1 text-sm font-semibold transition flex items-center gap-1.5 ${viewMode === 'grid' ? 'bg-primary text-white' : 'text-primary hover:bg-card-hover'}`}
             >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                <rect x="3" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="3" width="7" height="7" rx="1" />
-                <rect x="3" y="14" width="7" height="7" rx="1" />
-                <rect x="14" y="14" width="7" height="7" rx="1" />
-              </svg>
+              <HiOutlineSquares2X2 className="h-4 w-4" />
               Grid
             </button>
             <button
@@ -40,14 +36,7 @@ const SavedEvents = ({ onClose }) => {
               onClick={() => setViewMode('list')}
               className={`px-3 py-1 text-sm font-semibold transition flex items-center gap-1.5 ${viewMode === 'list' ? 'bg-primary text-white' : 'text-primary hover:bg-card-hover'}`}
             >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                <line x1="8" y1="6" x2="21" y2="6" strokeLinecap="round" />
-                <line x1="8" y1="12" x2="21" y2="12" strokeLinecap="round" />
-                <line x1="8" y1="18" x2="21" y2="18" strokeLinecap="round" />
-                <line x1="3" y1="6" x2="3.01" y2="6" strokeLinecap="round" strokeWidth="3" />
-                <line x1="3" y1="12" x2="3.01" y2="12" strokeLinecap="round" strokeWidth="3" />
-                <line x1="3" y1="18" x2="3.01" y2="18" strokeLinecap="round" strokeWidth="3" />
-              </svg>
+              <HiOutlineEllipsisVertical className="h-4 w-4" />
               List
             </button>
           </div>
@@ -64,19 +53,7 @@ const SavedEvents = ({ onClose }) => {
 
       {savedEvents.length === 0 ? (
         <div className="text-center py-12">
-          <svg
-            className="mx-auto h-16 w-16 text-slate-400 dark:text-slate-600 mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-            />
-          </svg>
+          <HiOutlineHeart className="mx-auto h-16 w-16 text-slate-400 dark:text-slate-600 mb-4" />
           <h3 className="text-xl font-semibold text-primary mb-2">No Saved Events Yet</h3>
           <p className="text-secondary mb-6">
             Start exploring events and save your favorites to see them here!
