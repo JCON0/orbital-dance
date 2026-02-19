@@ -11,11 +11,10 @@ import {
 import { useAuth } from '../../contexts/AuthContext'
 
 const navItems = [
-  { label: 'Dashboard', to: '/dashboard', icon: <HiOutlineSquares2X2 className="h-5 w-5" /> },
+  { label: 'Dashboard', to: '/dashboard/promoter', icon: <HiOutlineSquares2X2 className="h-5 w-5" /> },
   { label: 'Events', to: '/dashboard/promoter/events', icon: <HiOutlineCalendarDays className="h-5 w-5" /> },
   { label: 'Statistics', to: '/dashboard/promoter/statistics', icon: <HiOutlineChartBar className="h-5 w-5" /> },
   { label: 'Create Event', to: '/dashboard/promoter/create-event', icon: <HiOutlinePlusCircle className="h-5 w-5" /> },
-  { label: 'User Management', to: '/dashboard/promoter/create-event', icon: <HiOutlineUsers className="h-5 w-5" /> },
 ]
 
 const SideNav = () => {
@@ -26,13 +25,6 @@ const SideNav = () => {
   // Only show sidebar for promoters
   if (!user || user?.type !== 'promoter') {
     return null
-  }
-
-  const isActive = (itemTo) => {
-    if (itemTo === '/dashboard') {
-      return location.pathname === '/dashboard'
-    }
-    return location.pathname === itemTo || location.pathname.startsWith(itemTo)
   }
 
   const handleLogout = () => {
@@ -55,9 +47,9 @@ const SideNav = () => {
             <NavLink
               key={item.label}
               to={item.to}
-              end={item.to === '/dashboard'}
+              end={item.to === '/dashboard/promoter'}
               className={({ isActive: linkActive }) => {
-                const active = isActive(item.to) || linkActive
+                const active = linkActive
                 return `group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition duration-150 ${
                   active
                     ? 'bg-white text-cyan-700 shadow-sm dark:bg-slate-800 dark:text-cyan-300'
