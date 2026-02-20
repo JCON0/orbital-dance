@@ -68,12 +68,11 @@ const DashNavbar = ({ isSideNavOpen = true, onToggleSideNav }) => {
           >
             <HiOutlineBars3 className="h-6 w-6" />
           </button>
-          <h1 className="text-2xl font-bold text-white">
-            Dashboard
-          </h1>
+            <h1 className="text-xl text-slate-200 font-bold ">Dashboard</h1>
+
         </div>
 
-        {/* Search Bar - Centered */}
+        {/* Search Bar - center */}
         <form onSubmit={handleSearch} className="flex flex-1 justify-center">
           <div className="relative w-full max-w-md">
             <input
@@ -130,7 +129,7 @@ const DashNavbar = ({ isSideNavOpen = true, onToggleSideNav }) => {
               className="flex max-w-[240px] items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-slate-800"
               aria-label="Account menu"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-cyan-400 to-cyan-600 text-sm font-bold text-white">
                 {user?.firstName?.charAt(0).toUpperCase() || 'U'}
               </div>
               <div className="min-w-0 flex-1 text-left">
