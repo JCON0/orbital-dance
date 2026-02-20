@@ -238,8 +238,7 @@
         "Progressive",
         "Dance"
       ],
-      "promoterId": 2,
-      "promoterName": "Alex Jones"
+      "promoterId": 2
     },
     {
       "id": 14,
@@ -261,8 +260,7 @@
         "PrintWorks",
         "Techno"
       ],
-      "promoterId": 2,
-      "promoterName": "Alex Jones"
+      "promoterId": 2
     }
   ]
 }
